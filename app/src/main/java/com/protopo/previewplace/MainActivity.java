@@ -20,6 +20,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 // ya estamos en github
+// segunda prueba
 public class MainActivity extends AppCompatActivity implements dialog_nombre_archivo.DialogListener , NavigationView.OnNavigationItemSelectedListener, msg_borrar.DialogListener,menu_lista.DialogListener
 {
 
