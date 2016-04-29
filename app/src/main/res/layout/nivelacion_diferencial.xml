@@ -39,7 +39,7 @@
                 </RelativeLayout>
 
                 <SlidingDrawer
-                    android:layout_width="360dp"
+                    android:layout_width="250dp"
                     android:layout_height="75dp"
                     android:content="@+id/linearLayout"
                     android:handle="@+id/btnMini"
@@ -85,34 +85,22 @@
                                 <Button
                                     android:layout_width="81dp"
                                     android:layout_height="fill_parent"
-                                    android:text="@string/btnBorrar"
-                                    android:id="@+id/btnBorrar"
-                                    android:background="@color/transparente"
-                                    android:drawableTop="@drawable/remove"
-                                    android:textSize="@dimen/texto"
-                                    android:enabled="true"
-                                    android:clickable="true"
-                                    android:onClick="borrarOnClick" />
-
-                                <Button
-                                    android:layout_width="81dp"
-                                    android:layout_height="fill_parent"
-                                    android:text="@string/btnCompartir"
-                                    android:id="@+id/btnCompartir"
-                                    android:background="@color/transparente"
-                                    android:textSize="@dimen/texto"
-                                    android:drawableTop="@drawable/pdf"
-                                    android:enabled="true"
-                                    android:clickable="true" />
-
-                                <Button
-                                    android:layout_width="81dp"
-                                    android:layout_height="fill_parent"
                                     android:text="@string/btnAyuda"
                                     android:id="@+id/btnAyuda"
                                     android:background="@color/transparente"
                                     android:textSize="@dimen/texto"
                                     android:drawableTop="@drawable/info" />
+
+                                <Button
+                                    android:layout_width="81dp"
+                                    android:layout_height="fill_parent"
+                                    android:text="@string/btnCerrar"
+                                    android:id="@+id/btnCerrar"
+                                    android:background="@color/transparente"
+                                    android:textSize="@dimen/texto"
+                                    android:drawableTop="@drawable/exit"
+                                    android:enabled="true"
+                                    android:clickable="true" />
 
                             </LinearLayout>
                         </HorizontalScrollView>
@@ -125,7 +113,7 @@
                         android:text="+"
                         android:minHeight="10dp"
                         android:maxHeight="20dp"
-                        android:width="170dp" />
+                        android:width="90dp" />
                 </SlidingDrawer>
 
             </RelativeLayout>
