@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.protopo.previewplace.niv_dif_cont">
+    <item
+        android:id="@+id/itmAgregar"
+        android:orderInCategory="100"
+        android:title="@string/itmAgregar"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/itmEditar"
+        android:orderInCategory="100"
+        android:title="@string/itmEditar"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/itmEliminar"
+        android:orderInCategory="100"
+        android:title="@string/itmEliminar"
+        app:showAsAction="never" />
+
+</menu>

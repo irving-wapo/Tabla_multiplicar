@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cabecera_tabla">
+        <item>@string/lblpv</item>
+        <item>@string/lblmas</item>
+        <item>@string/lblmenos</item>
+    </string-array>
+    <string-array name="menu_diferencial">
+        <item>@string/slBnI</item>
+        <item>@string/slBnIn</item>
+        <item>@string/slBnF</item>
+        <item>@string/slPl</item>
+    </string-array>
+    <string-array name="menu_lista_diferencial">
+        <item>@string/btnAbrir</item>
+        <item>@string/btnBorrar</item>
+        <item>@string/btnCompartir</item>
+        <item>@string/btnExportar</item>
+    </string-array>
+</resources>

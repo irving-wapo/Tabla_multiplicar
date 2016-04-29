@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Preview Place</string>
+    <string name="btnAcerca">About Preview Place</string>
+    <string name="btnAyuda">Help and Feedback</string>
+    <string name="btnConfiguracion">Configuration</string>
+    <string name="btnDiferencial">Differential leveling</string>
+    <string name="btnIdioma">Language</string>
+    <string name="btnTema">Theme</string>
+    <string name="lblConfiguración">System Settings</string>
+    <string name="lblPersonalización">Personalization</string>
+    <string name="lblSeguridad">Security</string>
+    <string name="swContraseña">App password</string>
+    <string name="itmAgregar">Add</string>
+    <string name="itmEditar">Edit</string>
+    <string name="itmEliminar">Delete</string>
+    <string name="lblOpciones">Options</string>
+    <string name="lblmas">Back read</string>
+    <string name="lblmenos">Front read</string>
+</resources>
