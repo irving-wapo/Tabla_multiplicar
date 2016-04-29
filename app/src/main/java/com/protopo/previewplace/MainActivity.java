@@ -19,10 +19,6 @@ import android.widget.Toast;
 import java.io.File;
 import java.util.ArrayList;
 
-// ya estamos en github
-// segunda prueba
-
-//ya me dio hambre
 public class MainActivity extends AppCompatActivity implements dialog_nombre_archivo.DialogListener , NavigationView.OnNavigationItemSelectedListener, msg_borrar.DialogListener,menu_lista.DialogListener
 {
 
