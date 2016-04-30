@@ -1,4 +1,5 @@
 package com.protopo.previewplace;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,9 +16,20 @@ public class NivelacionDiferencial extends Fragment
     View miVista;
     ListView la_lista;
 
+    public interface PasoParametros
+    {
+        public void pasoParametros(String datos);
+    }
+    PasoParametros pasadorDatos;
 
+    @Override
+    public void onAttach(Activity a) {
+        super.onAttach(a);
+        pasadorDatos = (PasoParametros) a;
+    }
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
+
 
         miVista = inflater.inflate(R.layout.nivelacion_diferencial,container,false);
         try {
@@ -38,31 +50,27 @@ public class NivelacionDiferencial extends Fragment
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int posicion, long id) {
 
-                    int itemPosition = posicion;                                         // ListView Clicked item index
+                    // ListView Clicked item index
                     String itemValue = (String) la_lista.getItemAtPosition(posicion);    // ListView Clicked item value
                     abrir_niv_dif(false,itemValue);
                 }
 
             }
-
-
             );
             la_lista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
                 public boolean onItemLongClick(AdapterView<?> arg0, View v, int posicion, long arg3) {
                     // ListView Clicked item index
                     String itemValue = (String) la_lista.getItemAtPosition(posicion);
-                    Toast.makeText(miVista.getContext(),"le dio en: "+itemValue,Toast.LENGTH_SHORT).show();
-
-
                     menu_lista dialogFragment = new menu_lista();
+                    pasadorDatos.pasoParametros(itemValue);
                     dialogFragment.show(getActivity().getSupportFragmentManager(), "Menu lista");
                     return true;
                 }
             });
         }catch (Exception e)
         {
-            Toast.makeText(miVista.getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+            Toast.makeText(miVista.getContext(),R.string.msjError_cargando,Toast.LENGTH_LONG).show();
         }
         return miVista;
     }
@@ -82,6 +90,7 @@ public class NivelacionDiferencial extends Fragment
         }
         catch(Exception ex)
         {
+            Toast.makeText(miVista.getContext(),R.string.msjError_abrir,Toast.LENGTH_LONG).show();
 
         }
     }

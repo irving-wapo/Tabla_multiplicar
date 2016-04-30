@@ -15,10 +15,10 @@ import android.widget.Toast;
 import java.io.File;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements dialog_nombre_archivo.DialogListener , NavigationView.OnNavigationItemSelectedListener, msg_borrar.DialogListener,menu_lista.DialogListener
- {
 
-
+public class MainActivity extends AppCompatActivity implements dialog_nombre_archivo.DialogListener , NavigationView.OnNavigationItemSelectedListener, msg_borrar.DialogListener,menu_lista.DialogListener,NivelacionDiferencial.PasoParametros
+{
+    String nombre_archivo;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -115,6 +115,8 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
     {
         msg_borrar objt = new msg_borrar();
         objt.show(getSupportFragmentManager(),"Borrar");
+
+
     }
 
     private void abrir_niv_dif(Boolean estado, String nombre)
@@ -130,7 +132,11 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
                 startActivity(diferencial);
             }
         }
-        catch(Exception ex) { }
+        catch(Exception ex)
+        {
+            Toast.makeText(getApplicationContext(),R.string.msjError_abrir,Toast.LENGTH_LONG).show();
+
+        }
     }
 
 
@@ -179,5 +185,28 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
     public void onClickListaDif(DialogFragment dialog, int arg)
     {
         Toast.makeText(getApplicationContext(),""+arg,Toast.LENGTH_SHORT).show();
+    public void onClickListaDif(DialogFragment dialog, int arg) {
+        switch (arg)
+        {
+            case 0:
+                abrir_niv_dif(false,nombre_archivo);
+                break;
+            case 1:
+
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                break;
+        }
+
+
+    }
+
+    @Override
+    public void pasoParametros(String datos) {
+        nombre_archivo=datos;
     }
 }

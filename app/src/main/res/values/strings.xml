@@ -62,11 +62,13 @@
     <string name="msjError">Nombre invalido</string>
     <string name="msjBorrar">¿Seguro que desea borrar?</string>
     <string name="msjError_sistema">Algo ha salido mal</string>
-    <string name="msjMemoria">La tarjeta sd no esta disponible o es de solo lectura</string>
+    <string name="msjMemoria">La memoria no esta disponible o es de solo lectura</string>
     <string name="msjGuardar">Los datos se han guardado correctamente</string>
     <string name="msjError_nombre">Nombre de archivo no valido</string>
     <string name="msjError_nombre2">Archivo ya existente</string>
     <string name="btnAbrir">Abrir</string>
+    <string name="msjError_abrir">Error al intentar abrir</string>
+    <string name="msjError_cargando">Error al intentar cargar archivos</string>
 
 
 </resources>
