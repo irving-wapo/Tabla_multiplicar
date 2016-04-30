@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.protopo.previewplace">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE">
-    </uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE">
 
-    </uses-permission>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -25,11 +23,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".Ajustes" />
-        <activity android:name=".niv_dif_cont" android:configChanges="screenSize|orientation"></activity>
+        <activity
+            android:name=".niv_dif_cont"
+            android:configChanges="screenSize|orientation" />
 
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".activity_niv_perfil"></activity>
     </application>
 
 </manifest>
