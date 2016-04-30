@@ -9,7 +9,7 @@
 
         <item
             android:id = "@+id/nav_nivelacion_perfil"
-            android:icon ="@drawable/i"
+            android:icon ="@drawable/ic_menu_camera"
             android:title = "Nivelacion de perfil" />
 
         <item
