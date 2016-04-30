@@ -182,9 +182,6 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
 
 
     @Override
-    public void onClickListaDif(DialogFragment dialog, int arg)
-    {
-        Toast.makeText(getApplicationContext(),""+arg,Toast.LENGTH_SHORT).show();
     public void onClickListaDif(DialogFragment dialog, int arg) {
         switch (arg)
         {
