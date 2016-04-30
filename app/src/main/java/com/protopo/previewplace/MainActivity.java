@@ -19,10 +19,9 @@ import android.widget.Toast;
 import java.io.File;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements dialog_nombre_archivo.DialogListener , NavigationView.OnNavigationItemSelectedListener, msg_borrar.DialogListener,menu_lista.DialogListener
+public class MainActivity extends AppCompatActivity implements dialog_nombre_archivo.DialogListener , NavigationView.OnNavigationItemSelectedListener, msg_borrar.DialogListener,menu_lista.DialogListener,NivelacionDiferencial.PasoParametros
 {
-
-
+    String nombre_archivo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,8 +87,6 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
 
     }
 
-
-
     public  ArrayList<String> filtrar_archivos(String extencion)
     {
         File listFile[] = getApplicationContext().getFilesDir().listFiles();
@@ -138,6 +135,7 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
         }
         catch(Exception ex)
         {
+            Toast.makeText(getApplicationContext(),R.string.msjError_abrir,Toast.LENGTH_LONG).show();
 
         }
     }
@@ -188,6 +186,27 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
 
     @Override
     public void onClickListaDif(DialogFragment dialog, int arg) {
-        Toast.makeText(getApplicationContext(),""+arg,Toast.LENGTH_SHORT).show();
+        switch (arg)
+        {
+            case 0:
+                abrir_niv_dif(false,nombre_archivo);
+                break;
+            case 1:
+
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                break;
+        }
+
+
+    }
+
+    @Override
+    public void pasoParametros(String datos) {
+        nombre_archivo=datos;
     }
 }
