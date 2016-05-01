@@ -69,6 +69,7 @@
     <string name="btnAbrir">Abrir</string>
     <string name="msjError_abrir">Error al intentar abrir</string>
     <string name="msjError_cargando">Error al intentar cargar archivos</string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>

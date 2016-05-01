@@ -91,12 +91,17 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
             startActivity(ajustes);
         }
 
+        if(id == R.id.nav_grafica )
+        {
+            Intent grafica = new Intent(MainActivity.this, test_graphis.class );
+            startActivity(grafica);
+        }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 
     public void fragment_nivelacion_diferencial() // metodo que llama al fragment Nivelacion Diferencial
     {
@@ -105,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
         carga_fragment(ya_llego);
         bandera_archivo =".nd";
     }
+
     public void carga_fragment(String [] ya_llego)
     {
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -121,8 +127,6 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
         carga_fragment(ya_llego);
         bandera_archivo =".np";
     }
-
-
 
     public  ArrayList<String> filtrar_archivos(String extencion)
     {
@@ -141,7 +145,6 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
         }
         return lista_de_nombres;
     }
-
 
     public void nuevoOnClick(View view)
     {
@@ -228,7 +231,6 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
         }
     }
 
-
     @Override
     public void cancelar_btn(DialogFragment dialog) { } //evento cancelar del cuadro de dalogo nuevo archivo
 
@@ -244,7 +246,6 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
     {
 
     }
-
 
     @Override
     public void onClickListaDif(DialogFragment dialog, int arg) {

@@ -17,6 +17,12 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/btnConfiguracion" />
 
+        <item
+            android:id = "@+id/nav_grafica"
+            android:icon ="@drawable/ic_setting_light"
+            android:title = "Ejemplo grafica" />
+
+
 
 
     </group>
