@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import java.util.StringTokenizer;
 
-public class NivelacionDiferencial extends Fragment
+public class fragment_proyectos extends Fragment
 {
     MainActivity activityPrincipal;
     View miVista;

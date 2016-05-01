@@ -1,5 +1,4 @@
 package com.protopo.previewplace;
-import android.os.Environment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
@@ -14,11 +13,10 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.Toast;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity implements dialog_nombre_archivo.DialogListener , NavigationView.OnNavigationItemSelectedListener, msg_borrar.DialogListener,menu_lista.DialogListener,NivelacionDiferencial.PasoParametros
+public class MainActivity extends AppCompatActivity implements dialog_nombre_archivo.DialogListener , NavigationView.OnNavigationItemSelectedListener, msg_borrar.DialogListener,menu_lista.DialogListener,fragment_proyectos.PasoParametros
 {
     String nombre_archivo, bandera_archivo ="";
     int fragment = 0;
@@ -112,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
         FragmentManager fragmentManager = getSupportFragmentManager();
         Bundle bundle = new Bundle();
         bundle.putStringArray("lista", ya_llego );
-        NivelacionDiferencial fragInfo = new NivelacionDiferencial();
+        fragment_proyectos fragInfo = new fragment_proyectos();
         fragmentManager.beginTransaction().replace(R.id.content_frame,fragInfo).commit();
         fragInfo.setArguments(bundle);
     }
