@@ -1,4 +1,5 @@
 package com.protopo.previewplace;
+import android.os.Environment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
@@ -12,13 +13,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Toast;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity implements dialog_nombre_archivo.DialogListener , NavigationView.OnNavigationItemSelectedListener, msg_borrar.DialogListener,menu_lista.DialogListener,NivelacionDiferencial.PasoParametros
 {
     String nombre_archivo;
+    int fragment = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -42,39 +52,51 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
     {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START))
-            { drawer.closeDrawer(GravityCompat.START); }
+            {
+                drawer.closeDrawer(GravityCompat.START);
+
+
+            }
         else
             { super.onBackPressed();}
     }
+    @Override
+    public void onResume()
+    {  // After a pause OR at startup
+        super.onResume();
+        switch (fragment)
+        {
+            case 1:
+                fragment_nivelacion_diferencial();
+                break;
+            case 2:
+                break;
+            default:
+                break;
+        }
 
+        //Refresh your stuff here
+    }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item)
     {
         int id = item.getItemId();
-        FragmentManager fragmentManager = getSupportFragmentManager();
+
         if (id == R.id.nav_nivelacion)
         {
-            String ya_llego[] =filtrar_archivos(".nd").toArray(new String[0]);
-            Bundle bundle = new Bundle();
-            bundle.putStringArray("lista", ya_llego );
-            NivelacionDiferencial fragInfo = new NivelacionDiferencial();
-            fragInfo.setArguments(bundle);
-            fragmentManager.beginTransaction().replace(R.id.content_frame,fragInfo).commit();
+            fragment = 1;
+            fragment_nivelacion_diferencial();
         }
 
         if (id == R.id.nav_nivelacion_perfil)
         {
-            String ya_llego[] =filtrar_archivos(".nd").toArray(new String[0]);
-            Bundle bundle = new Bundle();
-            bundle.putStringArray("lista", ya_llego );
-            NivelacionDiferencial fragInfo = new NivelacionDiferencial();
-            fragInfo.setArguments(bundle);
-            fragmentManager.beginTransaction().replace(R.id.content_frame,fragInfo).commit();
+
         }
 
         if (id == R.id.nav_configuracion)
         {
+            fragment = 0;
             Intent ajustes = new Intent(MainActivity.this, Ajustes.class );
             startActivity(ajustes);
         }
@@ -86,6 +108,16 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
     }
 
 
+    public void fragment_nivelacion_diferencial() // metodo que llama al fragment Nivelacion Diferencial
+    {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        String ya_llego[] =filtrar_archivos(".nd").toArray(new String[0]);
+        Bundle bundle = new Bundle();
+        bundle.putStringArray("lista", ya_llego );
+        NivelacionDiferencial fragInfo = new NivelacionDiferencial();
+        fragInfo.setArguments(bundle);
+        fragmentManager.beginTransaction().replace(R.id.content_frame,fragInfo,"nivdif").commit();
+    }
     public  ArrayList<String> filtrar_archivos(String extencion)
     {
         File listFile[] = getApplicationContext().getFilesDir().listFiles();
@@ -111,14 +143,6 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
         mensaje.show(getSupportFragmentManager(),"Nuevo");
     }
 
-    public void borrarOnClick(View view)
-    {
-        msg_borrar objt = new msg_borrar();
-        objt.show(getSupportFragmentManager(),"Borrar");
-
-
-    }
-
     private void abrir_niv_dif(Boolean estado, String nombre)
     {
         String nombreArchivo =  nombre;
@@ -138,7 +162,11 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
 
         }
     }
-
+    private void borrar(String nombre)
+    {
+        File f = new File(getApplicationContext().getFilesDir(), nombre);
+        f.delete();
+    }
 
     @Override
     public void aceptar_btn(DialogFragment dialog, String nombre)
@@ -166,18 +194,19 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
 
 
     @Override
-    public void cancelar_btn(DialogFragment dialog) { }
+    public void cancelar_btn(DialogFragment dialog) { } //evento cancelar del cuadro de dalogo nuevo archivo
 
     @Override
-    public void si_btn_msg(DialogFragment dialog)
+    public void si_btn_msg(DialogFragment dialog) // evento  aceptar del dialogo borrar
     {
-     Toast.makeText(getApplicationContext(), "Le dio que si", Toast.LENGTH_SHORT).show();
+        borrar(nombre_archivo);
+        fragment_nivelacion_diferencial();
     }
 
     @Override
-    public void no_btn_msg(DialogFragment dialog)
+    public void no_btn_msg(DialogFragment dialog) // evento cancelar del boton borrar
     {
-        Toast.makeText(getApplicationContext(), "Le dio que NO", Toast.LENGTH_SHORT).show();
+
     }
 
 
@@ -189,21 +218,18 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
                 abrir_niv_dif(false,nombre_archivo);
                 break;
             case 1:
-
-                break;
-            case 2:
-                break;
-            case 3:
+                msg_borrar objt = new msg_borrar();
+                objt.show(getSupportFragmentManager(),"Borrar");
                 break;
             default:
                 break;
         }
 
 
-    }
+    } // evento al seleccionar un elemento en la lista
 
     @Override
     public void pasoParametros(String datos) {
         nombre_archivo=datos;
-    }
+    } // resibe nombre del archivo
 }

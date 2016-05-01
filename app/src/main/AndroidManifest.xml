@@ -16,6 +16,7 @@
             android:configChanges="screenSize|orientation"
             android:label="Preview Place"
             android:theme="@style/AppTheme.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
