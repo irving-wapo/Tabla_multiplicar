@@ -10,36 +10,37 @@ import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import android.widget.AdapterView;
 import android.widget.Toast;
+
+import java.util.StringTokenizer;
+
 public class NivelacionDiferencial extends Fragment
 {
     MainActivity activityPrincipal;
     View miVista;
     ListView la_lista;
+    PasoParametros pasadorDatos;
 
     public interface PasoParametros
     {
         public void pasoParametros(String datos);
     }
-    PasoParametros pasadorDatos;
+
 
     @Override
-    public void onAttach(Activity a) {
+    public void onAttach(Activity a)
+    {
         super.onAttach(a);
         pasadorDatos = (PasoParametros) a;
     }
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-
 
         miVista = inflater.inflate(R.layout.nivelacion_diferencial,container,false);
         try {
 
-
             // Defined Array values to show in ListView
-
             la_lista = (ListView) miVista.findViewById(R.id.lstProjectos);
-
-
             String[] valores =  this.getArguments().getStringArray("lista");
 
             ArrayAdapter<String> contenedor = new ArrayAdapter<String>(miVista.getContext(), android.R.layout.simple_list_item_1, android.R.id.text1, valores);
@@ -50,9 +51,20 @@ public class NivelacionDiferencial extends Fragment
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int posicion, long id) {
 
-                    // ListView Clicked item index
-                    String itemValue = (String) la_lista.getItemAtPosition(posicion);    // ListView Clicked item value
-                    abrir_niv_dif(false,itemValue);
+                    String itemValue = (String) la_lista.getItemAtPosition(posicion);    // Click en un item de la lista
+                    String extencion = "";
+                    if (itemValue !=null)
+                    {
+                        StringTokenizer st = new StringTokenizer(itemValue,".");
+                        itemValue = st.nextToken();
+                        extencion = st.nextToken();
+                    }
+
+                    if(extencion.equals("nd"))
+                        { abrir_niv_dif(false,itemValue); }
+
+                    if(extencion.equals("np"))
+                        { abrir_niv_perfil(false,itemValue); }
                 }
 
             }
@@ -60,18 +72,22 @@ public class NivelacionDiferencial extends Fragment
             la_lista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
                 public boolean onItemLongClick(AdapterView<?> arg0, View v, int posicion, long arg3) {
+                    String itemValue = (String) la_lista.getItemAtPosition(posicion);    // Click en un item de la lista
+                    String extencion = "";
+                    if (itemValue !=null)
+                    {
+                        StringTokenizer st = new StringTokenizer(itemValue,".");
+                        itemValue = st.nextToken();
+
+                    }
                     // ListView Clicked item index
-                    String itemValue = (String) la_lista.getItemAtPosition(posicion);
                     menu_lista dialogFragment = new menu_lista();
                     pasadorDatos.pasoParametros(itemValue);
                     dialogFragment.show(getActivity().getSupportFragmentManager(), "Menu lista");
                     return true;
                 }
             });
-        }catch (Exception e)
-        {
-            Toast.makeText(miVista.getContext(),R.string.msjError_cargando,Toast.LENGTH_LONG).show();
-        }
+        }catch (Exception e)  { Toast.makeText(miVista.getContext(),R.string.msjError_cargando,Toast.LENGTH_LONG).show(); }
         return miVista;
     }
 
@@ -88,11 +104,23 @@ public class NivelacionDiferencial extends Fragment
                 startActivity(diferencial);
             }
         }
-        catch(Exception ex)
-        {
-            Toast.makeText(miVista.getContext(),R.string.msjError_abrir,Toast.LENGTH_LONG).show();
+        catch(Exception ex) {Toast.makeText(miVista.getContext(),R.string.msjError_abrir,Toast.LENGTH_LONG).show(); }
+    }
 
+    private void abrir_niv_perfil(Boolean estado, String nombre)
+    {
+        String nombreArchivo =  nombre;
+        try
+        {
+            if(nombreArchivo != null)
+            {
+                Intent diferencial = new Intent(miVista.getContext(), activity_niv_perfil.class);
+                diferencial.putExtra("nombre",nombreArchivo);
+                diferencial.putExtra("carga",estado);
+                startActivity(diferencial);
+            }
         }
+        catch(Exception ex) {Toast.makeText(miVista.getContext(),R.string.msjError_abrir,Toast.LENGTH_LONG).show(); }
     }
 
 }

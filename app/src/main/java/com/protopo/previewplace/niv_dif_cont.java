@@ -25,7 +25,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -36,8 +35,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class niv_dif_cont extends AppCompatActivity implements add_diferencial.DialogListener, primer_bn.DialogListener, bn_pl.DialogListener, ultimo_bn.DialogListener
-{
+public class niv_dif_cont extends AppCompatActivity implements add_diferencial.DialogListener, primer_bn.DialogListener, bn_pl.DialogListener, ultimo_bn.DialogListener {
     private GoogleApiClient client;
     int opc = 0, bn = 2, pl = 1;
     boolean bn_pl, edit;
@@ -49,8 +47,10 @@ public class niv_dif_cont extends AppCompatActivity implements add_diferencial.D
     TextView Desnivel;
     String archivoNombre;
     Boolean carga;
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)     //al abrir la app
+    protected void onCreate(Bundle savedInstanceState)     //al abrir la app "LOAD"
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_niv_dif_cont);
@@ -60,32 +60,34 @@ public class niv_dif_cont extends AppCompatActivity implements add_diferencial.D
         Desnivel = (TextView) findViewById(R.id.lblDesnivel);
         Bundle extras = getIntent().getExtras();
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-        carga=extras.getBoolean("carga");
+        carga = extras.getBoolean("carga");
         archivoNombre = extras.getString("nombre");
-        if(carga)
-        {
-            cabecera();
-        }
-        else
-        {
-            cargar();
-        }
 
+        if (carga) {
+            cabecera();
+        } //  SI ES NUEVO
+        else {
+            cargar();
+        }  // LEYENDO ARCHIVO EXISTENTE
     }
+
+    //*********************************************    A R C H I V O S    **********************************************************
+
+
+    // enrruta para leer "archivo.nd"
+
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         super.onBackPressed();
     }
-    private void cargar()
-    {
-        String nombre_arch=archivoNombre;
-        try
-        {
+
+    private void cargar() {
+        String nombre_arch = archivoNombre;
+        try {
             BufferedReader fin =
                     new BufferedReader(
                             new InputStreamReader(
-                                    openFileInput(nombre_arch)));
+                                    openFileInput(nombre_arch.concat(".nd"))));
 
             leeFichero(fin);
             fin.close();
@@ -96,13 +98,145 @@ public class niv_dif_cont extends AppCompatActivity implements add_diferencial.D
             }
             calculos();
 
-        }
-        catch (Exception ex)
-        {
-            Toast.makeText(getApplicationContext(),R.string.msjError_sistema,Toast.LENGTH_SHORT).show();
+        } catch (Exception ex) {
+            Toast.makeText(getApplicationContext(), R.string.msjError_sistema, Toast.LENGTH_SHORT).show();
         }
     }
-    public void leeFichero(BufferedReader br) throws IOException {
+
+    public void pdfOnClick(View view)  //prepara generar nombre.pdf
+    {
+        String pdf = archivoNombre.concat(".pdf");
+        if (generar_pdf(pdf)) {
+            abrir_pdf(pdf);
+        }
+    }
+
+    public void compartirOnClick(View view)  //   prepara path de pdf
+    {
+        String pdf = archivoNombre.concat(".pdf");
+        if (generar_pdf(pdf)) {
+            compartir_pdf(pdf);
+        }
+    }
+
+    // cabecera de la tabla
+    private void cabecera() {
+        tabla.agregarCabecera(R.array.cabecera_tabla);
+    }
+
+
+    private void abrir_pdf(String path) {
+        if (estado()) {
+            try {
+                File ruta_sd = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
+                File f = new File(ruta_sd.getAbsolutePath(), path);
+                Uri targetUri = Uri.fromFile(f);
+                Intent intent;
+                intent = new Intent(Intent.ACTION_VIEW);
+                intent.setDataAndType(targetUri, "application/pdf");
+                startActivity(intent);
+
+            } catch (Exception e) {
+                Toast.makeText(getApplicationContext(), R.string.msjOPDF, Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), R.string.msjMemoria, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    public void guardar() //guarda l archivo   "arrchivo.nd"
+    {
+        //-------------------------- LEE TODA LA TABLA -----------------------
+        String nombresito=archivoNombre;
+        String texto="";
+        for(int i=0; i<elementos.size(); i++ )
+        {
+            String vec [] = elementos.get(i);
+            texto += vec[0] + "," + vec[1] + "," +vec [2];
+            texto+= "\n";
+        }
+
+        //-------------------------- CREA ARCHIVO Y LO GUARDA -----------------------
+        try
+        {
+            OutputStreamWriter fout= new OutputStreamWriter(openFileOutput( nombresito.concat(".nd"), MODE_PRIVATE));
+            fout.write(texto);
+            fout.close();
+            Toast.makeText(getApplicationContext(),R.string.msjGuardar,Toast.LENGTH_SHORT).show();
+        }
+        catch (Exception ex)  { Toast.makeText(getApplicationContext(),R.string.msjError_sistema,Toast.LENGTH_SHORT).show();}
+    }
+
+    public void btn_guardar(View view) {
+        guardar();
+    }
+
+    public void btn_cerrar(View view){
+        onBackPressed();
+    }
+
+    private boolean estado() {
+        boolean r = false;
+
+
+        //Comprobamos el estado de la memoria externa (tarjeta SD)
+        String estado = Environment.getExternalStorageState();
+
+        if (estado.equals(Environment.MEDIA_MOUNTED)) {
+            r = true;
+        } else if (estado.equals(Environment.MEDIA_MOUNTED_READ_ONLY)) {
+            r = false;
+        } else {
+            r = false;
+        }
+        return r;
+    }
+
+    private boolean generar_pdf(String dir) {
+        boolean ret = false;
+        if (estado()) {
+            try {
+                Document document = new Document();
+                File ruta_sd = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
+                File f = new File(ruta_sd.getAbsolutePath(), dir);
+                FileOutputStream outputStream = new FileOutputStream(f);
+                PdfWriter.getInstance(document, outputStream);
+                document.open();
+                addContent(document);
+                document.close();
+                ret = true;
+            } catch (Exception e) {
+                Toast.makeText(getApplicationContext(), R.string.msjPdf, Toast.LENGTH_SHORT).show();
+                ret = false;
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), R.string.msjMemoria, Toast.LENGTH_SHORT).show();
+        }
+        return ret;
+
+    }
+
+    private void compartir_pdf(String path) {
+        if (estado()) {
+            try {
+                File ruta_sd = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
+                File f = new File(ruta_sd.getAbsolutePath(), path);
+                Uri targetUri = Uri.fromFile(f);
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                sharingIntent.setType("application/pdf");
+                sharingIntent.putExtra(Intent.EXTRA_STREAM, targetUri);
+                startActivity(Intent.createChooser(sharingIntent, getString(R.string.msjEnviar)));
+            } catch (Exception e) {
+                Toast.makeText(getApplicationContext(), R.string.msjSPDF, Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), R.string.msjMemoria, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void leeFichero(BufferedReader br) throws IOException
+    {
         //Leemos el fichero
         String linea=br.readLine();
         int bn_c=1,pl_c=1;
@@ -130,172 +264,8 @@ public class niv_dif_cont extends AppCompatActivity implements add_diferencial.D
         bn=bn_c;
         pl=pl_c;
     }
-    //Boton pdf
-    public void pdfOnClick(View view)
-    {
-        String pdf= archivoNombre.concat(".pdf");
-        if(generar_pdf(pdf)) {
-            abrir_pdf(pdf);  }
-    }
+    //*********************************************    A R C H I V O S    **********************************************************
 
-    public void compartirOnClick(View view)
-    {
-        String pdf= archivoNombre.concat(".pdf");
-        if(generar_pdf(pdf))  { compartir_pdf(pdf);  }
-    }
-
-    // cabecera de la tabla
-    private void cabecera()
-    {
-        tabla.agregarCabecera(R.array.cabecera_tabla);
-    }
-
-    private void calculos()
-    {
-        try {
-            Double positivo = 0.0, negativo = 0.0, des = 0.0;
-            for (int i = 0; i < elementos.size(); i++)
-            {
-                String a[] = elementos.get(i);
-                if (a[1] != null)
-                    positivo += Double.valueOf(a[1]);
-                if (a[2] != null)
-                    negativo += Double.valueOf(a[2]);
-            }
-            des = negativo - positivo;
-            sumatoria_p.setText(String.valueOf(dos(positivo)));
-            sumatoria_n.setText(String.valueOf(dos(negativo)));
-            Desnivel.setText(String.valueOf(dos(des)));
-        } catch (Exception e) {  e.printStackTrace();  }
-    }
-
-    private void abrir_pdf(String path)
-    {
-        if(estado()) {
-            try {
-                File ruta_sd = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
-                File f = new File(ruta_sd.getAbsolutePath(), path);
-                Uri targetUri = Uri.fromFile(f);
-                Intent intent;
-                intent = new Intent(Intent.ACTION_VIEW);
-                intent.setDataAndType(targetUri, "application/pdf");
-                startActivity(intent);
-
-            } catch (Exception e) {
-                Toast.makeText(getApplicationContext(), R.string.msjOPDF, Toast.LENGTH_SHORT).show();
-            }
-        }
-        else {
-            Toast.makeText(getApplicationContext(), R.string.msjMemoria, Toast.LENGTH_SHORT).show();
-        }
-    }
-
-
-    public void guardar()
-    {
-        //-------------------------- LEE TODA LA TABLA -----------------------
-        String nombresito=archivoNombre;
-        String texto="";
-        for(int i=0; i<elementos.size(); i++ )
-        {
-            String vec [] = elementos.get(i);
-            texto += vec[0] + "," + vec[1] + "," +vec [2];
-            texto+= "\n";
-        }
-
-        //-------------------------- CREA ARCHIVO Y LO GUARDA -----------------------
-       try
-        {
-            OutputStreamWriter fout= new OutputStreamWriter(openFileOutput( nombresito, MODE_PRIVATE));
-            fout.write(texto);
-            fout.close();
-            Toast.makeText(getApplicationContext(),R.string.msjGuardar,Toast.LENGTH_SHORT).show();
-
-        }
-        catch (Exception ex)  { Toast.makeText(getApplicationContext(),R.string.msjError_sistema,Toast.LENGTH_SHORT).show();}
-
-    }
-
-    public void btn_guardar( View view )
-    {
-        guardar();
-    }
-    public void btn_cerrar(View view){
-        onBackPressed();
-    }
-
-    private boolean estado()
-    {
-        boolean r=false;
-
-
-        //Comprobamos el estado de la memoria externa (tarjeta SD)
-        String estado = Environment.getExternalStorageState();
-
-        if (estado.equals(Environment.MEDIA_MOUNTED))
-        {
-           r=true;
-        }
-        else if (estado.equals(Environment.MEDIA_MOUNTED_READ_ONLY))
-        {
-            r=false;
-        }
-        else
-        {
-            r=false;
-        }
-        return r;
-    }
-    private boolean generar_pdf(String dir)
-    {
-        boolean ret = false;
-        if(estado())
-        {
-            try
-            {
-                Document document = new Document();
-                File ruta_sd = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
-                File f = new File(ruta_sd.getAbsolutePath(), dir);
-                FileOutputStream outputStream = new FileOutputStream(f);
-                PdfWriter.getInstance(document,outputStream);
-                document.open();
-                addContent(document);
-                document.close();
-                ret = true;
-            } catch (Exception e) { Toast.makeText(getApplicationContext(),R.string.msjPdf,Toast.LENGTH_SHORT).show();   ret = false;  }
-        }
-        else
-        {
-            Toast.makeText(getApplicationContext(),R.string.msjMemoria,Toast.LENGTH_SHORT).show();
-        }
-
-
-        return ret;
-    }
-
-
-    private void compartir_pdf(String path)
-    {
-        if(estado())
-        {
-            try
-            {
-                File ruta_sd = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
-                File f = new File(ruta_sd.getAbsolutePath(), path);
-                Uri targetUri = Uri.fromFile(f);
-                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-                sharingIntent.setType("application/pdf");
-                sharingIntent.putExtra(Intent.EXTRA_STREAM, targetUri);
-                startActivity(Intent.createChooser(sharingIntent, getString(R.string.msjEnviar)));
-
-            }
-            catch (Exception e) { Toast.makeText(getApplicationContext(),R.string.msjSPDF,Toast.LENGTH_SHORT).show();  }
-        }
-        else {
-            Toast.makeText(getApplicationContext(), R.string.msjMemoria, Toast.LENGTH_SHORT).show();
-        }
-
-   }
 
     private void addContent(Document document)
     {
@@ -344,7 +314,8 @@ public class niv_dif_cont extends AppCompatActivity implements add_diferencial.D
     }
 
     // agregar banco de nivel intermedio o punto de liga
-    private void filabn_pl(String[] temp) {
+    private void filabn_pl(String[] temp)
+    {
         try {
             String[] bnf = elementos.get(elementos.size() - 1);
             if (!elementos.isEmpty() && bnf[1] != null) {
@@ -419,7 +390,6 @@ public class niv_dif_cont extends AppCompatActivity implements add_diferencial.D
                 filabn_pl(temp);
                 bn++;
             }
-
         }
         else
         {
@@ -438,6 +408,7 @@ public class niv_dif_cont extends AppCompatActivity implements add_diferencial.D
         }
 
     }
+
 
     //evento click negativo del dialogo de punto de liga o banco de nivel intermedio
     @Override
@@ -466,8 +437,7 @@ public class niv_dif_cont extends AppCompatActivity implements add_diferencial.D
         return super.onOptionsItemSelected(item);
     }
 
-
-    //dialogo de edicion (Lista de puntos)
+    //dialogo de edicion (Lista de puntos). editar la tabla
     private void valores()
     {
         try
@@ -524,8 +494,27 @@ public class niv_dif_cont extends AppCompatActivity implements add_diferencial.D
         } catch (Exception ex) {  Toast.makeText(getApplicationContext(), R.string.msgEditar, Toast.LENGTH_SHORT).show();   }
     }
 
+    private void calculos()
+    {
+        try {
+            Double positivo = 0.0, negativo = 0.0, des = 0.0;
+            for (int i = 0; i < elementos.size(); i++)
+            {
+                String a[] = elementos.get(i);
+                if (a[1] != null)
+                    positivo += Double.valueOf(a[1]);
+                if (a[2] != null)
+                    negativo += Double.valueOf(a[2]);
+            }
+            des = negativo - positivo;
+            sumatoria_p.setText(String.valueOf(dos(positivo)));
+            sumatoria_n.setText(String.valueOf(dos(negativo)));
+            Desnivel.setText(String.valueOf(dos(des)));
+        } catch (Exception e) {  e.printStackTrace();  }
+    }
+
     //metodo que edita los datos
-    private void actualizar(String act[])
+    private void actualizar(String act[])   //desntro de la tabla
     {
         try
         {
@@ -540,7 +529,7 @@ public class niv_dif_cont extends AppCompatActivity implements add_diferencial.D
         } catch (Exception ex) { Toast.makeText(getApplicationContext(), R.string.erActualizar, Toast.LENGTH_SHORT).show();  }
     }
 
-    private void eliminar()
+    private void eliminar() //celda de la lista
     {
         try
         {

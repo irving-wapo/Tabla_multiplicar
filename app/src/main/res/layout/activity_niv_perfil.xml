@@ -175,8 +175,7 @@
                         android:drawableTop="@drawable/save"
                         android:textSize="@dimen/texto"
                         android:enabled="true"
-                        android:clickable="true"
-                        android:onClick="btn_guardar" />
+                        android:clickable="true" />
 
                     <Button
                         android:layout_width="81dp"
@@ -187,8 +186,7 @@
                         android:drawableTop="@drawable/share"
                         android:textSize="@dimen/texto"
                         android:enabled="true"
-                        android:clickable="true"
-                        android:onClick="compartirOnClick" />
+                        android:clickable="true" />
 
                     <Button
                         android:layout_width="81dp"
@@ -199,8 +197,7 @@
                         android:textSize="@dimen/texto"
                         android:drawableTop="@drawable/pdf"
                         android:enabled="true"
-                        android:clickable="true"
-                        android:onClick="pdfOnClick" />
+                        android:clickable="true" />
 
                     <Button
                         android:layout_width="81dp"
@@ -220,7 +217,8 @@
                         android:textSize="@dimen/texto"
                         android:drawableTop="@drawable/exit"
                         android:enabled="true"
-                        android:clickable="true" />
+                        android:clickable="true"
+                        android:onClick="btn_cerrar_perf" />
                 </LinearLayout>
             </HorizontalScrollView>
         </LinearLayout>

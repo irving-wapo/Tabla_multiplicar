@@ -13,13 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Toast;
-
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfWriter;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
@@ -27,8 +20,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements dialog_nombre_archivo.DialogListener , NavigationView.OnNavigationItemSelectedListener, msg_borrar.DialogListener,menu_lista.DialogListener,NivelacionDiferencial.PasoParametros
 {
-    String nombre_archivo;
+    String nombre_archivo, bandera_archivo ="";
     int fragment = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -52,14 +46,11 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
     {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START))
-            {
-                drawer.closeDrawer(GravityCompat.START);
-
-
-            }
+            { drawer.closeDrawer(GravityCompat.START); }
         else
             { super.onBackPressed();}
     }
+
     @Override
     public void onResume()
     {  // After a pause OR at startup
@@ -70,12 +61,11 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
                 fragment_nivelacion_diferencial();
                 break;
             case 2:
+                fragment_nivelacion_perfil();
                 break;
             default:
                 break;
         }
-
-        //Refresh your stuff here
     }
 
     @Override
@@ -91,6 +81,8 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
 
         if (id == R.id.nav_nivelacion_perfil)
         {
+            fragment = 2;
+            fragment_nivelacion_perfil();
 
         }
 
@@ -110,14 +102,30 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
 
     public void fragment_nivelacion_diferencial() // metodo que llama al fragment Nivelacion Diferencial
     {
-        FragmentManager fragmentManager = getSupportFragmentManager();
+
         String ya_llego[] =filtrar_archivos(".nd").toArray(new String[0]);
+        carga_fragment(ya_llego);
+        bandera_archivo =".nd";
+    }
+    public void carga_fragment(String [] ya_llego)
+    {
+        FragmentManager fragmentManager = getSupportFragmentManager();
         Bundle bundle = new Bundle();
         bundle.putStringArray("lista", ya_llego );
         NivelacionDiferencial fragInfo = new NivelacionDiferencial();
+        fragmentManager.beginTransaction().replace(R.id.content_frame,fragInfo).commit();
         fragInfo.setArguments(bundle);
-        fragmentManager.beginTransaction().replace(R.id.content_frame,fragInfo,"nivdif").commit();
     }
+
+    public void fragment_nivelacion_perfil()
+    {
+        String ya_llego[] =filtrar_archivos(".np").toArray(new String[0]);
+        carga_fragment(ya_llego);
+        bandera_archivo =".np";
+    }
+
+
+
     public  ArrayList<String> filtrar_archivos(String extencion)
     {
         File listFile[] = getApplicationContext().getFilesDir().listFiles();
@@ -156,39 +164,69 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
                 startActivity(diferencial);
             }
         }
-        catch(Exception ex)
-        {
-            Toast.makeText(getApplicationContext(),R.string.msjError_abrir,Toast.LENGTH_LONG).show();
-
-        }
+        catch(Exception ex) { Toast.makeText(getApplicationContext(),R.string.msjError_abrir,Toast.LENGTH_LONG).show(); }
     }
+
+    private void abrir_niv_perfil(Boolean estado, String nombre)
+    {
+        String nombreArchivo =  nombre;
+        try
+        {
+            if(nombreArchivo != null)
+            {
+                Intent diferencial2 = new Intent(MainActivity.this, activity_niv_perfil.class);
+                diferencial2.putExtra("nombre",nombreArchivo);
+                diferencial2.putExtra("carga",estado);
+                startActivity(diferencial2);
+            }
+        }
+        catch(Exception ex) { Toast.makeText(getApplicationContext(),R.string.msjError_abrir,Toast.LENGTH_LONG).show(); }
+    }
+
     private void borrar(String nombre)
     {
-        File f = new File(getApplicationContext().getFilesDir(), nombre);
+        File f = null;
+        if(bandera_archivo.equals(".nd") )
+        {
+            f = new File(getApplicationContext().getFilesDir(), nombre.concat(".nd"));
+        }
+
+        if(bandera_archivo.equals(".np") )
+        {
+            f = new File(getApplicationContext().getFilesDir(), nombre.concat(".np"));
+        }
+
         f.delete();
+    }
+
+    public boolean verifica_nombre( String nombre)
+    {
+        boolean bandera = false,   caracteres = true;
+        for(int i=0; i<nombre.length(); i++)
+        {
+            char letra = nombre.charAt(i);
+            if( !Character.isDigit(letra)  &&  !Character.isLetter(letra) ) {  caracteres = false; }
+        }
+
+        if((!filtrar_archivos(".nd").contains(nombre.concat(".nd")) || !filtrar_archivos(".np").contains(nombre.concat(".np")) )  && caracteres) //COMPARA CON LOS ARCHIVOS EXISTENTES
+        {
+            bandera = true;
+        }
+        else  { bandera = false; Toast.makeText(getApplicationContext(), R.string.msjError_nombre2, Toast.LENGTH_SHORT).show(); }
+        return  bandera;
+
     }
 
     @Override
     public void aceptar_btn(DialogFragment dialog, String nombre)
     {
-        boolean bandera = true;
-        if(!filtrar_archivos(".nd").contains(nombre.concat(".nd")))
+        if (verifica_nombre(nombre))
         {
-            for(int i=0; i<nombre.length(); i++)
-            {
-                char letra = nombre.charAt(i);
-                if( !Character.isDigit(letra)  &&  !Character.isLetter(letra) ) {  bandera = false; }
-            }
+            if(bandera_archivo.equals(".nd") )
+            {  abrir_niv_dif(true,nombre); }
 
-            if(bandera)
-            {
-                abrir_niv_dif(true,nombre.concat(".nd"));
-            }
-            else {   Toast.makeText(getApplicationContext(), R.string.msjError_nombre, Toast.LENGTH_SHORT).show();  }
-        }
-        else
-        {
-            Toast.makeText(getApplicationContext(), R.string.msjError_nombre2, Toast.LENGTH_SHORT).show();
+            if(bandera_archivo.equals(".np") )
+            {  abrir_niv_perfil(true,nombre); }
         }
     }
 
@@ -200,7 +238,7 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
     public void si_btn_msg(DialogFragment dialog) // evento  aceptar del dialogo borrar
     {
         borrar(nombre_archivo);
-        fragment_nivelacion_diferencial();
+        onResume();
     }
 
     @Override
@@ -215,7 +253,10 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
         switch (arg)
         {
             case 0:
-                abrir_niv_dif(false,nombre_archivo);
+                if(bandera_archivo.equals(".nd") )
+                    abrir_niv_dif(false,nombre_archivo);
+                if(bandera_archivo.equals(".np") )
+                    abrir_niv_perfil(false,nombre_archivo);
                 break;
             case 1:
                 msg_borrar objt = new msg_borrar();

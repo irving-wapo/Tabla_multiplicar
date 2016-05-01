@@ -65,7 +65,7 @@
     <string name="msjMemoria">La memoria no esta disponible o es de solo lectura</string>
     <string name="msjGuardar">Los datos se han guardado correctamente</string>
     <string name="msjError_nombre">Nombre de archivo no valido</string>
-    <string name="msjError_nombre2">Archivo ya existente</string>
+    <string name="msjError_nombre2">Error: Nombre de archivo no invalido o archivo existente</string>
     <string name="btnAbrir">Abrir</string>
     <string name="msjError_abrir">Error al intentar abrir</string>
     <string name="msjError_cargando">Error al intentar cargar archivos</string>
