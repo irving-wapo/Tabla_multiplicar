@@ -17,9 +17,6 @@ import android.widget.NumberPicker;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
@@ -36,7 +33,6 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class niv_dif_cont extends AppCompatActivity implements add_diferencial.DialogListener, primer_bn.DialogListener, bn_pl.DialogListener, ultimo_bn.DialogListener {
-    private GoogleApiClient client;
     int opc = 0, bn = 2, pl = 1;
     boolean bn_pl, edit;
     Tabla tabla;
@@ -59,7 +55,6 @@ public class niv_dif_cont extends AppCompatActivity implements add_diferencial.D
         sumatoria_n = (TextView) findViewById(R.id.lblSumatoria_n);
         Desnivel = (TextView) findViewById(R.id.lblDesnivel);
         Bundle extras = getIntent().getExtras();
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
         carga = extras.getBoolean("carga");
         archivoNombre = extras.getString("nombre");
 
@@ -624,28 +619,14 @@ public class niv_dif_cont extends AppCompatActivity implements add_diferencial.D
     public void onStart()
     {
         super.onStart();
-        client.connect();
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "niv_dif_cont Page", // TODO: Define a title for the content shown.
-                Uri.parse("http://host/path"),
-                Uri.parse("android-app://com.protopo.previewplace/http/host/path")
-        );
-        AppIndex.AppIndexApi.start(client, viewAction);
+
     }
 
     @Override
     public void onStop()
     {
         super.onStop();
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "niv_dif_cont Page", // TODO: Define a title for the content shown.
-                Uri.parse("http://host/path"),
-                Uri.parse("android-app://com.protopo.previewplace/http/host/path")
-        );
-        AppIndex.AppIndexApi.end(client, viewAction);
-        client.disconnect();
+
     }
 
 

@@ -14,9 +14,6 @@ import android.widget.NumberPicker;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
@@ -33,7 +30,6 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class activity_niv_perfil extends AppCompatActivity {
-    private GoogleApiClient client;
     int opc = 0, bn = 2, pl = 1;
     boolean bn_pl, edit;
     Tabla tabla;
@@ -53,7 +49,6 @@ public class activity_niv_perfil extends AppCompatActivity {
         setContentView(R.layout.activity_niv_perfil);
         tabla = new Tabla(this, (TableLayout) findViewById(R.id.tabla_perfil));
         Bundle extras = getIntent().getExtras();
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
         carga = extras.getBoolean("carga");
         archivoNombre = extras.getString("nombre");
         if (carga) {
@@ -95,27 +90,12 @@ public class activity_niv_perfil extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        client.connect();
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "niv_dif_cont Page", // TODO: Define a title for the content shown.
-                Uri.parse("http://host/path"),
-                Uri.parse("android-app://com.protopo.previewplace/http/host/path")
-        );
-        AppIndex.AppIndexApi.start(client, viewAction);
+
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "niv_dif_cont Page", // TODO: Define a title for the content shown.
-                Uri.parse("http://host/path"),
-                Uri.parse("android-app://com.protopo.previewplace/http/host/path")
-        );
-        AppIndex.AppIndexApi.end(client, viewAction);
-        client.disconnect();
     }
 }
 
