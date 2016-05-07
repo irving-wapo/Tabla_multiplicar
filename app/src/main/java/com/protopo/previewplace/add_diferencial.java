@@ -18,7 +18,6 @@ public class add_diferencial extends DialogFragment{
     public interface DialogListener {
 
         public void onSingleChoiceItems(DialogFragment dialog,int arg);
-        public void onDialogPositiveClick(DialogFragment dialog);
         public void onDialogNegativeClick(DialogFragment dialog);
     }
 
@@ -44,7 +43,7 @@ public class add_diferencial extends DialogFragment{
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setTitle(R.string.add_title)
-                .setSingleChoiceItems(R.array.menu_diferencial, 0,
+                .setItems(R.array.menu_diferencial,
                         new DialogInterface.OnClickListener() {
 
                             @Override
@@ -54,13 +53,13 @@ public class add_diferencial extends DialogFragment{
 
                             }
                         })
-                .setPositiveButton(android.R.string.ok,
+                /*.setPositiveButton(android.R.string.ok,
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int id) {
                                 listener.onDialogPositiveClick(add_diferencial.this);
                             }
-                        })
+                        })*/
                 .setNegativeButton(android.R.string.cancel,
                         new DialogInterface.OnClickListener() {
                             @Override

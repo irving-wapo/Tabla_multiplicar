@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class niv_dif_cont extends AppCompatActivity implements add_diferencial.DialogListener, primer_bn.DialogListener, bn_pl.DialogListener, ultimo_bn.DialogListener {
-    int opc = 0, bn = 2, pl = 1;
+    int  bn = 2, pl = 1;
     boolean bn_pl, edit;
     Tabla tabla;
     ArrayList<String[]> elementos = new ArrayList<String[]>();
@@ -417,7 +417,6 @@ public class niv_dif_cont extends AppCompatActivity implements add_diferencial.D
         if (id == R.id.itmAgregar)
         {
             edit = false;
-            opc = 0;
             DialogFragment nuevo = new add_diferencial();
             nuevo.show(getSupportFragmentManager(), "nuevo");
             return true;
@@ -565,12 +564,14 @@ public class niv_dif_cont extends AppCompatActivity implements add_diferencial.D
     // boton negativo del primer banco de nivel
     @Override
     public void primerNegativeClick(DialogFragment dialog) { }
-
-    //boton positivo de el dialog agregar
+    // boton negativo del dialogo agregar
     @Override
-    public void onDialogPositiveClick(DialogFragment dialog)
-    {
-        switch (opc)
+    public void onDialogNegativeClick(DialogFragment dialog) { }
+
+    //evento de seleccion del dialogo agregar
+    @Override
+    public void onSingleChoiceItems(DialogFragment dialog, int arg) {
+        switch (arg)
         {
             case 0:
                 DialogFragment bn1 = new primer_bn();
@@ -593,14 +594,6 @@ public class niv_dif_cont extends AppCompatActivity implements add_diferencial.D
                 break;
         }
     }
-
-    // boton negativo del dialogo agregar
-    @Override
-    public void onDialogNegativeClick(DialogFragment dialog) { }
-
-    //evento de seleccion del dialogo agregar
-    @Override
-    public void onSingleChoiceItems(DialogFragment dialog, int arg) { opc = arg; }
 
     //evento clic en boton positivo de Banco de nivel final
     public void ultimoPositiveClick(DialogFragment dialog, Double valor)
