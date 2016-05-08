@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="cabecera_tabla">
+    <string-array name="cabecera_tabla_diferencial">
         <item>@string/lblpv</item>
         <item>@string/lblmas</item>
         <item>@string/lblmenos</item>
+    </string-array>
+    <string-array name="cabecera_tabla_perfil">
+        <item>@string/lblpv</item>
+        <item>@string/lblmas</item>
+        <item>@string/lblAltura</item>
+        <item>@string/lblmenos</item>
+        <item>@string/lblCota</item>
+    </string-array>
+    <string-array name="menu_perfil">
+        <item>@string/slBnI</item>
+        <item>@string/slCadenamiento</item>
+        <item>@string/slPl</item>
+        <item>@string/slBnF</item>
+
     </string-array>
     <string-array name="menu_diferencial">
         <item>@string/slBnI</item>
@@ -14,6 +28,5 @@
     <string-array name="menu_lista_diferencial">
         <item>@string/btnAbrir</item>
         <item>@string/btnBorrar</item>
-
     </string-array>
 </resources>

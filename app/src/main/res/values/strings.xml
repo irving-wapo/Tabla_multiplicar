@@ -26,10 +26,12 @@
     <string name="slBnPl">Banco de nivel / Punto de liga</string>
     <string name="slBnF">Banco de nivel final</string>
     <string name="slPl">Punto de liga</string>
+    <string name="slCadenamiento">Cadenamiento</string>
     <string name="add_title">Seleccione una opción</string>
     <string name="edit_title">Selecione punto visado a editar</string>
     <string name="lblAtras">Lectura de atras</string>
     <string name="lblAdelante">Lectura de adelante</string>
+    <string name="lblCotaI">Cota inicial</string>
     <string name="btnAceptar">Aceptar</string>
     <string name="btnCancelar">Cancelar</string>
     <string name="msgFloat">Solo se aceptan numeros</string>
@@ -69,7 +71,11 @@
     <string name="btnAbrir">Abrir</string>
     <string name="msjError_abrir">Error al intentar abrir</string>
     <string name="msjError_cargando">Error al intentar cargar archivos</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="lblAltura">Altura del aparato</string>
+    <string name="lblCota">Cota</string>
+    <string name="KM">000 km</string>
+    <string name="M">000 m</string>
+
 
 
 </resources>

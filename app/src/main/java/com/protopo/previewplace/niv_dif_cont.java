@@ -5,9 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -32,7 +29,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class niv_dif_cont extends AppCompatActivity implements add_diferencial.DialogListener, primer_bn.DialogListener, bn_pl.DialogListener, ultimo_bn.DialogListener {
+public class niv_dif_cont extends AppCompatActivity implements menu_agregar_dif.DialogListener, primer_bn.DialogListener, bn_pl.DialogListener, ultimo_bn.DialogListener {
     int  bn = 2, pl = 1;
     boolean bn_pl, edit;
     Tabla tabla;
@@ -116,7 +113,7 @@ public class niv_dif_cont extends AppCompatActivity implements add_diferencial.D
 
     // cabecera de la tabla
     private void cabecera() {
-        tabla.agregarCabecera(R.array.cabecera_tabla);
+        tabla.agregarCabecera(R.array.cabecera_tabla_diferencial);
     }
 
 
@@ -417,7 +414,7 @@ public class niv_dif_cont extends AppCompatActivity implements add_diferencial.D
         if (id == R.id.itmAgregar)
         {
             edit = false;
-            DialogFragment nuevo = new add_diferencial();
+            DialogFragment nuevo = new menu_agregar_dif();
             nuevo.show(getSupportFragmentManager(), "nuevo");
             return true;
         } else if (id == R.id.itmEditar) {
