@@ -3,14 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.protopo.previewplace.test_graphis">
+    tools:context="com.protopo.previewplace.test_graphis"
+    android:backgroundTint="@color/Green">
 
 
-    <com.androidplot.xy.XYPlot
-        android:id="@+id/myXYPlot_vista"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="200dp"
-        title="Graficar datos con XYPlot"/>
+        android:orientation="vertical"
+        android:layout_height="fill_parent"
+        android:background="@color/CadetBlue">
 
+        <com.androidplot.xy.XYPlot
+            android:id="@+id/plot"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            androidPlot.title="Grafica de Nivelacion de Perfil"
+            android:layout_weight="1"
+            android:layout_gravity="left|right" />
 
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="REINICIAR"
+            android:accessibilityLiveRegion="assertive" />
+    </LinearLayout>
 </RelativeLayout>
