@@ -152,13 +152,12 @@ public class activity_niv_perfil extends AppCompatActivity implements menu_agreg
     //Dialogo de datos del primer banco de nivel
     @Override
     public void primerPositiveClick(DialogFragment dialog, Double valor, Double valor1) {
-        String[] temp = new String[6];
+        String[] temp = new String[5];
         temp[0] = "BN1";
         temp[1] = String.valueOf(valor);
         temp[2] = String.valueOf(valor+valor1);
         temp[3] = null;
         temp[4] = String.valueOf(valor1);
-        temp[5] = "0";
         if (edit)
         {
             //actualizar(temp);
