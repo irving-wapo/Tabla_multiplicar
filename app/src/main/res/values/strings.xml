@@ -37,6 +37,7 @@
     <string name="msgFloat">Solo se aceptan numeros</string>
     <string name="msgFaltaBN1">No se ha agregado BN1 o ya se agrego un final</string>
     <string name="msgJuntos">No puede haber dos bancos de nivel juntos</string>
+    <string name="msgJuntos1">No puede haber dos puntos de liga juntos</string>
     <string name="msgBN1">No se puede agregar otro banco de nivel inicial</string>
     <string name="msgBNF">No se puede agregar banco de nivel final</string>
     <string name="msgEditar">No se han agregado valores</string>
@@ -71,6 +72,7 @@
     <string name="btnAbrir">Abrir</string>
     <string name="msjError_abrir">Error al intentar abrir</string>
     <string name="msjError_cargando">Error al intentar cargar archivos</string>
+    <string name="msjError_tipos">Error de conversión de tipos</string>
     <string name="lblAltura">Altura del aparato</string>
     <string name="lblCota">Cota</string>
     <string name="KM">000 km</string>
