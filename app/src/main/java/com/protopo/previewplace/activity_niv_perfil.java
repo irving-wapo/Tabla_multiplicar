@@ -96,10 +96,11 @@ public class activity_niv_perfil extends ActionBarActivity implements menu_agreg
         TabHost.TabSpec tab1 = TbH.newTabSpec("tab1");  //aspectos de cada Tab (pestaña)
         TabHost.TabSpec tab2 = TbH.newTabSpec("tab2");
 
-        tab1.setIndicator("UNO");    //qué queremos que aparezca en las pestañas
+        tab1.setIndicator(getString(R.string.lbltabla));    //qué queremos que aparezca en las pestañas
         tab1.setContent(R.id.lnlTabla); //definimos el id de cada Tab (pestaña)
 
-        tab2.setIndicator("DOS");
+
+        tab2.setIndicator(getString(R.string.lblGrafica));
         tab2.setContent(R.id.lnlGrafica);
 
         TbH.addTab(tab1); //añadimos los tabs ya programados
