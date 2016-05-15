@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:fab2="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
+
     tools:context="com.protopo.previewplace.activity_niv_perfil">
 
     <TabHost
@@ -20,7 +21,8 @@
             <TabWidget
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></TabWidget>
+                android:layout_height="wrap_content"
+                android:background="@color/YellowGreen"></TabWidget>
 
             <FrameLayout
                 android:id="@android:id/tabcontent"
@@ -40,7 +42,8 @@
                         android:layout_alignParentTop="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:layout_alignParentBottom="true">
+                        android:layout_alignParentBottom="true"
+                        android:paddingTop="5dp">
 
                         <LinearLayout
                             android:orientation="vertical"
@@ -77,6 +80,32 @@
                                 </HorizontalScrollView>
                             </ScrollView>
                         </LinearLayout>
+
+                        <android.support.design.widget.FloatingActionButton
+                            android:id="@+id/fab2"
+                            android:src="@drawable/del_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            fab2:fabSize="mini"
+                            android:layout_above="@+id/fab"
+                            android:layout_alignLeft="@+id/fab"
+                            android:layout_alignStart="@+id/fab" />
+
+                        <android.support.design.widget.FloatingActionButton
+                            android:id="@+id/fab"
+                            android:src="@drawable/add_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:layout_marginBottom="50dp"
+                            fab:fabSize="mini"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="10dp" />
+
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -100,7 +129,9 @@
         android:handle="@+id/button7"
         android:id="@+id/slidingDrawer3"
         android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true" >
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <LinearLayout
             android:id="@+id/linearLayout4"
