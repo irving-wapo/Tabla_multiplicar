@@ -13,6 +13,18 @@
             android:title = "Nivelacion de perfil" />
 
         <item
+            android:id = "@+id/nav_comentarios"
+            android:icon ="@drawable/ic_menu_gallery"
+            android:title = "Ayuda y comentarios" />
+
+
+        <item
+            android:id = "@+id/nav_Acerca"
+            android:icon ="@drawable/ic_menu_camera"
+            android:title = "Acerca de PreviwPlace" />
+
+
+        <item
             android:id="@+id/nav_configuracion"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/btnConfiguracion" />
@@ -22,6 +34,10 @@
             android:icon ="@drawable/add"
             android:title = "Ejemplo grafica" />
 
+        <item
+            android:id = "@+id/nav_registro"
+            android:icon ="@drawable/add"
+            android:title = "Registro de inicio" />
 
 
 

@@ -59,8 +59,8 @@ public class test_graphis extends Activity implements OnTouchListener
         {
             series[i] = new SimpleXYSeries("INSTITUTO TECNOLOGICO DE TEHUACAN");
             populateSeries(series[i]);
-        }
-        mySimpleXYPlot.addSeries(series[3], new LineAndPointFormatter(Color.rgb(50, 0, 0), null, Color.rgb(100, 0, 0), null));
+        }                                                           // verde
+        mySimpleXYPlot.addSeries(series[3], new LineAndPointFormatter(Color.rgb(0, 255, 0), null, Color.rgb(100, 0, 0), null));
         mySimpleXYPlot.redraw();
         mySimpleXYPlot.calculateMinMaxVals();
         minXY = new PointF(mySimpleXYPlot.getCalculatedMinX().floatValue(),mySimpleXYPlot.getCalculatedMinY().floatValue());

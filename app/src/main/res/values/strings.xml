@@ -2,6 +2,7 @@
     <string name="lblPerfil">Nivelación de perfil</string>
     <string name="lblDiferencial">Nivelación diferencial</string>
     <string name="app_name">Preview Place</string>
+    <string name="lblInicio">Inicio de sesión</string>
     <string name="btnDiferencial">Nivelación diferencial</string>
     <string name="btnConfiguracion">Configuración</string>
     <string name="btnTema">Tema</string>
@@ -79,6 +80,18 @@
     <string name="lblCota">Cota</string>
     <string name="KM">000 km</string>
     <string name="M">000 m</string>
+    <string name="label_preguntas">
+    \n¿Que es  nivelación diferencial?\nSe usa para determina una línea visual horizontal utilizando un nivel óptico o condensador automático.
+    Se usa un anteojo telescópico con una amplificación adecuada para leer estadales graduados, situados sobre puntos fijos.
+    \n\n¿Qué es  nivelación de perfil?\n
+    El objeto es encontrar las elevaciones de puntos a distancias conocidas, obteniéndose el perfil del terreno a lo largo de la línea de nivelación.
+	\n\n¿Cómo compartir un proyecto a un amigo?\n
+    Al estar trabajando en PreviwPalce  puedes ver el menú inferior deslizando el dedo  de abajo hacia arriba y dar click en compartir, a continuación se mostraran las los diferentes medios.
+    \n\n¿Cómo crear un  proyecto nuevo?\n
+    Es muy fácil solamente tienes que abrir PreviewPlace e ir al menú principal hay podrás seleccionar el tema de tu preferencia dar clic y ahora ingresar un nombre por ejemplo “carreteras” a continuación estarás listo para trabajar.
+	\n\n¿Se puede exportar un proyecto a otro formato?\n
+    PreviwPlace ofrece de compartir trabajos por medio de reportes creados en formato PDF, para ello dar click  en PDf en el menú inferior de la aplicación
+    </string>
     <string name="lbltabla">Tabla</string>
     <string name="lblGrafica">Grafica</string>
 </resources>

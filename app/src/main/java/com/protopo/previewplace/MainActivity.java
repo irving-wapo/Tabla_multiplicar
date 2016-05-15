@@ -97,6 +97,17 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
             startActivity(grafica);
         }
 
+        if(id == R.id.nav_registro)
+        {
+            Intent registro = new Intent ( getApplicationContext(), registro_usuarios.class);
+            startActivity(registro);
+        }
+
+        if(id == R.id.nav_comentarios)
+        {
+            Intent ayuda = new Intent (MainActivity.this, Ayuda_comentarios.class);
+            startActivity(ayuda);
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
