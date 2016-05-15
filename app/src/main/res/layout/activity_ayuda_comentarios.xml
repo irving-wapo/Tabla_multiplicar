@@ -55,8 +55,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autoLink="all"
+        android:linksClickable="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="www.previwpalce.com/comentarios.php"
+        android:text="www.previwpalace.com/comentarios.php"
         android:id="@+id/textView12"
         android:textColor="@color/Blue"
         android:textSize="17dp"

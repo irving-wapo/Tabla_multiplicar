@@ -109,6 +109,12 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
             startActivity(ayuda);
         }
 
+        if(id == R.id.nav_Acerca)
+        {
+            Intent ayuda = new Intent (MainActivity.this, acerca_de.class);
+            startActivity(ayuda);
+        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

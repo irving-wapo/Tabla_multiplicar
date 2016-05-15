@@ -2,6 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
+
+        <item
+            android:id = "@+id/nav_Acerca"
+            android:icon ="@drawable/ic_menu_camera"
+            android:title = "Acerca de PreviwPlace" />
+
+
         <item
             android:id="@+id/nav_nivelacion"
             android:icon="@drawable/ic_menu_camera"
@@ -16,13 +23,6 @@
             android:id = "@+id/nav_comentarios"
             android:icon ="@drawable/ic_menu_gallery"
             android:title = "Ayuda y comentarios" />
-
-
-        <item
-            android:id = "@+id/nav_Acerca"
-            android:icon ="@drawable/ic_menu_camera"
-            android:title = "Acerca de PreviwPlace" />
-
 
         <item
             android:id="@+id/nav_configuracion"
