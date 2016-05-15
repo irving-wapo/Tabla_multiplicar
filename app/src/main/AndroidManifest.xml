@@ -26,10 +26,13 @@
             android:configChanges="screenSize|orientation"/>
         <activity
             android:name=".niv_dif_cont"
-            android:configChanges="screenSize|orientation" />
+            android:configChanges="screenSize|orientation"
+            android:label="@string/lblDiferencial"/>
         <activity
             android:name=".activity_niv_perfil"
-            android:configChanges="screenSize|orientation"/>
+            android:configChanges="screenSize|orientation"
+            android:label="@string/lblPerfil"/>
+
         <activity
             android:name=".test_graphis"
             android:configChanges="screenSize|orientation"/>

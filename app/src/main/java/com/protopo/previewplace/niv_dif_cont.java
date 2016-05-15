@@ -270,9 +270,14 @@ public class niv_dif_cont extends AppCompatActivity implements menu_agregar_dif.
             for (int i = 0; i < elementos.size(); i++)
             {
                 String a[] = elementos.get(i);
-                tabla.addCell(""+a[0]);
-                tabla.addCell(""+a[1]);
-                tabla.addCell(""+a[2]);
+                for(int j=0;j<3;j++)
+                {
+
+                    if(a[j]==null)
+                        tabla.addCell("");
+                    else
+                        tabla.addCell(""+a[j]);
+                }
             }
 
             document.add(tabla);
