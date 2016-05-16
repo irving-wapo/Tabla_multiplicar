@@ -8,6 +8,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
+import android.widget.Toast;
+
 import com.androidplot.Plot;
 import com.androidplot.xy.BoundaryMode;
 import com.androidplot.xy.LineAndPointFormatter;
@@ -27,7 +29,7 @@ public class test_graphis extends Activity implements OnTouchListener
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_graphis);
-        resetButton = (Button) findViewById(R.id.resetButton);
+  /*      resetButton = (Button) findViewById(R.id.resetButton);
         resetButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -39,13 +41,19 @@ public class test_graphis extends Activity implements OnTouchListener
                 mySimpleXYPlot.redraw();
             }
         });
+*/
+    inicializa_grafica();
+
+    }
+
+    public void inicializa_grafica() {
 
         mySimpleXYPlot = (XYPlot) findViewById(R.id.plot);
         mySimpleXYPlot.setOnTouchListener(this);
         mySimpleXYPlot.getGraphWidget().setTicksPerRangeLabel(2);
         mySimpleXYPlot.getGraphWidget().setTicksPerDomainLabel(2);
         mySimpleXYPlot.getGraphWidget().getBackgroundPaint().setColor(Color.TRANSPARENT);
-        mySimpleXYPlot.getGraphWidget().setRangeValueFormat( new DecimalFormat("#####"));
+        mySimpleXYPlot.getGraphWidget().setRangeValueFormat(new DecimalFormat("#####"));
         mySimpleXYPlot.getGraphWidget().setDomainValueFormat(new DecimalFormat("#####.#"));
         mySimpleXYPlot.getGraphWidget().setRangeLabelSubTickExtension(25);
         mySimpleXYPlot.setRangeLabel("");
@@ -55,18 +63,16 @@ public class test_graphis extends Activity implements OnTouchListener
 
         series = new SimpleXYSeries[4];
         int scale = 1;
-        for (int i = 0; i < 4; i++, scale *= 5)
-        {
+        for (int i = 0; i < 4; i++, scale *= 5) {
             series[i] = new SimpleXYSeries("INSTITUTO TECNOLOGICO DE TEHUACAN");
             populateSeries(series[i]);
         }                                                           // verde
         mySimpleXYPlot.addSeries(series[3], new LineAndPointFormatter(Color.rgb(0, 255, 0), null, Color.rgb(100, 0, 0), null));
         mySimpleXYPlot.redraw();
         mySimpleXYPlot.calculateMinMaxVals();
-        minXY = new PointF(mySimpleXYPlot.getCalculatedMinX().floatValue(),mySimpleXYPlot.getCalculatedMinY().floatValue());
-        maxXY = new PointF(mySimpleXYPlot.getCalculatedMaxX().floatValue(),mySimpleXYPlot.getCalculatedMaxY().floatValue());
+        minXY = new PointF(mySimpleXYPlot.getCalculatedMinX().floatValue(), mySimpleXYPlot.getCalculatedMinY().floatValue());
+        maxXY = new PointF(mySimpleXYPlot.getCalculatedMaxX().floatValue(), mySimpleXYPlot.getCalculatedMaxY().floatValue());
     }
-
     private void populateSeries(SimpleXYSeries series)
     {
         Number[] Datos1 = {0, 2, 8, 20, 40, 60, 80, 94, 100, 120, 137, 140, 148, 160, 180, 186.6, 192, 200, 220, 228.7, 234.6, 240, 242, 253, 256.2, 260, 280, 300, 320, 340, 360, 370, 380, 400, 405, 405, 420, 440, 460, 480, 500, 520, 540, 560, 580, 600, 613.2};

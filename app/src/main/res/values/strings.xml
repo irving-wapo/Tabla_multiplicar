@@ -86,13 +86,13 @@
 
     \n\n\n¿Qué es  nivelación de perfil?\nEl objetivo es encontrar las elevaciones de puntos a distancias conocidas, obteniéndose el perfil del terreno a lo largo de la línea de nivelación.
 
-    \n\n¿Cómo crear un  proyecto nuevo?\n
+    \n\n\n¿Cómo crear un  proyecto nuevo?\n
     Es muy fácil solamente tienes que abrir PreviewPlace e ir al menú principal, estando hay podrás seleccionar el tema de tu preferencia dar click y ahora ingresar un nombre por ejemplo “carreteras” y a continuación estarás listo para trabajar.
 
-    \n\n¿Cómo compartir un proyecto a un amigo?\n
+    \n\n\n¿Cómo compartir un proyecto a un amigo?\n
     Al estar trabajando en PreviewPalce  dar click en el menú inferior deslizando el dedo  de abajo hacia arriba y dar click en compartir, a continuación se mostraran las los diferentes maneras de envio de datos.
 
-    \n\n¿Se puede exportar un proyecto a otro formato?\n
+    \n\n\n¿Puedo exportar un proyecto a otro formato?\n
     PreviwPlace ofrece la oportunidad de compartir trabajos por medio de reportes creados en formato PDF, para ello dar click  en PDf en el menú inferior de la aplicación.
     </string>
     <string name="label_acerca_pplace">
@@ -102,4 +102,26 @@
 
     <string name="lbltabla">Tabla</string>
     <string name="lblGrafica">Grafica</string>
+
+    <string name="lbl_ayuda_uno">Preguntas Frecuentes </string>
+
+    <string name="lbl_acerca_name">Acerca de PreviewPlace</string>
+    <string name="lbl_acerca_name_dos">Como surge PreviewPlace</string>
+    <string name="lbl_acerca_name_tres">PreviewPlace surge del producto de un equipo de trabajo preocupado por los trabajos
+topográficos, en la actualidad se cuenta con herramientas de grandes capacidades a nuestra disposición (tales como: teléfonos, tabletas, smartphone, etc…)
+y es por ello que es necesario hacer uso de ellos de la manera adecuada. Visto desde esta perspectiva, Un grupo de estudiantes se
+    dedicó a trabajar en el análisis de cálculos matemáticos y en el desarrollo de esta aplicación.
+
+    </string>
+    <string name="lbl_acerca_name_cuatro">Beneficios PreviewPlace</string>
+
+    <string name="lbl_acerca_name_cinco">
+        Estos son algunos beneficios de trabajar con PreviewPlace:
+        \n -Optimizacion de tiempo.
+        \n -Mayor exactitud de calculos topograficos
+        \n -Visualizacion de grafica en tiempo real
+        \n -
+        \n
+    </string>
+
 </resources>

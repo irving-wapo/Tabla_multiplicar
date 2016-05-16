@@ -9,72 +9,215 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.protopo.previewplace.Ayuda_comentarios">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Preguntas Frecuentes"
-        android:id="@+id/textView10"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+    <TabHost
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mi_tab">
 
-    <android.support.v4.view.ViewPager
-        android:layout_width="wrap_content"
-        android:layout_height="3dp"
-        android:id="@+id/view2"
-        android:layout_below="@+id/textView10"
-        android:layout_centerHorizontal="true"
-        android:background="@color/CadetBlue" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="350dp"
-        android:id="@+id/scrollView2"
-        android:layout_below="@+id/view2">
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></TabWidget>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/label_preguntas"
-            android:id="@+id/textView11"
-            android:layout_below="@+id/scrollView2"
-            android:layout_centerHorizontal="true"
-            android:singleLine="false" />
-    </ScrollView>
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
-    <android.support.v4.view.ViewPager
-        android:layout_width="fill_parent"
-        android:layout_height="3dp"
-        android:id="@+id/view4"
-        android:background="@color/CadetBlue"
-        android:layout_above="@+id/textView12"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+                <LinearLayout
+                    android:id="@+id/vidio"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+                    android:transitionGroup="false"
+                    android:touchscreenBlocksFocus="false"
+                    android:nestedScrollingEnabled="false"
+                    android:measureWithLargestChild="false"
+                    android:longClickable="false"
+                    android:focusableInTouchMode="false"
+                    android:focusable="false"
+                    android:contextClickable="false"
+                    android:clickable="false"
+                    android:baselineAligned="false">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autoLink="all"
-        android:linksClickable="true"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="www.previwpalace.com/comentarios.php"
-        android:id="@+id/textView12"
-        android:textColor="@color/Blue"
-        android:textSize="17dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textStyle="bold" />
+                    <ScrollView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/scrollView2" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Comentarios"
-        android:id="@+id/textView13"
-        android:layout_above="@+id/view4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TableLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <Space
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="90px" />
+
+                                <TextView
+                                    android:layout_width="145dp"
+                                    android:layout_height="30dp"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Comentarios"
+                                    android:id="@+id/textView13"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentStart="true" />
+
+                                <android.support.v4.view.ViewPager
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="3dp"
+                                    android:id="@+id/view4"
+                                    android:background="@color/CadetBlue"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_below="@+id/textView13"
+                                    android:layout_alignParentLeft="true" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:autoLink="all"
+                                    android:linksClickable="true"
+                                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                    android:text="www.previwpalace.com/comentarios.php"
+                                    android:id="@+id/textView12"
+                                    android:textColor="@color/Blue"
+                                    android:textSize="17dp"
+                                    android:textStyle="bold"
+                                    android:layout_below="@+id/view4"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentStart="true" />
+
+                                <Space
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Video demostrativo"
+                                    android:id="@+id/textView14"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentStart="true" />
+
+                                <android.support.v4.view.ViewPager
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="3dp"
+                                    android:id="@+id/view6"
+                                    android:background="@color/CadetBlue" />
+
+                                <Space
+                                    android:layout_width="match_parent"
+                                    android:layout_height="20dp" />
+                                <VideoView
+                                    android:id="@+id/videoView3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="150dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:onClick="botonaso" />
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentStart="false"
+                                    android:layout_alignRight="@+id/textView14"
+                                    android:layout_alignEnd="@+id/textView14">
+
+                                    <Button
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Iniciar"
+                                        android:id="@+id/button"
+                                        android:onClick="botonaso" />
+
+                                    <Button
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Parar"
+                                        android:id="@+id/button3"
+                                        android:onClick="paralo_hay" />
+                                </TableRow>
+                            </TableLayout>
+
+
+                        </RelativeLayout>
+                    </ScrollView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/preguntas"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <ScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scrollView4">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="false">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="@string/lbl_ayuda_uno"
+                                android:id="@+id/textView10"
+                                android:textSize="20dp"
+                                android:textStyle="bold"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginTop="46dp" />
+
+                            <android.support.v4.view.ViewPager
+                                android:layout_width="fill_parent"
+                                android:layout_height="3dp"
+                                android:id="@+id/view2"
+                                android:background="@color/CadetBlue"
+                                android:layout_alignParentStart="true"
+                                android:layout_below="@+id/textView10"
+                                android:layout_alignParentLeft="true" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="@string/label_preguntas"
+                                android:id="@+id/textView11"
+                                android:layout_alignParentStart="true"
+                                android:textSize="17dp"
+                                android:layout_below="@+id/view2"
+                                android:layout_alignParentLeft="true" />
+
+                        </RelativeLayout>
+                    </ScrollView>
+                </LinearLayout>
+
+            </FrameLayout>
+
+        </LinearLayout>
+    </TabHost>
 
 </RelativeLayout>

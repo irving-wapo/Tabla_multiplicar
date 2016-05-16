@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
 
         if(id == R.id.nav_Acerca)
         {
-            Intent ayuda = new Intent (MainActivity.this, acerca_de.class);
+            Intent ayuda = new Intent (MainActivity.this, acerca.class);
             startActivity(ayuda);
         }
 

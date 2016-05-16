@@ -6,7 +6,7 @@
     <color name="blanco">#ffffff</color>
     <color name="amarillo">#FFFF00</color>
     <color name="fuchsia">#FF00FF</color>
-    <color name="rojo">#FF0000</color>
+    <color name="rojo">#d82323</color>
     <color name="plata">#C0C0C0</color>
     <color name="gris">#808080</color>
     <color name="verde_oliva">#808000</color>
@@ -66,7 +66,7 @@
     <color name="SandyBrown">#F4A460</color>
     <color name="Azure">#F0FFFF</color>
     <color name="Honeydew">#F0FFF0</color>
-    <color name="AliceBlue">#F0F8FF</color>
+    <color name="AliceBlue">#000000</color>
     <color name="Khaki">#F0E68C</color>
     <color name="transparente">#0000</color>
     <color name="LightCoral">#F08080</color>
@@ -132,7 +132,7 @@
     <color name="DimGray">#696969</color>
     <color name="MediumAquamarine">#66CDAA</color>
     <color name="CornflowerBlue">#6495ED</color>
-    <color name="CadetBlue">#8b9d9f</color>
+    <color name="CadetBlue">#8c989a</color>
     <color name="DarkOliveGreen">#556B2F</color>
     <color name="Indigo">#4B0082</color>
     <color name="MediumTurquoise">#48D1CC</color>

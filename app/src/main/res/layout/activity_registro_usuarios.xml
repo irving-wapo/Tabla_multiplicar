@@ -9,110 +9,150 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.protopo.previewplace.registro_usuarios">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="1"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView5" >
 
-        <android.support.v4.widget.Space
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/view"
-            android:layout_weight="0.10"
-            android:background="@color/CadetBlue" />
+            android:layout_height="match_parent">
 
-        <Space
-            android:layout_width="378dp"
-            android:layout_height="60px" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="1"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Usuario:"
-            android:id="@+id/textView3"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_gravity="center_horizontal" />
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editText2"
-            android:layout_below="@+id/textView8"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_gravity="center" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView3"
+                        android:src="@mipmap/icono"
+                        android:layout_gravity="right" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="50px" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="PreviewPlace"
+                        android:id="@+id/textView15"
+                        android:textSize="40dp"
+                        android:textStyle="normal|bold|italic" />
+                </TableRow>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Contraseña:"
-            android:id="@+id/textView8"
-            android:layout_alignTop="@+id/textView4"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_gravity="center_horizontal" />
+                <Space
+                    android:layout_width="fill_parent"
+                    android:layout_height="60px" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:id="@+id/editText"
-            android:layout_gravity="center" />
+                <android.support.v4.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/view"
+                    android:layout_weight="0.10"
+                    android:background="@color/CadetBlue" />
 
-        <Space
-            android:layout_width="20px"
-            android:layout_height="180px" />
+                <Space
+                    android:layout_width="378dp"
+                    android:layout_height="60px" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:orientation="vertical"
-            android:weightSum="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Usuario:"
+                    android:id="@+id/textView3"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="center_horizontal" />
 
-            <CheckBox
-                android:layout_width="166dp"
-                android:layout_height="wrap_content"
-                android:text="Recordarme"
-                android:id="@+id/checkBox"
-                android:background="@color/CadetBlue"
-                android:layout_gravity="left|center_horizontal" />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editText2"
+                    android:layout_below="@+id/textView8"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="center" />
 
-            <Space
-                android:layout_width="20px"
-                android:layout_height="20px" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="50px" />
 
-            <Button
-                android:layout_width="173dp"
-                android:layout_height="33dp"
-                android:text="Ingresar"
-                android:id="@+id/btn_registro"
-                android:onClick="btn_registro_click"
-                android:layout_marginTop="68dp"
-                android:nestedScrollingEnabled="false"
-                android:layout_toRightOf="@+id/textView8"
-                android:layout_toEndOf="@+id/textView8"
-                android:layout_gravity="center_horizontal|right"
-                android:enabled="true"
-                android:background="@color/CadetBlue" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Contraseña:"
+                    android:id="@+id/textView8"
+                    android:layout_alignTop="@+id/textView4"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="center_horizontal" />
 
-        </TableRow>
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:ems="10"
+                    android:id="@+id/editText"
+                    android:layout_gravity="center" />
 
-    </LinearLayout>
+                <Space
+                    android:layout_width="fill_parent"
+                    android:layout_height="150px" />
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:orientation="vertical"
+                    android:weightSum="1"
+                    android:baselineAligned="false"
+                    android:layout_gravity="center_horizontal">
+
+                    <CheckBox
+                        android:layout_width="166dp"
+                        android:layout_height="wrap_content"
+                        android:text="Recordarme"
+                        android:id="@+id/checkBox"
+                        android:background="@color/CadetBlue"
+                        android:layout_gravity="left|center_horizontal" />
+
+                    <Space
+                        android:layout_width="20px"
+                        android:layout_height="20px" />
+
+                    <Button
+                        android:layout_width="173dp"
+                        android:layout_height="33dp"
+                        android:text="Ingresar"
+                        android:id="@+id/btn_registro"
+                        android:onClick="btn_registro_click"
+                        android:layout_marginTop="68dp"
+                        android:nestedScrollingEnabled="false"
+                        android:layout_toRightOf="@+id/textView8"
+                        android:layout_toEndOf="@+id/textView8"
+                        android:layout_gravity="center_horizontal|right"
+                        android:enabled="true"
+                        android:background="@color/CadetBlue" />
+
+                </TableRow>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
 
     <TextView
         android:layout_width="wrap_content"
