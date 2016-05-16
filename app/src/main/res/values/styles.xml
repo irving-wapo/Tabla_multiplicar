@@ -16,7 +16,7 @@
     <style name="estilo_celda">
         <item name="android:typeface">normal</item>
         <item name="android:textColor">@color/negro</item>
-        <item name="android:textSize">14dp</item>
+        <item name="android:textSize">10dp</item>
         <item name="android:textStyle">bold</item>
     </style>
 

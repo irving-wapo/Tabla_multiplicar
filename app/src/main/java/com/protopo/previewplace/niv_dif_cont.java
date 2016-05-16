@@ -7,10 +7,16 @@ import android.os.Environment;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.view.animation.ScaleAnimation;
+import android.widget.HorizontalScrollView;
 import android.widget.NumberPicker;
+import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,7 +46,10 @@ public class niv_dif_cont extends AppCompatActivity implements menu_agregar_dif.
     TextView Desnivel;
     String archivoNombre;
     Boolean carga;
-
+    // Paso 1: añadir un poco instance
+    private  float mScale =  1f ;
+    private ScaleGestureDetector mScaleDetector ;
+    GestureDetector gestureDetector ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)     //al abrir la app "LOAD"
@@ -55,6 +64,34 @@ public class niv_dif_cont extends AppCompatActivity implements menu_agregar_dif.
         carga = extras.getBoolean("carga");
         archivoNombre = extras.getString("nombre");
 
+        // Paso 2: crear una instancia de GestureDetector (este paso sea sholude lugar en onCreate ())
+        gestureDetector =  new  GestureDetector(this ,new  GestureListener());
+
+        // Animación para scalling
+        mScaleDetector =  new  ScaleGestureDetector ( this ,  new  ScaleGestureDetector . SimpleOnScaleGestureListener ()
+        {
+            @Override
+            public  boolean onScale ( ScaleGestureDetector detector )
+            {
+                float scale = 1.0f - detector.getScaleFactor();
+
+                float prevScale = mScale;
+                mScale += scale;
+
+                if (mScale < 0.1f) // Minimum scale condition:
+                    mScale = 0.1f;
+
+                if (mScale > 1.0f) // Maximum scale condition:
+                    mScale = 1.0f;
+                ScaleAnimation scaleAnimation = new ScaleAnimation(1f / prevScale, 1f / mScale, 1f / prevScale, 1f / mScale, detector.getFocusX(), detector.getFocusY());
+                scaleAnimation.setDuration(0);
+                scaleAnimation.setFillAfter(true);
+                ScrollView layout2 = (ScrollView) findViewById(R.id.scrollDiferencial);
+                layout2.startAnimation(scaleAnimation);
+                return true;
+            }
+        });
+
         if (carga) {
             cabecera();
         } //  SI ES NUEVO
@@ -62,6 +99,31 @@ public class niv_dif_cont extends AppCompatActivity implements menu_agregar_dif.
             cargar();
         }  // LEYENDO ARCHIVO EXISTENTE
     }
+
+    // step 3: override dispatchTouchEvent()
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        super.dispatchTouchEvent(event);
+        mScaleDetector.onTouchEvent(event);
+        gestureDetector.onTouchEvent(event);
+        return gestureDetector.onTouchEvent(event);
+    }
+
+//step 4: add private class GestureListener
+
+    private class GestureListener extends GestureDetector.SimpleOnGestureListener {
+        @Override
+        public boolean onDown(MotionEvent e) {
+            return true;
+        }
+        // event when double tap occurs
+        @Override
+        public boolean onDoubleTap(MotionEvent e) {
+            // double tap fired.
+            return true;
+        }
+    }
+
 
     //*********************************************    A R C H I V O S    **********************************************************
 

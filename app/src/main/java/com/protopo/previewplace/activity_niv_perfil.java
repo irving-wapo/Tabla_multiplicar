@@ -14,12 +14,16 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.NumberPicker;
+import android.widget.ScrollView;
 import android.widget.TabHost;
 import android.widget.TableLayout;
 import android.widget.Toast;
@@ -57,10 +61,14 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
     ArrayList<String[]> elementos = new ArrayList<String[]>();
     String archivoNombre, nombre_grafica="INSTITUTO TECNOLOGICO DE TEHUACAN";
 
+    // Paso 1: añadir un unas instancias
+    private  float mScale =  1f ;
+    private ScaleGestureDetector mScaleDetector ;
+    GestureDetector gestureDetector ;
+
+    //Vectores con valores de la grafica
     Number[] Datos1 = {0, 2, 8, 20, 40, 60, 80, 94, 100, 120, 137, 140, 148, 160, 180, 186.6, 192, 200, 220, 228.7, 234.6, 240, 242, 253, 256.2, 260, 280, 300, 320, 340, 360, 370, 380, 400, 405, 405, 420, 440, 460, 480, 500, 520, 540, 560, 580, 600, 613.2};
     Number[] Datos2 = {100, 99.72, 97.29, 96.98, 96.68, 96.44, 95.99, 95.41, 94.89, 94.71, 94.7, 94.27, 93.51, 93.65, 93.69, 93.63, 92.77, 92.74, 92.74, 92.74, 91.85, 91.78, 91.44, 91.45, 90.99, 90.98, 90.94, 90.36, 89.87, 89.71, 89.07, 89.12, 88.62, 88.46, 88.46, 88.32, 87.36, 85.79, 85.47, 85.15, 84.87, 84.72, 84.16, 84.12, 84, 83.79, 82.82};
-
-
 
     //****************** DE MI GRAFICA ***********
     private XYPlot mySimpleXYPlot;
@@ -69,7 +77,16 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
     private PointF minXY;
     private PointF maxXY;
     //****************** DE MI GRAFICA ***********
+    //  --------------   ESTADOS DE TOUCHES ----------
+    static final int NONE = 0;
+    static final int ONE_FINGER_DRAG = 1;
+    static final int TWO_FINGERS_DRAG = 2;
+    int mode = NONE;
 
+    PointF firstFinger;
+    float distBetweenFingers;
+    boolean stopThread = false;
+    // -----------------------------------------------
     //Metodos de la clase
     //carga menu de opciones
     @Override
@@ -94,14 +111,41 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_niv_perfil);
-         resetButton = (Button) findViewById(R.id.reset);
-
+        resetButton = (Button) findViewById(R.id.reset);
         pestañas();
         tabla = new Tabla(0,getSupportFragmentManager(),this, (TableLayout) findViewById(R.id.tabla_perfil));
         fab = (FloatingActionButton) findViewById(R.id.fab);
         Bundle extras = getIntent().getExtras();
         carga = extras.getBoolean("carga");
         archivoNombre = extras.getString("nombre");
+
+        // Paso 2: crear una instancia de GestureDetector (este paso sea sholude lugar en onCreate ())
+        gestureDetector =  new  GestureDetector(this ,new  GestureListener());
+
+        // Animación para scalling
+        mScaleDetector =  new  ScaleGestureDetector ( this ,  new  ScaleGestureDetector . SimpleOnScaleGestureListener ()
+        {
+            @Override
+            public  boolean onScale ( ScaleGestureDetector detector )
+            {
+                float scale = 1.0f - detector.getScaleFactor();
+
+                float prevScale = mScale;
+                mScale += scale;
+
+                if (mScale < 0.1f) // Minimum scale condition:
+                    mScale = 0.1f;
+
+                if (mScale > 1.0f) // Maximum scale condition:
+                    mScale = 1.0f;
+                ScaleAnimation scaleAnimation = new ScaleAnimation(1f / prevScale, 1f / mScale, 1f / prevScale, 1f / mScale, detector.getFocusX(), detector.getFocusY());
+                scaleAnimation.setDuration(0);
+                scaleAnimation.setFillAfter(true);
+                ScrollView layout2 = (ScrollView) findViewById(R.id.scrollPerfil);
+                layout2.startAnimation(scaleAnimation);
+                return true;
+            }
+        });
 
         if (carga) {
             cabecera();
@@ -113,8 +157,29 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         //****************** DE MI GRAFICA ***********
         inicializa_grafica();
 
-        //****************** DE MI GRAFICA ***********
+    }
+    // step 3: override dispatchTouchEvent()
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        super.dispatchTouchEvent(event);
+        mScaleDetector.onTouchEvent(event);
+        gestureDetector.onTouchEvent(event);
+        return gestureDetector.onTouchEvent(event);
+    }
 
+//step 4: add private class GestureListener
+
+    private class GestureListener extends GestureDetector.SimpleOnGestureListener {
+        @Override
+        public boolean onDown(MotionEvent e) {
+            return true;
+        }
+        // event when double tap occurs
+        @Override
+        public boolean onDoubleTap(MotionEvent e) {
+            // double tap fired.
+            return true;
+        }
     }
 
     //*******************************   G  R  A  F  I  C  A   ************************************
@@ -211,17 +276,6 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         return (float) Math.hypot(x, y);
     }
 
-    //  --------------   ESTADOS DE TOUCHES ----------
-    static final int NONE = 0;
-    static final int ONE_FINGER_DRAG = 1;
-    static final int TWO_FINGERS_DRAG = 2;
-    int mode = NONE;
-
-    PointF firstFinger;
-    float distBetweenFingers;
-    boolean stopThread = false;
-    // -----------------------------------------------
-
     @Override
     public boolean onTouch(View v, MotionEvent event)
     {
@@ -251,7 +305,6 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
                     mySimpleXYPlot.setDomainBoundaries(minXY.x, maxXY.x,
                             BoundaryMode.FIXED);
                     mySimpleXYPlot.redraw();
-
                 } else if (mode == TWO_FINGERS_DRAG) {
                     float oldDist = distBetweenFingers;
                     distBetweenFingers = spacing(event);
@@ -259,6 +312,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
                     mySimpleXYPlot.setDomainBoundaries(minXY.x, maxXY.x,
                             BoundaryMode.FIXED);
                     mySimpleXYPlot.redraw();
+
                 }
                 break;
         }
