@@ -117,7 +117,8 @@
                             fab2:fabSize="mini"
                             android:layout_above="@+id/fab"
                             android:layout_alignLeft="@+id/fab"
-                            android:layout_alignStart="@+id/fab" />
+                            android:layout_alignStart="@+id/fab"
+                            android:onClick="fab2_eliminar_perfil" />
 
                         <android.support.design.widget.FloatingActionButton
                             android:id="@+id/fab"
@@ -131,7 +132,9 @@
                             android:layout_alignParentRight="true"
                             android:layout_alignParentEnd="true"
                             android:layout_marginTop="20dp"
-                            android:layout_marginRight="10dp" />
+                            android:layout_marginRight="10dp"
+                            android:nestedScrollingEnabled="false"
+                            android:onClick="fab_agregar_perfil" />
 
                     </RelativeLayout>
                 </LinearLayout>

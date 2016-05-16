@@ -1,4 +1,5 @@
 package com.protopo.previewplace;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.PointF;
 import android.net.Uri;
 import android.os.Environment;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
@@ -46,9 +48,12 @@ import android.view.View.OnTouchListener;
 
 public class activity_niv_perfil extends ActionBarActivity implements  OnTouchListener, menu_agregar_perfil.DialogListener,bn_pl_perfil.DialogListener,primer_bn_perfil.DialogListener,cadenamiento_perfil.DialogListener {
     Tabla tabla;
+    FloatingActionButton fab;
     TabHost TbH;
-    int pl=1,punto_edit=0;
-    boolean bn_pl,edit,carga;
+    int pl=1;
+    boolean carga;
+    static int punto_edit=0;
+    static boolean edit,bn_pl;
     ArrayList<String[]> elementos = new ArrayList<String[]>();
     String archivoNombre, nombre_grafica="INSTITUTO TECNOLOGICO DE TEHUACAN";
 
@@ -92,7 +97,8 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
          resetButton = (Button) findViewById(R.id.reset);
 
         pestañas();
-        tabla = new Tabla(this, (TableLayout) findViewById(R.id.tabla_perfil));
+        tabla = new Tabla(0,getSupportFragmentManager(),this, (TableLayout) findViewById(R.id.tabla_perfil));
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         Bundle extras = getIntent().getExtras();
         carga = extras.getBoolean("carga");
         archivoNombre = extras.getString("nombre");
@@ -309,7 +315,14 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         }
         catch (Exception ex)  { Toast.makeText(getApplicationContext(),R.string.msjError_sistema,Toast.LENGTH_SHORT).show();}
     }
-
+    public void fab_agregar_perfil(View view)
+    {
+        agregar();
+    }
+    public void fab2_eliminar_perfil(View view)
+    {
+        eliminar();
+    }
     public void btn_guardar_perfil(View view) {
         guardar();
     }
@@ -586,7 +599,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         }
 
     }
-    private void valores()
+    public void valores()
     {
         try
         {
@@ -647,6 +660,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
                                 public void onClick(DialogInterface dialog, int id) { } }).show();
         } catch (Exception ex) {  Toast.makeText(getApplicationContext(), R.string.msgEditar, Toast.LENGTH_SHORT).show();   }
     }
+
     //metodo que edita los datos
     private void actualizar(String act[])   //desntro de la tabla
     {
@@ -660,7 +674,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
                 tabla.agregarFilaTabla(elementos.get(i));
             }
             Toast.makeText(getApplicationContext(), R.string.Actualizar, Toast.LENGTH_SHORT).show();
-        } catch (Exception ex) { Toast.makeText(getApplicationContext(), R.string.erActualizar, Toast.LENGTH_SHORT).show();  }
+        } catch (Exception ex) { Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_SHORT).show();  }
     }
     private void eliminar() //celda de la lista
     {
@@ -688,15 +702,19 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         return df.format(numero);
     }
 
+    private void agregar()
+    {
+        edit=false;
+        DialogFragment nuevo = new menu_agregar_perfil();
+        nuevo.show(getSupportFragmentManager(), "nuevo");
+    }
     //menu superior ...(Tres puntitos)
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id = item.getItemId();
         if (id == R.id.itmAgregar)
         {
-            edit=false;
-            DialogFragment nuevo = new menu_agregar_perfil();
-            nuevo.show(getSupportFragmentManager(), "nuevo");
+            agregar();
             return true;
         } else if (id == R.id.itmEditar) {
             edit = true;

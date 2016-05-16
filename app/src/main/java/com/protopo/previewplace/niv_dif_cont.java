@@ -31,10 +31,10 @@ import java.util.StringTokenizer;
 
 public class niv_dif_cont extends AppCompatActivity implements menu_agregar_dif.DialogListener, primer_bn.DialogListener, bn_pl.DialogListener, ultimo_bn.DialogListener {
     int  bn = 2, pl = 1;
-    boolean bn_pl, edit;
+    static boolean bn_pl, edit;
     Tabla tabla;
     ArrayList<String[]> elementos = new ArrayList<String[]>();
-    int punto_edit = 0;
+    static int punto_edit = 0;
     TextView sumatoria_p;
     TextView sumatoria_n;
     TextView Desnivel;
@@ -47,7 +47,7 @@ public class niv_dif_cont extends AppCompatActivity implements menu_agregar_dif.
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_niv_dif_cont);
-        tabla = new Tabla(this, (TableLayout) findViewById(R.id.tabla));
+        tabla = new Tabla(1,getSupportFragmentManager(), this, (TableLayout) findViewById(R.id.tabla));
         sumatoria_p = (TextView) findViewById(R.id.lblSumatoria_p);
         sumatoria_n = (TextView) findViewById(R.id.lblSumatoria_n);
         Desnivel = (TextView) findViewById(R.id.lblDesnivel);
