@@ -123,5 +123,7 @@ y es por ello que es necesario hacer uso de ellos de la manera adecuada. Visto d
         \n -
         \n
     </string>
+    <string name="lbl_comentarios_name">Ayuda y comentarios</string>
+    <string name="lbl_ajustes_name">Configuraciones</string>
 
 </resources>

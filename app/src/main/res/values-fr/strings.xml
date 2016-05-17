@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Preview Place</string>
+    <string name="Actualizar">Les modifications ont été appliquées correctement</string>
+    <string name="add_title">Sélectionnez une option</string>
+    <string name="btnAbrir">Ouvert</string>
+    <string name="btnAceptar">Accepter</string>
+    <string name="btnAyuda">Aide et commentaires</string>
+    <string name="btnBorrar">Supprimer</string>
+    <string name="btnAcerca">Sur la Place de l’aperçu</string>
+    <string name="btnCancelar">Annuler</string>
+    <string name="btnCerrar">Fermer</string>
+    <string name="btnCompartir">Partager</string>
+    <string name="btnConfiguracion">Configuration</string>
+    <string name="btnDiferencial">Prime de mise à niveau</string>
+    <string name="btnGuardar">Enregistrer</string>
+    <string name="btnIdioma">Langue</string>
+    <string name="btnImprimir">Imprimer</string>
 </resources>

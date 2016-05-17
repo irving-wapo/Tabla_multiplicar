@@ -17,4 +17,14 @@
     <string name="lblOpciones">Options</string>
     <string name="lblmas">Back read</string>
     <string name="lblmenos">Front read</string>
+    <string name="Actualizar">The changes have been applied correctly</string>
+    <string name="add_title">Select an option</string>
+    <string name="btnAbrir">Open</string>
+    <string name="btnAceptar">Accept</string>
+    <string name="btnBorrar">Delete</string>
+    <string name="btnCancelar">Cancelar</string>
+    <string name="btnCerrar">Close</string>
+    <string name="btnCompartir">Share</string>
+    <string name="btnGuardar">Save</string>
+    <string name="btnImprimir">Print</string>
 </resources>
