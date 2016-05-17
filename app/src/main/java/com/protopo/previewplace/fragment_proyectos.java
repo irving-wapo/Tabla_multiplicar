@@ -178,6 +178,7 @@ public class fragment_proyectos extends Fragment
                 diferencial.putExtra("nombre",nombreArchivo);
                 diferencial.putExtra("carga",estado);
                 startActivity(diferencial);
+
             }
         }
         catch(Exception ex) {Toast.makeText(miVista.getContext(),R.string.msjError_abrir,Toast.LENGTH_LONG).show(); }
