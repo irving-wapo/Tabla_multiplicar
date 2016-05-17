@@ -52,7 +52,6 @@ import android.view.View.OnTouchListener;
 
 public class activity_niv_perfil extends ActionBarActivity implements  OnTouchListener, menu_agregar_perfil.DialogListener,bn_pl_perfil.DialogListener,primer_bn_perfil.DialogListener,cadenamiento_perfil.DialogListener {
     Tabla tabla;
-    FloatingActionButton fab;
     TabHost TbH;
     int pl=1;
     boolean carga;
@@ -114,7 +113,6 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         resetButton = (Button) findViewById(R.id.reset);
         pestañas();
         tabla = new Tabla(0,getSupportFragmentManager(),this, (TableLayout) findViewById(R.id.tabla_perfil));
-        fab = (FloatingActionButton) findViewById(R.id.fab);
         Bundle extras = getIntent().getExtras();
         carga = extras.getBoolean("carga");
         archivoNombre = extras.getString("nombre");
@@ -369,6 +367,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         }
         catch (Exception ex)  { Toast.makeText(getApplicationContext(),R.string.msjError_sistema,Toast.LENGTH_SHORT).show();}
     }
+    //eventos de los botones flotantes
     public void fab_agregar_perfil(View view)
     {
         agregar();

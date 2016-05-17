@@ -221,6 +221,15 @@ public class niv_dif_cont extends AppCompatActivity implements menu_agregar_dif.
         }
         catch (Exception ex)  { Toast.makeText(getApplicationContext(),R.string.msjError_sistema,Toast.LENGTH_SHORT).show();}
     }
+    //eventos de los botones flotantes
+    public void fab3_agregar_diferencial(View view)
+    {
+        agregar();
+    }
+    public void fab4_eliminar_diferencial(View view)
+    {
+        eliminar();
+    }
 
     public void btn_guardar(View view) {
         guardar();
@@ -473,6 +482,12 @@ public class niv_dif_cont extends AppCompatActivity implements menu_agregar_dif.
     @Override
     public void bn_plNegativeClick(DialogFragment dialog) { }
 
+    //metodo agregar
+    private void agregar(){
+        edit = false;
+        DialogFragment nuevo = new menu_agregar_dif();
+        nuevo.show(getSupportFragmentManager(), "nuevo");
+    }
     //evento itemSelect del menu superior
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
@@ -480,9 +495,7 @@ public class niv_dif_cont extends AppCompatActivity implements menu_agregar_dif.
         int id = item.getItemId();
         if (id == R.id.itmAgregar)
         {
-            edit = false;
-            DialogFragment nuevo = new menu_agregar_dif();
-            nuevo.show(getSupportFragmentManager(), "nuevo");
+            agregar();
             return true;
         } else if (id == R.id.itmEditar) {
             edit = true;
