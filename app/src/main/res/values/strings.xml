@@ -3,6 +3,9 @@
     <string name="lblDiferencial">Nivelación diferencial</string>
     <string name="app_name">Preview Place</string>
     <string name="btnDiferencial">Nivelación diferencial</string>
+    <string name="btnConfiguracion">Configuración</string>
+    <string name="btnTema">Tema</string>
+    <string name="btnIdioma">Idioma</string>
     <string name="btnAyuda">Ayuda y comentarios</string>
     <string name="btnAcerca">Acerca de Preview Place</string>
     <string name="swContraseña">Contraseña de aplicación</string>
@@ -14,6 +17,7 @@
     <string name="lblpv">Punto visado (P.V.)</string>
     <string name="lblmas">Val. Positivo (+)</string>
     <string name="lblmenos">Val. Negativo (-)</string>
+    <string name="lblOpciones">Opciones</string>
     <string name="itmAgregar">Agregar</string>
     <string name="itmEditar">Editar</string>
     <string name="itmEliminar">Eliminar (Ultimo agregado)</string>
@@ -26,9 +30,12 @@
     <string name="slPl">Punto de liga</string>
     <string name="slCadenamiento">Cadenamiento</string>
     <string name="add_title">Seleccione una opción</string>
+    <string name="edit_title">Selecione punto visado a editar</string>
     <string name="lblAtras">Lectura de atras</string>
     <string name="lblAdelante">Lectura de adelante</string>
     <string name="lblCotaI">Cota inicial</string>
+    <string name="btnAceptar">Aceptar</string>
+    <string name="btnCancelar">Cancelar</string>
     <string name="msgFloat">Solo se aceptan numeros</string>
     <string name="msgFaltaBN1">No se ha agregado BN1 o ya se agrego un final</string>
     <string name="msgJuntos">No puede haber dos bancos de nivel juntos</string>
@@ -48,6 +55,7 @@
     <string name="btnExportar">PDF</string>
     <string name="ndResultadop">Sumatoria positiva: </string>
     <string name="ndResultadon">Sumatoria negativa: </string>
+    <string name="nosotros">Generado por PREVIEWPLACE</string>
     <string name="msjEnviar">Compartir en</string>
     <string name="msjPdf">No se ha podido generar PDF</string>
     <string name="msjSPDF">No se ha podido compartir PDF</string>
