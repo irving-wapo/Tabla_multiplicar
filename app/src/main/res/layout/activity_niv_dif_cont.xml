@@ -24,16 +24,15 @@
         android:gravity="center">
 
         <ScrollView
-            android:id="@+id/scrollvertical"
+            android:id="@+id/scrollDiferencial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scrollbars="vertical"
-            android:layout_weight="1">
+            android:scrollbars="vertical">
 
             <HorizontalScrollView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/scrollhorizontal"
+                android:id="@+id/scrollDiferencialHorizontal"
                 android:scrollbars="horizontal"
                 android:layout_weight="1">
                 <LinearLayout

@@ -200,7 +200,7 @@ public class Tabla{
     {
         Paint p = new Paint();
         Rect bounds = new Rect();
-        p.setTextSize(50);
+        p.setTextSize(35);
         p.getTextBounds(texto, 0, texto.length(), bounds);
         return bounds.width();
     }
