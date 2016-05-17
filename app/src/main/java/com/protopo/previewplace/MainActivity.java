@@ -124,15 +124,17 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
     {
 
         String ya_llego[] =filtrar_archivos(".nd").toArray(new String[0]);
-        carga_fragment(ya_llego);
+        carga_fragment(ya_llego, true, true);
         bandera_archivo =".nd";
     }
 
-    public void carga_fragment(String [] ya_llego)
+    public void carga_fragment(String [] ya_llego, Boolean nom, Boolean im)
     {
         FragmentManager fragmentManager = getSupportFragmentManager();
         Bundle bundle = new Bundle();
         bundle.putStringArray("lista", ya_llego );
+        bundle.putBoolean("nombre", nom );
+        bundle.putBoolean("imagen", im );
         fragment_proyectos fragInfo = new fragment_proyectos();
         fragmentManager.beginTransaction().replace(R.id.content_frame,fragInfo).commit();
         fragInfo.setArguments(bundle);
@@ -141,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
     public void fragment_nivelacion_perfil()
     {
         String ya_llego[] =filtrar_archivos(".np").toArray(new String[0]);
-        carga_fragment(ya_llego);
+        carga_fragment(ya_llego, false, false);
         bandera_archivo =".np";
     }
 

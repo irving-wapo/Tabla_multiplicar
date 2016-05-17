@@ -18,7 +18,7 @@
         <activity
             android:name=".registro_usuarios"
             android:configChanges="screenSize|orientation"
-            android:label="@string/lblInicio">
+            android:label="PREVIE WPLACE">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,6 +27,7 @@
         </activity>
         <activity
             android:name=".Ajustes"
+            android:label="@string/lbl_ajustes_name"
             android:configChanges="screenSize|orientation" />
         <activity
             android:name=".niv_dif_cont"
@@ -39,6 +40,7 @@
         <activity
             android:name=".test_graphis"
             android:configChanges="screenSize|orientation" />
+
         <activity
             android:name=".MainActivity"
             android:configChanges="screenSize|orientation"
@@ -47,8 +49,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Ayuda_comentarios" />
-        <activity android:name=".acerca"></activity>
+
+        <activity android:name=".Ayuda_comentarios"
+          android:label="@string/lbl_comentarios_name"/>
+
+        <activity android:name=".acerca"
+         android:label="@string/lbl_acerca_name" />
+
     </application>
 
 </manifest>
