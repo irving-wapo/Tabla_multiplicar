@@ -37,7 +37,7 @@
     <string name="lblCotaI">Cota inicial</string>
     <string name="btnAceptar">Aceptar</string>
     <string name="btnCancelar">Cancelar</string>
-    <string name="msgFloat">Solo se aceptan numeros</string>
+    <string name="msgFloat">Solo se aceptan números</string>
     <string name="msgFaltaBN1">No se ha agregado BN1 o ya se agrego un final</string>
     <string name="msgJuntos">No puede haber dos bancos de nivel juntos</string>
     <string name="msgJuntos1">No puede haber dos puntos de liga juntos</string>
@@ -57,7 +57,7 @@
     <string name="btnExportar">PDF</string>
     <string name="ndResultadop">Sumatoria positiva: </string>
     <string name="ndResultadon">Sumatoria negativa: </string>
-    <string name="nosotros">Generado por PreviewPlace</string>
+    <string name="nosotros">Generado por PREVIEWPLACE</string>
     <string name="msjEnviar">Compartir en</string>
     <string name="msjPdf">No se ha podido generar PDF</string>
     <string name="msjSPDF">No se ha podido compartir PDF</string>
@@ -96,7 +96,7 @@
     PreviwPlace ofrece la oportunidad de compartir trabajos por medio de reportes creados en formato PDF, para ello dar click  en PDf en el menú inferior de la aplicación.
     </string>
     <string name="label_acerca_pplace">
-    \nPreviwPlace es un aplicación móvil que busca facilitar trabajos topográficos de gabinete para la optimización de tiempos, capturando, calculando y graficando temas de:
+    \nPREVIEWPLACE es un aplicación móvil que busca facilitar trabajos topográficos de gabinete para la optimización de tiempos, capturando, calculando y graficando temas de:
     Nivelación diferencial, nivelacion de perfil, agrimensura, curvas horizontales, curvas de nivel entre otras.
     </string>
 
@@ -105,15 +105,15 @@
 
     <string name="lbl_ayuda_uno">Preguntas Frecuentes </string>
 
-    <string name="lbl_acerca_name">Acerca de PreviewPlace</string>
-    <string name="lbl_acerca_name_dos">Como surge PreviewPlace</string>
-    <string name="lbl_acerca_name_tres">PreviewPlace surge del producto de un equipo de trabajo preocupado por los trabajos
-topográficos, en la actualidad se cuenta con herramientas de grandes capacidades a nuestra disposición (tales como: teléfonos, tabletas, smartphone, etc…)
-y es por ello que es necesario hacer uso de ellos de la manera adecuada. Visto desde esta perspectiva, Un grupo de estudiantes se
-    dedicó a trabajar en el análisis de cálculos matemáticos y en el desarrollo de esta aplicación.
+    <string name="lbl_acerca_name">Acerca de PREVIEWPLACE</string>
+    <string name="lbl_acerca_name_dos">Como surge PREVIEWPLACE</string>
+    <string name="lbl_acerca_name_tres">PREVIEWPLACE surge del producto de un equipo de trabajo preocupado por los trabajos
+topográficos; en la actualidad se cuenta con herramientas de grandes capacidades a nuestra disposición (tales como: teléfonos, tabletas, smartphone, etc…)
+y es por ello que es necesario hacer uso de ellos de la manera adecuada. Visto desde esta perspectiva, un grupo de estudiantes se
+    dedicó a trabajar en el análisis de cálculos topográficos y en el desarrollo de esta aplicación.
 
     </string>
-    <string name="lbl_acerca_name_cuatro">Beneficios PreviewPlace</string>
+    <string name="lbl_acerca_name_cuatro">Beneficios PREVIEWPLACE</string>
 
     <string name="lbl_acerca_name_cinco">
         Estos son algunos beneficios de trabajar con PreviewPlace:
