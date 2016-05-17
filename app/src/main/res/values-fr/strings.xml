@@ -16,4 +16,5 @@
     <string name="btnGuardar">Enregistrer</string>
     <string name="btnIdioma">Langue</string>
     <string name="btnImprimir">Imprimer</string>
+    <string name="btnExportar">PDF</string>
 </resources>

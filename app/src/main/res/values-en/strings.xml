@@ -27,4 +27,5 @@
     <string name="btnCompartir">Share</string>
     <string name="btnGuardar">Save</string>
     <string name="btnImprimir">Print</string>
+    <string name="btnExportar">PDF</string>
 </resources>
