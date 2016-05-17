@@ -36,7 +36,7 @@ public class fragment_proyectos extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
 
-        miVista = inflater.inflate(R.layout.nivelacion_diferencial,container,false);
+        miVista = inflater.inflate(R.layout.fragment_proyectos,container,false);
         try {
 
             // Defined Array values to show in ListView
