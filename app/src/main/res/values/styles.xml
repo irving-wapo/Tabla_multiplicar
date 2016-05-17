@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/DodgerBlue</item>
         <item name="colorPrimaryDark">@color/DodgerBlue</item>
         <item name="colorAccent">@color/DodgerBlue</item>
-        <item name="android:colorBackground">@color/blanco</item>
+        <item name="android:colorBackground">@color/SkyBlue</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

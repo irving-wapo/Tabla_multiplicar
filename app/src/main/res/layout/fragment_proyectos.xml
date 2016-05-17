@@ -48,7 +48,7 @@
 
                     <Space
                         android:layout_width="fill_parent"
-                        android:layout_height="370px"
+                        android:layout_height="320px"
                         android:id="@+id/space" />
 
                     <ListView

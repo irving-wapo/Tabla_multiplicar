@@ -3,10 +3,7 @@
     <string name="app_name">Preview Place</string>
     <string name="btnAcerca">About Preview Place</string>
     <string name="btnAyuda">Help and Feedback</string>
-    <string name="btnConfiguracion">Configuration</string>
     <string name="btnDiferencial">Differential leveling</string>
-    <string name="btnIdioma">Language</string>
-    <string name="btnTema">Theme</string>
     <string name="lblConfiguración">System Settings</string>
     <string name="lblPersonalización">Personalization</string>
     <string name="lblSeguridad">Security</string>
@@ -14,18 +11,14 @@
     <string name="itmAgregar">Add</string>
     <string name="itmEditar">Edit</string>
     <string name="itmEliminar">Delete</string>
-    <string name="lblOpciones">Options</string>
     <string name="lblmas">Back read</string>
     <string name="lblmenos">Front read</string>
     <string name="Actualizar">The changes have been applied correctly</string>
     <string name="add_title">Select an option</string>
     <string name="btnAbrir">Open</string>
-    <string name="btnAceptar">Accept</string>
     <string name="btnBorrar">Delete</string>
-    <string name="btnCancelar">Cancelar</string>
     <string name="btnCerrar">Close</string>
     <string name="btnCompartir">Share</string>
     <string name="btnGuardar">Save</string>
-    <string name="btnImprimir">Print</string>
     <string name="btnExportar">PDF</string>
 </resources>

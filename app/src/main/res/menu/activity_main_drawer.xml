@@ -4,12 +4,6 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id = "@+id/nav_Acerca"
-            android:icon ="@drawable/ic_menu_camera"
-            android:title = "Acerca de PreviwPlace" />
-
-
-        <item
             android:id="@+id/nav_nivelacion"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/btnDiferencial" />
@@ -20,26 +14,44 @@
             android:title = "Nivelacion de perfil" />
 
         <item
+            android:id="@+id/nav_curvas_nivel"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Curvas de nivel" />
+
+        <item
+            android:id = "@+id/nav_curvas_horizontales"
+            android:icon ="@drawable/ic_menu_camera"
+            android:title = "Curvas horizontales" />
+
+        <item
+            android:id = "@+id/nav_agrimensura"
+            android:icon ="@drawable/ic_menu_camera"
+            android:title = "Agrimensura" />
+
+        <item
+            android:id = "@+id/nav_curvas_verticales"
+            android:icon ="@drawable/ic_menu_camera"
+            android:title = "Curvas verticales" />
+
+        <item
+            android:id = "@+id/nav_Acerca"
+            android:icon ="@drawable/add"
+            android:title = "Acerca de PreviwPlace" />
+
+        <item
             android:id = "@+id/nav_comentarios"
-            android:icon ="@drawable/ic_menu_gallery"
+            android:icon ="@drawable/add"
             android:title = "Ayuda y comentarios" />
 
         <item
             android:id="@+id/nav_configuracion"
             android:icon="@drawable/ic_menu_manage"
-            android:title="@string/btnConfiguracion" />
+            android:title="Configuraciones" />
 
         <item
-            android:id = "@+id/nav_grafica"
-            android:icon ="@drawable/add"
-            android:title = "Ejemplo grafica" />
-
-        <item
-            android:id = "@+id/nav_registro"
-            android:icon ="@drawable/add"
-            android:title = "Registro de inicio" />
-
-
+            android:id="@+id/nav_salir"
+            android:icon="@drawable/exit"
+            android:title="Salir" />
 
     </group>
 

@@ -84,24 +84,30 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
 
         }
 
-        if (id == R.id.nav_configuracion)
-        {
-            fragment = 0;
-            Intent ajustes = new Intent(MainActivity.this, Ajustes.class );
-            startActivity(ajustes);
+        if(id == R.id.nav_curvas_nivel )
+        {   String[] a= {};
+            carga_fragment(a, "Curvas_nivel");
         }
 
-        if(id == R.id.nav_grafica )
-        {
-            Intent grafica = new Intent(MainActivity.this, test_graphis.class );
-            startActivity(grafica);
+        if(id == R.id.nav_curvas_horizontales )
+        {   String[] a= {};
+            carga_fragment(a, "Curvas_h");
         }
 
-        if(id == R.id.nav_registro)
-        {
-            Intent registro = new Intent ( getApplicationContext(), registro_usuarios.class);
-            startActivity(registro);
+        if(id == R.id.nav_agrimensura )
+        {   String[] a= {};
+            carga_fragment(a, "Agri");
         }
+
+        if(id == R.id.nav_curvas_verticales )
+        {   String[] a= {};
+            carga_fragment(a, "Curvas_v");
+        }
+
+
+
+
+
 
         if(id == R.id.nav_comentarios)
         {
@@ -111,8 +117,21 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
 
         if(id == R.id.nav_Acerca)
         {
-            Intent ayuda = new Intent (MainActivity.this, acerca.class);
-            startActivity(ayuda);
+            Intent acer = new Intent (MainActivity.this, acerca.class);
+            startActivity(acer);
+        }
+
+        if (id == R.id.nav_configuracion)
+        {
+            fragment = 0;
+            Intent ajustes = new Intent(MainActivity.this, Ajustes.class );
+            startActivity(ajustes);
+        }
+
+        if(id == R.id.nav_salir)
+        {
+            Intent registro = new Intent ( getApplicationContext(), registro_usuarios.class);
+            startActivity(registro);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -124,17 +143,16 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
     {
 
         String ya_llego[] =filtrar_archivos(".nd").toArray(new String[0]);
-        carga_fragment(ya_llego, true, true);
+        carga_fragment(ya_llego, "n_dife");
         bandera_archivo =".nd";
     }
 
-    public void carga_fragment(String [] ya_llego, Boolean nom, Boolean im)
+    public void carga_fragment(String [] ya_llego, String im)
     {
         FragmentManager fragmentManager = getSupportFragmentManager();
         Bundle bundle = new Bundle();
         bundle.putStringArray("lista", ya_llego );
-        bundle.putBoolean("nombre", nom );
-        bundle.putBoolean("imagen", im );
+        bundle.putString("nombre", im );
         fragment_proyectos fragInfo = new fragment_proyectos();
         fragmentManager.beginTransaction().replace(R.id.content_frame,fragInfo).commit();
         fragInfo.setArguments(bundle);
@@ -143,7 +161,7 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
     public void fragment_nivelacion_perfil()
     {
         String ya_llego[] =filtrar_archivos(".np").toArray(new String[0]);
-        carga_fragment(ya_llego, false, false);
+        carga_fragment(ya_llego, "n_perfil");
         bandera_archivo =".np";
     }
 

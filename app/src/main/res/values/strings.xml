@@ -2,11 +2,7 @@
     <string name="lblPerfil">Nivelación de perfil</string>
     <string name="lblDiferencial">Nivelación diferencial</string>
     <string name="app_name">Preview Place</string>
-    <string name="lblInicio">Inicio de sesión</string>
     <string name="btnDiferencial">Nivelación diferencial</string>
-    <string name="btnConfiguracion">Configuración</string>
-    <string name="btnTema">Tema</string>
-    <string name="btnIdioma">Idioma</string>
     <string name="btnAyuda">Ayuda y comentarios</string>
     <string name="btnAcerca">Acerca de Preview Place</string>
     <string name="swContraseña">Contraseña de aplicación</string>
@@ -18,7 +14,6 @@
     <string name="lblpv">Punto visado (P.V.)</string>
     <string name="lblmas">Val. Positivo (+)</string>
     <string name="lblmenos">Val. Negativo (-)</string>
-    <string name="lblOpciones">Opciones</string>
     <string name="itmAgregar">Agregar</string>
     <string name="itmEditar">Editar</string>
     <string name="itmEliminar">Eliminar (Ultimo agregado)</string>
@@ -31,12 +26,9 @@
     <string name="slPl">Punto de liga</string>
     <string name="slCadenamiento">Cadenamiento</string>
     <string name="add_title">Seleccione una opción</string>
-    <string name="edit_title">Selecione punto visado a editar</string>
     <string name="lblAtras">Lectura de atras</string>
     <string name="lblAdelante">Lectura de adelante</string>
     <string name="lblCotaI">Cota inicial</string>
-    <string name="btnAceptar">Aceptar</string>
-    <string name="btnCancelar">Cancelar</string>
     <string name="msgFloat">Solo se aceptan numeros</string>
     <string name="msgFaltaBN1">No se ha agregado BN1 o ya se agrego un final</string>
     <string name="msgJuntos">No puede haber dos bancos de nivel juntos</string>
@@ -52,12 +44,10 @@
     <string name="ndDesnivel">Desnivel: </string>
     <string name="btnGuardar">Guardar</string>
     <string name="btnCompartir">Compartir</string>
-    <string name="btnImprimir">Imprimir</string>
     <string name="btnCerrar">Cerrar</string>
     <string name="btnExportar">PDF</string>
     <string name="ndResultadop">Sumatoria positiva: </string>
     <string name="ndResultadon">Sumatoria negativa: </string>
-    <string name="nosotros">Generado por PreviewPlace</string>
     <string name="msjEnviar">Compartir en</string>
     <string name="msjPdf">No se ha podido generar PDF</string>
     <string name="msjSPDF">No se ha podido compartir PDF</string>
@@ -70,7 +60,6 @@
     <string name="msjError_sistema">Algo ha salido mal</string>
     <string name="msjMemoria">La memoria no esta disponible o es de solo lectura</string>
     <string name="msjGuardar">Los datos se han guardado correctamente</string>
-    <string name="msjError_nombre">Nombre de archivo no valido</string>
     <string name="msjError_nombre2">Error: Nombre de archivo no invalido o archivo existente</string>
     <string name="btnAbrir">Abrir</string>
     <string name="msjError_abrir">Error al intentar abrir</string>
@@ -107,12 +96,6 @@
 
     <string name="lbl_acerca_name">Acerca de PreviewPlace</string>
     <string name="lbl_acerca_name_dos">Como surge PreviewPlace</string>
-    <string name="lbl_acerca_name_tres">PreviewPlace surge del producto de un equipo de trabajo preocupado por los trabajos
-topográficos, en la actualidad se cuenta con herramientas de grandes capacidades a nuestra disposición (tales como: teléfonos, tabletas, smartphone, etc…)
-y es por ello que es necesario hacer uso de ellos de la manera adecuada. Visto desde esta perspectiva, Un grupo de estudiantes se
-    dedicó a trabajar en el análisis de cálculos matemáticos y en el desarrollo de esta aplicación.
-
-    </string>
     <string name="lbl_acerca_name_cuatro">Beneficios PreviewPlace</string>
 
     <string name="lbl_acerca_name_cinco">

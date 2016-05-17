@@ -25,7 +25,7 @@ public class fragment_proyectos extends Fragment
 
     ImageView el_icono;
     TextView nombre_icono;
-    Boolean texto, icono;
+    String nombre_activi;
 
     public interface PasoParametros
     {
@@ -46,31 +46,50 @@ public class fragment_proyectos extends Fragment
         miVista = inflater.inflate(R.layout.fragment_proyectos,container,false);
         try {
 
-            // Defined Array values to show in ListView
-            la_lista = (ListView) miVista.findViewById(R.id.lstProjectos);
-            String[] valores =  this.getArguments().getStringArray("lista");
-             texto =  this.getArguments().getBoolean("nombre");
-             icono =  this.getArguments().getBoolean("imagen");
+             // Defined Array values to show in ListView
+             la_lista = (ListView) miVista.findViewById(R.id.lstProjectos);
+             String[] valores =  this.getArguments().getStringArray("lista");
+             nombre_activi =  this.getArguments().getString("nombre");
 
-            nombre_icono = (TextView) miVista.findViewById(R.id.wapo);
-            el_icono = (ImageView) miVista.findViewById(R.id.imageView4);
+             nombre_icono = (TextView) miVista.findViewById(R.id.wapo);
+             el_icono = (ImageView) miVista.findViewById(R.id.imageView4);
 
-        String atras= nombre_icono.getText().toString();
-                 // Toast.makeText(miVista.getContext(),atras +" DIFERENCIAL",Toast.LENGTH_LONG).show();
+            //Toast.makeText(miVista.getContext(), " DIFERENCIAL"+nombre_activi,Toast.LENGTH_LONG).show();
 
-
-            if (texto && icono )
+            if (nombre_activi.equals("n_dife") )
             {
                 el_icono.setImageResource(R.drawable.niv_dif);
-
                 nombre_icono.setText(String.valueOf("Nivelacion diferecial"));
-                //Toast.makeText(miVista.getContext(),"viene de  niv DIFERENCIAL",Toast.LENGTH_LONG).show();
             }
-            else
+            else  if (nombre_activi.equals("n_perfil") )
             {
+                el_icono.setImageResource(R.drawable.perfil);
                 nombre_icono.setText(String.valueOf("Nivelacion de perfil"));
-                //Toast.makeText(miVista.getContext(),"viene de  niv perfil",Toast.LENGTH_LONG).show();
             }
+            else  if (nombre_activi.equals("Curvas_nivel") )
+            {
+                el_icono.setImageResource(R.drawable.nivel);
+                nombre_icono.setText(String.valueOf("Curvas de nivel"));
+            }
+            else  if (nombre_activi.equals("Curvas_h") )
+            {
+                el_icono.setImageResource(R.drawable.horizontal);
+                nombre_icono.setText(String.valueOf("Curvas horizontales"));
+            }
+            else  if (nombre_activi.equals("Agri") )
+            {
+                el_icono.setImageResource(R.drawable.agrime);
+                nombre_icono.setText(String.valueOf("Agrimensura"));
+            }
+            else  if (nombre_activi.equals("Curvas_v") )
+            {
+                el_icono.setImageResource(R.drawable.verticales);
+                nombre_icono.setText(String.valueOf("Curvas verticales"));
+            }
+
+
+
+
 
 
             ArrayAdapter<String> contenedor = new ArrayAdapter<String>(miVista.getContext(), android.R.layout.simple_list_item_1, android.R.id.text1, valores);
