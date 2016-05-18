@@ -18,7 +18,7 @@
         <activity
             android:name=".registro_usuarios"
             android:configChanges="screenSize|orientation"
-            android:label="PREVIE WPLACE">
+            android:label="PREVIEWPLACE">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

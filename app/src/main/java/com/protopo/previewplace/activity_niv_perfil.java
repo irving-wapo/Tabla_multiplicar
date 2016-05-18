@@ -40,6 +40,8 @@ import com.androidplot.xy.BoundaryMode;
 import com.androidplot.xy.LineAndPointFormatter;
 import com.androidplot.xy.SimpleXYSeries;
 import com.androidplot.xy.XYPlot;
+import com.itextpdf.awt.geom.CubicCurve2D;
+
 import com.itextpdf.awt.geom.misc.RenderingHints;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -86,7 +88,6 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
     private SimpleXYSeries[] series = null;
     private PointF minXY;
     private PointF maxXY;
-    //****************** DE MI GRAFICA ***********
     //  --------------   ESTADOS DE TOUCHES ----------
     static final int NONE = 0;
     static final int ONE_FINGER_DRAG = 1;
@@ -97,6 +98,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
     float distBetweenFingers;
     boolean stopThread = false;
     // -----------------------------------------------
+    //****************** DE MI GRAFICA ***********
     //Metodos de la clase
     //carga menu de opciones
     @Override
@@ -230,12 +232,14 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         mySimpleXYPlot.redraw();
     }
 
-
     private void populateSeries(SimpleXYSeries series)
     {
-        for(int i = 0; i < Datos1.length -1; i++)
+        for(int i = 0; i <  lista_double_x.size(); /* Datos1.length -1;*/ i++)
         {
-            series.addLast( Datos1[i], Datos2[i]);
+
+            series.addLast(lista_double_x.get(i), lista_double_y.get(i) );
+            //series.addLast( Datos1[i], Datos2[i]);
+            Toast.makeText(getApplicationContext(), "En la grafica X: "+ lista_double_x.get(i)+"    Y: "+ lista_double_y.get(i), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -353,6 +357,80 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         TbH.addTab(tab1); //añadimos los tabs ya programados
         TbH.addTab(tab2);
     }
+
+    ArrayList<String> las_x = new ArrayList<String>();
+    ArrayList<String> las_y = new ArrayList<String>();
+
+    public void sacame_xy_plis()
+    {
+        //*********************inicialice *********
+        las_x.clear();
+        las_y.clear();
+    try {
+    if (elementos.size() > 1)
+    {
+        String vec_1[] = elementos.get(1);
+        las_x.add("0");
+        las_y.add(vec_1[4]);
+
+
+        for (int i = 1; i < elementos.size(); i++)    // FOR DE TODOS QUE SACA TODOS LOS VALORES DE 'ELEMENTOS'
+        {
+            String kilometro = "", metros = "";
+            Boolean bandera = true;
+            String vec[] = elementos.get(i);
+
+
+            String cadena_x = vec[0];
+            if (Character.isDigit(cadena_x.charAt(0))) {
+                for (int j = 0; j < cadena_x.length(); j++) {
+                    if (cadena_x.charAt(j) == '+') {
+                        bandera = false;
+                    }
+
+                    if (bandera) {
+                        kilometro += cadena_x.charAt(j);
+                    }
+
+                    if (!bandera) {
+                        if (cadena_x.charAt(j) == '+') {
+                        } else {
+
+                            metros += cadena_x.charAt(j);
+                        }
+                    }
+                }
+
+                String texto = "";
+                texto += kilometro += metros;
+                las_x.add(texto);
+                las_y.add(vec[4]);
+            }
+        }
+    }
+        }catch (Exception Ex) {}
+    }
+
+
+
+
+    ArrayList<Double> lista_double_x = new ArrayList<Double>();
+    ArrayList<Double> lista_double_y = new ArrayList<Double>();
+
+
+    public  void mustrame_lasx()
+    {
+        for(int i =0; i<las_y.size(); i++ )
+        {
+            //String  a =  las_x.get(i);
+            lista_double_x.add( Double.parseDouble(las_x.get(i)) );
+
+            lista_double_y.add( Double.parseDouble(las_y.get(i)) );
+
+        }
+
+    }
+
     //Metodos de operaciones
     private void guardar() //guarda l archivo   "archivo.np"
     {
@@ -459,6 +537,8 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         return r;
     }
 
+
+
     // Generar captura de la grafica
     public static Bitmap getBitmapFromView(View view) {
         //Define a bitmap with the same size as the view
@@ -503,6 +583,8 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         return Bitmap.createBitmap(mBitmap, 0, 0, width, height, matrix, false);
     }
     //agregar contenido al pdf
+
+
     private void addContent(Document document)
     {
         try
@@ -557,6 +639,9 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
             document.add(imagen);
             } catch (Exception e) { e.printStackTrace();  }
     }
+
+
+
     //metodo para abrir un pdf con un intent
     private void abrir_pdf(String path) {
         if (estado()) {
@@ -577,6 +662,8 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         }
     }
     //metodo que carga datos desde archivo
+
+
     private void cargar()
     {
         String nombre_arch = archivoNombre;
@@ -598,6 +685,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
             Toast.makeText(getApplicationContext(), R.string.msjError_sistema, Toast.LENGTH_SHORT).show();
         }
     }
+
     //metodo que lee el archivo
     public void leeFichero(BufferedReader br) throws IOException
     {
@@ -623,6 +711,8 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         }
         pl=pl_c;
     }
+
+
     //metodo agregar fila de banco de nivel 1
     private void filaBN1(String [] temp)
     {
@@ -729,6 +819,9 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         {
             Toast.makeText(getApplicationContext(),R.string.msjError_tipos,Toast.LENGTH_SHORT).show();
         }
+        sacame_xy_plis();
+        mustrame_lasx();
+
 
     }
     public void valores()
@@ -958,8 +1051,22 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
     //Dialogo de datos al agregar un punto de cadenamiento
     @Override
     public void cadenamientoPositiveClick(DialogFragment dialog, int valor, int valor1, double valor2) {
+
+        String copia_m="", copia_kilo="";
+
+        if(valor1 < 10)
+        { copia_m  += "00" + valor1; }
+        else if(valor1 < 100)
+        { copia_m  += "0" + valor1; }
+
+        if(valor < 10)
+        { copia_kilo  += "00" + valor; }
+        else if(valor < 100)
+        { copia_kilo  += "0" + valor; }
+
+
         String[] temp = new String[5];
-        temp[0] = valor+"+"+valor1;
+        temp[0] = copia_kilo+"+"+copia_m;
         temp[1] = null;
         temp[2] = null;
         temp[3] = dos(valor2);

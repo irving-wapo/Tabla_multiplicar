@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
         {
             fragment = 2;
             fragment_nivelacion_perfil();
-
         }
 
         if(id == R.id.nav_curvas_nivel )
@@ -103,11 +102,6 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
         {   String[] a= {};
             carga_fragment(a, "Curvas_v");
         }
-
-
-
-
-
 
         if(id == R.id.nav_comentarios)
         {

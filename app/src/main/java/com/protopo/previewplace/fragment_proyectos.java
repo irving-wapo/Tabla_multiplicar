@@ -51,10 +51,9 @@ public class fragment_proyectos extends Fragment
              String[] valores =  this.getArguments().getStringArray("lista");
              nombre_activi =  this.getArguments().getString("nombre");
 
-             nombre_icono = (TextView) miVista.findViewById(R.id.wapo);
+             nombre_icono = (TextView) miVista.findViewById(R.id.textView16);
              el_icono = (ImageView) miVista.findViewById(R.id.imageView4);
 
-            //Toast.makeText(miVista.getContext(), " DIFERENCIAL"+nombre_activi,Toast.LENGTH_LONG).show();
 
             if (nombre_activi.equals("n_dife") )
             {
@@ -70,26 +69,26 @@ public class fragment_proyectos extends Fragment
             {
                 el_icono.setImageResource(R.drawable.nivel);
                 nombre_icono.setText(String.valueOf("Curvas de nivel"));
+                Toast.makeText(miVista.getContext(), "AREA EN DESARROLLO.",Toast.LENGTH_LONG).show();
             }
             else  if (nombre_activi.equals("Curvas_h") )
             {
                 el_icono.setImageResource(R.drawable.horizontal);
                 nombre_icono.setText(String.valueOf("Curvas horizontales"));
+                Toast.makeText(miVista.getContext(), "AREA EN DESARROLLO.",Toast.LENGTH_LONG).show();
             }
             else  if (nombre_activi.equals("Agri") )
             {
                 el_icono.setImageResource(R.drawable.agrime);
                 nombre_icono.setText(String.valueOf("Agrimensura"));
+                Toast.makeText(miVista.getContext(), "AREA EN DESARROLLO.",Toast.LENGTH_LONG).show();
             }
             else  if (nombre_activi.equals("Curvas_v") )
             {
                 el_icono.setImageResource(R.drawable.verticales);
                 nombre_icono.setText(String.valueOf("Curvas verticales"));
+                Toast.makeText(miVista.getContext(), "AREA EN DESARROLLO.",Toast.LENGTH_LONG).show();
             }
-
-
-
-
 
 
             ArrayAdapter<String> contenedor = new ArrayAdapter<String>(miVista.getContext(), android.R.layout.simple_list_item_1, android.R.id.text1, valores);
@@ -108,7 +107,6 @@ public class fragment_proyectos extends Fragment
                         itemValue = st.nextToken();
                         extencion = st.nextToken();
                     }
-
                     if(extencion.equals("nd"))
                         { abrir_niv_dif(false,itemValue); }
 
@@ -136,22 +134,12 @@ public class fragment_proyectos extends Fragment
                     return true;
                 }
             });
-
         }catch (Exception e)  { Toast.makeText(miVista.getContext(),R.string.msjError_cargando,Toast.LENGTH_LONG).show(); }
-
-        try {
-           // String atras = nombre_icono.getText().toString();
-        }catch (Exception Ex)
-        {
-            Toast.makeText(miVista.getContext(),Ex.toString() +" DIFERENCIAL",Toast.LENGTH_LONG).show();
-        }
-//            Toast.makeText(miVista.getContext(),atras +" DIFERENCIAL",Toast.LENGTH_LONG).show();
-        return miVista;
+    return miVista;
     }
 
     private void abrir_niv_dif(Boolean estado, String nombre)
     {
-        logos();
         String nombreArchivo =  nombre;
         try
         {
@@ -168,7 +156,6 @@ public class fragment_proyectos extends Fragment
 
     private void abrir_niv_perfil(Boolean estado, String nombre)
     {
-        logos();
         String nombreArchivo =  nombre;
         try
         {
@@ -182,13 +169,6 @@ public class fragment_proyectos extends Fragment
             }
         }
         catch(Exception ex) {Toast.makeText(miVista.getContext(),R.string.msjError_abrir,Toast.LENGTH_LONG).show(); }
-    }
-
-    public  void logos()
-    {
-
-//        String atras= nombre_icono.getText().toString();
-  //      Toast.makeText(miVista.getContext(),atras +" DIFERENCIAL",Toast.LENGTH_LONG).show();
     }
 
 }
