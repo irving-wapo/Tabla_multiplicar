@@ -4,8 +4,13 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.PointF;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
@@ -15,6 +20,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.GestureDetector;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -23,6 +29,7 @@ import android.view.View;
 import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.NumberPicker;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TabHost;
 import android.widget.TableLayout;
@@ -33,13 +40,18 @@ import com.androidplot.xy.BoundaryMode;
 import com.androidplot.xy.LineAndPointFormatter;
 import com.androidplot.xy.SimpleXYSeries;
 import com.androidplot.xy.XYPlot;
+import com.itextpdf.awt.geom.misc.RenderingHints;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -71,7 +83,6 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
 
     //****************** DE MI GRAFICA ***********
     private XYPlot mySimpleXYPlot;
-    private Button resetButton;
     private SimpleXYSeries[] series = null;
     private PointF minXY;
     private PointF maxXY;
@@ -110,8 +121,6 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_niv_perfil);
-        resetButton = (Button) findViewById(R.id.reset);
-        pestañas();
         tabla = new Tabla(0,getSupportFragmentManager(),this, (TableLayout) findViewById(R.id.tabla_perfil));
         Bundle extras = getIntent().getExtras();
         carga = extras.getBoolean("carga");
@@ -154,6 +163,10 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
 
         //****************** DE MI GRAFICA ***********
         inicializa_grafica();
+        pestañas();
+
+
+
 
     }
     // step 3: override dispatchTouchEvent()
@@ -209,7 +222,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         maxXY = new PointF(mySimpleXYPlot.getCalculatedMaxX().floatValue(), mySimpleXYPlot.getCalculatedMaxY().floatValue());
     }
 
-    public  void regresamela_como_estaba_plis(View view)
+    public void regresamela_como_estaba_plis()
     {
         minXY.x = series[0].getX(0).floatValue();
         maxXY.x = series[3].getX(series[3].size() - 1).floatValue();
@@ -331,17 +344,12 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
     {
         TbH = (TabHost) findViewById(R.id.tabHost); //llamamos al Tabhost
         TbH.setup();                                                         //lo activamos
-
         TabHost.TabSpec tab1 = TbH.newTabSpec("tab1");  //aspectos de cada Tab (pestaña)
         TabHost.TabSpec tab2 = TbH.newTabSpec("tab2");
-
         tab1.setIndicator(getString(R.string.lbltabla));    //qué queremos que aparezca en las pestañas
         tab1.setContent(R.id.lnlTabla); //definimos el id de cada Tab (pestaña)
-
-
         tab2.setIndicator(getString(R.string.lblGrafica));
         tab2.setContent(R.id.lnlGrafica);
-
         TbH.addTab(tab1); //añadimos los tabs ya programados
         TbH.addTab(tab2);
     }
@@ -433,6 +441,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         return ret;
 
     }
+    // Estado de la memoria externa
     private boolean estado() {
         boolean r = false;
 
@@ -449,10 +458,70 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         }
         return r;
     }
+
+    // Generar captura de la grafica
+    public static Bitmap getBitmapFromView(View view) {
+        //Define a bitmap with the same size as the view
+        Bitmap returnedBitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(),Bitmap.Config.ARGB_8888);
+        //Bind a canvas to it
+        Canvas canvas = new Canvas(returnedBitmap);
+        //Get the view's background
+        Drawable bgDrawable =view.getBackground();
+        if (bgDrawable!=null)
+            //has background drawable, then draw it on the canvas
+            bgDrawable.draw(canvas);
+        else
+            //does not have background drawable, then draw white background on the canvas
+            canvas.drawColor(Color.WHITE);
+        // draw the view on the canvas
+        view.draw(canvas);
+        //return the bitmap
+        return returnedBitmap;
+    }
+
+    private Bitmap obtener_captura()
+    {
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+        RelativeLayout root = (RelativeLayout) inflater.inflate(R.layout.activity_niv_perfil, null); // activity_main is UI(xml) file we used in our Activity class. FrameLayout is root view of my UI(xml) file.
+        root.setDrawingCacheEnabled(true);
+        Bitmap bitmap = getBitmapFromView(this.getWindow().findViewById(R.id.plot)); // here give id of our root layout (here its my FrameLayout's id)
+        root.setDrawingCacheEnabled(false);
+        return bitmap;
+    }
+    //redimensionar imagen
+    public Bitmap redimensionarImagenMaximo(Bitmap mBitmap, float newWidth, float newHeigth){
+        //Redimensionamos
+        int width = mBitmap.getWidth();
+        int height = mBitmap.getHeight();
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeigth) / height;
+        // create a matrix for the manipulation
+        Matrix matrix = new Matrix();
+        // resize the bit map
+        matrix.postScale(scaleWidth, scaleHeight);
+        // recreate the new Bitmap
+        return Bitmap.createBitmap(mBitmap, 0, 0, width, height, matrix, false);
+    }
+    //agregar contenido al pdf
     private void addContent(Document document)
     {
         try
         {
+
+            Bitmap bitmap = obtener_captura();
+            bitmap = redimensionarImagenMaximo(bitmap,530f,300f);
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+            Image imagen = Image.getInstance(stream.toByteArray());
+
+            Bitmap bitmaplog = BitmapFactory.decodeResource(this.getResources(), R.drawable.encabezado);
+            bitmaplog = redimensionarImagenMaximo(bitmaplog,530f,100f);
+            ByteArrayOutputStream streamlog = new ByteArrayOutputStream();
+            bitmaplog.compress(Bitmap.CompressFormat.JPEG, 100, streamlog);
+            Image encabezado = Image.getInstance(streamlog.toByteArray());
+
+            Font font = FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD);
+            Font font2 = FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD);
             PdfPTable tabla = new PdfPTable(5);
             tabla.addCell(getString(R.string.lblpv));
             tabla.addCell(getString(R.string.lblmas));
@@ -472,16 +541,23 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
                 }
 
             }
+            document.add(encabezado);
+            document.add(new Paragraph("\n\n"));
+            document.add(new Paragraph(getString(R.string.lblObra)+" "+getString(R.string.lblObraN),font));
+            document.add(new Paragraph("\n"));
+            document.add(new Paragraph(getString(R.string.lblLocalizacion)+" Tehuacán Puebla, México.",font));
+            document.add(new Paragraph("\n"));
+            document.add(new Paragraph(getString(R.string.lblTipoPdf)+" "+this.getTitle(),font));
+            document.add(new Paragraph("______________________________________________________________________________"));
+            document.add(new Paragraph("\n"));
+            document.add(new Paragraph("                                                 "+getString(R.string.lblPrevisualizacion),font2));
+            document.add(new Paragraph("\n"));
             document.add(tabla);
-            // en caso necesario de tener que agregar texto
-            /*
-            document.add(new Paragraph(getString(R.string.ndResultadop) + sumatoria_p.getText()));
-            document.add(new Paragraph(getString(R.string.ndResultadon) + sumatoria_n.getText()));
-            document.add(new Paragraph(getString(R.string.ndDesnivel) + Desnivel.getText()));
-            */
-
-        } catch (Exception e) { e.printStackTrace();  }
+            document.add(new Paragraph("\n"));
+            document.add(imagen);
+            } catch (Exception e) { e.printStackTrace();  }
     }
+    //metodo para abrir un pdf con un intent
     private void abrir_pdf(String path) {
         if (estado()) {
             try {
@@ -500,6 +576,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
             Toast.makeText(getApplicationContext(), R.string.msjMemoria, Toast.LENGTH_SHORT).show();
         }
     }
+    //metodo que carga datos desde archivo
     private void cargar()
     {
         String nombre_arch = archivoNombre;
@@ -521,6 +598,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
             Toast.makeText(getApplicationContext(), R.string.msjError_sistema, Toast.LENGTH_SHORT).show();
         }
     }
+    //metodo que lee el archivo
     public void leeFichero(BufferedReader br) throws IOException
     {
         //Leemos el fichero
@@ -545,6 +623,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         }
         pl=pl_c;
     }
+    //metodo agregar fila de banco de nivel 1
     private void filaBN1(String [] temp)
     {
         if(elementos.isEmpty())

@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.protopo.previewplace.activity_niv_perfil">
+    tools:context="com.protopo.previewplace.activity_niv_perfil"
+    android:id="@+id/RelativeLayoutPerfil">
 
     <TabHost
         android:layout_width="match_parent"
@@ -129,13 +130,6 @@
                         android:layout_weight="1"
                         android:layout_gravity="left|right"
                         android:background="@color/White" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Reiniciar"
-                        android:id="@+id/reset"
-                        android:onClick="regresamela_como_estaba_plis" />
 
                 </LinearLayout>
             </FrameLayout>

@@ -2,6 +2,9 @@ package com.protopo.previewplace;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.v4.app.DialogFragment;
@@ -22,10 +25,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -328,12 +335,33 @@ public class niv_dif_cont extends AppCompatActivity implements menu_agregar_dif.
         pl=pl_c;
     }
     //*********************************************    A R C H I V O S    **********************************************************
-
-
+    //redimensionar imagen
+    public Bitmap redimensionarImagenMaximo(Bitmap mBitmap, float newWidth, float newHeigth){
+        //Redimensionamos
+        int width = mBitmap.getWidth();
+        int height = mBitmap.getHeight();
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeigth) / height;
+        // create a matrix for the manipulation
+        Matrix matrix = new Matrix();
+        // resize the bit map
+        matrix.postScale(scaleWidth, scaleHeight);
+        // recreate the new Bitmap
+        return Bitmap.createBitmap(mBitmap, 0, 0, width, height, matrix, false);
+    }
+    //agregar contenido al pdf
     private void addContent(Document document)
     {
         try
         {
+
+            Bitmap bitmaplog = BitmapFactory.decodeResource(this.getResources(), R.drawable.encabezado);
+            bitmaplog = redimensionarImagenMaximo(bitmaplog,530f,100f);
+            ByteArrayOutputStream streamlog = new ByteArrayOutputStream();
+            bitmaplog.compress(Bitmap.CompressFormat.JPEG, 100, streamlog);
+            Image encabezado = Image.getInstance(streamlog.toByteArray());
+            Font font = FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD);
+            Font font2 = FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD);
             PdfPTable tabla = new PdfPTable(3);
             tabla.addCell(getString(R.string.lblpv));
             tabla.addCell(getString(R.string.lblmas));
@@ -350,13 +378,24 @@ public class niv_dif_cont extends AppCompatActivity implements menu_agregar_dif.
                         tabla.addCell(""+a[j]);
                 }
             }
-
+            document.add(encabezado);
+            document.add(new Paragraph("\n\n"));
+            document.add(new Paragraph(getString(R.string.lblObra)+" "+getString(R.string.lblObraN),font));
+            document.add(new Paragraph("\n"));
+            document.add(new Paragraph(getString(R.string.lblLocalizacion)+" Tehuacán Puebla, México.",font));
+            document.add(new Paragraph("\n"));
+            document.add(new Paragraph(getString(R.string.lblTipoPdf)+" "+this.getTitle(),font));
+            document.add(new Paragraph("______________________________________________________________________________"));
+            document.add(new Paragraph("\n"));
+            document.add(new Paragraph("                                                 "+getString(R.string.lblPrevisualizacion),font2));
+            document.add(new Paragraph("\n"));
             document.add(tabla);
-            document.add(new Paragraph(getString(R.string.ndResultadop) + sumatoria_p.getText()));
-            document.add(new Paragraph(getString(R.string.ndResultadon) + sumatoria_n.getText()));
-            document.add(new Paragraph(getString(R.string.ndDesnivel) + Desnivel.getText()));
+            document.add(new Paragraph("\n\n\n"));
+            document.add(new Paragraph("              "+getString(R.string.ndResultadop) + sumatoria_p.getText()));
+            document.add(new Paragraph("              "+getString(R.string.ndResultadon) + sumatoria_n.getText()));
+            document.add(new Paragraph("              "+getString(R.string.ndDesnivel) + Desnivel.getText()));
 
-        } catch (DocumentException e) { e.printStackTrace();  }
+        } catch (Exception e) { e.printStackTrace();  }
     }
 
 

@@ -116,5 +116,10 @@
     </string>
     <string name="lbl_comentarios_name">Ayuda y comentarios</string>
     <string name="lbl_ajustes_name">Configuraciones</string>
+    <string name="lblObra">OBRA: </string>
+    <string name="lblLocalizacion">LOCALIZACIÓN: </string>
+    <string name="lblPrevisualizacion">PREVISUALIZACIÓN</string>
+    <string name="lblObraN">Pesentación en evento de inovación.</string>
+    <string name="lblTipoPdf">Tipo de calculo: </string>
 
 </resources>
