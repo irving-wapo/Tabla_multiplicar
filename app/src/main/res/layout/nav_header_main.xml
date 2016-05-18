@@ -10,9 +10,10 @@
 
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="175dp"
+        android:layout_width="420dp"
+        android:layout_height="204dp"
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/descarga" />
+        android:src="@drawable/imagenmenu"
+        android:cropToPadding="false" />
 </LinearLayout>

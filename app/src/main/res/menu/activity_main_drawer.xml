@@ -5,42 +5,42 @@
 
         <item
             android:id="@+id/nav_nivelacion"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/dife"
             android:title="@string/btnDiferencial" />
 
         <item
             android:id = "@+id/nav_nivelacion_perfil"
-            android:icon ="@drawable/ic_menu_camera"
+            android:icon ="@drawable/perf"
             android:title = "Nivelacion de perfil" />
 
         <item
             android:id="@+id/nav_curvas_nivel"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/curvas"
             android:title="Curvas de nivel" />
 
         <item
             android:id = "@+id/nav_curvas_horizontales"
-            android:icon ="@drawable/ic_menu_camera"
+            android:icon ="@drawable/horizon"
             android:title = "Curvas horizontales" />
 
         <item
             android:id = "@+id/nav_agrimensura"
-            android:icon ="@drawable/ic_menu_camera"
+            android:icon ="@drawable/agrimen"
             android:title = "Agrimensura" />
 
         <item
             android:id = "@+id/nav_curvas_verticales"
-            android:icon ="@drawable/ic_menu_camera"
+            android:icon ="@drawable/vertica"
             android:title = "Curvas verticales" />
 
         <item
             android:id = "@+id/nav_Acerca"
-            android:icon ="@drawable/add"
+            android:icon ="@drawable/acer"
             android:title = "Acerca de PreviwPlace" />
 
         <item
             android:id = "@+id/nav_comentarios"
-            android:icon ="@drawable/add"
+            android:icon ="@drawable/info"
             android:title = "Ayuda y comentarios" />
 
         <item
