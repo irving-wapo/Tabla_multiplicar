@@ -33,6 +33,7 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TabHost;
 import android.widget.TableLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidplot.Plot;
@@ -362,6 +363,23 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         tab2.setContent(R.id.lnlGrafica);
         TbH.addTab(tab1); //añadimos los tabs ya programados
         TbH.addTab(tab2);
+        TextView tv = (TextView) TbH.getCurrentTabView().findViewById(android.R.id.title); //for Selected Tab
+        tv.setTextColor(Color.parseColor("#ffffff"));
+        TbH.setOnTabChangedListener(new TabHost.OnTabChangeListener()
+        {
+
+            @Override
+            public void onTabChanged(String tabId) {
+
+                for (int i = 0; i < TbH.getTabWidget().getChildCount(); i++) {
+                    TextView tv = (TextView) TbH.getTabWidget().getChildAt(i).findViewById(android.R.id.title); //Unselected Tabs
+                    tv.setTextColor(Color.parseColor("#000000"));
+                }
+                TextView tv = (TextView) TbH.getCurrentTabView().findViewById(android.R.id.title); //for Selected Tab
+                tv.setTextColor(Color.parseColor("#ffffff"));
+
+            }
+        });
     }
 
     ArrayList<String> las_x = new ArrayList<String>();

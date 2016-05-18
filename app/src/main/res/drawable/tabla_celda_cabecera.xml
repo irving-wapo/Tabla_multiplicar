@@ -5,7 +5,7 @@
         android:color="@color/blanco" />
     <!--Configuración del fondo-->
     <solid
-        android:color="@color/azulclaro"/>
+        android:color="@color/LightSeaGreen"/>
     <padding
         android:left="10dp"
         android:top="10dp"
