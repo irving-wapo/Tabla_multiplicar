@@ -197,10 +197,11 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
     }
 
     //*******************************   G  R  A  F  I  C  A   ************************************
-    public void inicializa_grafica(View view )
+    /*public void inicializa_grafica(View view )
     {
         llamar_init();
     }
+    */
 
     public void llamar_init()
     {
@@ -356,7 +357,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         TbH = (TabHost) findViewById(R.id.tabHost); //llamamos al Tabhost
         TbH.setup();                                                         //lo activamos
         TabHost.TabSpec tab1 = TbH.newTabSpec("tab1");  //aspectos de cada Tab (pestaña)
-        TabHost.TabSpec tab2 = TbH.newTabSpec("tab2");
+        final TabHost.TabSpec tab2 = TbH.newTabSpec("tab2");
         tab1.setIndicator(getString(R.string.lbltabla));    //qué queremos que aparezca en las pestañas
         tab1.setContent(R.id.lnlTabla); //definimos el id de cada Tab (pestaña)
         tab2.setIndicator(getString(R.string.lblGrafica));
@@ -374,9 +375,13 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
                 for (int i = 0; i < TbH.getTabWidget().getChildCount(); i++) {
                     TextView tv = (TextView) TbH.getTabWidget().getChildAt(i).findViewById(android.R.id.title); //Unselected Tabs
                     tv.setTextColor(Color.parseColor("#000000"));
+
                 }
                 TextView tv = (TextView) TbH.getCurrentTabView().findViewById(android.R.id.title); //for Selected Tab
                 tv.setTextColor(Color.parseColor("#ffffff"));
+                mySimpleXYPlot=null;
+                llamar_init();
+                regresamela_como_estaba_plis();
 
             }
         });
@@ -840,8 +845,6 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         }
         sacame_xy_plis();
         mustrame_lasx();
-
-
     }
     public void valores()
     {
