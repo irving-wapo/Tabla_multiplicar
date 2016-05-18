@@ -7,7 +7,7 @@
     <string name="btnTema">Tema</string>
     <string name="btnIdioma">Idioma</string>
     <string name="btnAyuda">Ayuda y comentarios</string>
-    <string name="btnAcerca">Acerca de Preview Place</string>
+    <string name="btnAcerca">Acerca de PREVIEWPLACE</string>
     <string name="swContraseña">Contraseña de aplicación</string>
     <string name="lblSeguridad">Seguridad</string>
     <string name="lblPersonalización">Personalización (Temas de pantalla)</string>
@@ -87,13 +87,13 @@
     Es muy fácil solamente tienes que abrir PreviewPlace e ir al menú principal, estando hay podrás seleccionar el tema de tu preferencia dar click y ahora ingresar un nombre por ejemplo “carreteras” y a continuación estarás listo para trabajar.
 
     \n\n\n¿Cómo compartir un proyecto a un amigo?\n
-    Al estar trabajando en PreviewPalce  dar click en el menú inferior deslizando el dedo  de abajo hacia arriba y dar click en compartir, a continuación se mostraran las los diferentes maneras de envio de datos.
+    Al estar trabajando en PREVIEWPLACE  dar click en el menú inferior deslizando el dedo  de abajo hacia arriba y dar click en compartir, a continuación se mostraran las los diferentes maneras de envio de datos.
 
     \n\n\n¿Puedo exportar un proyecto a otro formato?\n
-    PreviwPlace ofrece la oportunidad de compartir trabajos por medio de reportes creados en formato PDF, para ello dar click  en PDf en el menú inferior de la aplicación.
+    PREVIEWPLACE ofrece la oportunidad de compartir trabajos por medio de reportes creados en formato PDF, para ello dar click  en PDf en el menú inferior de la aplicación.
     </string>
     <string name="label_acerca_pplace">
-    \nPreviwPlace es un aplicación móvil que busca facilitar trabajos topográficos de gabinete para la optimización de tiempos, capturando, calculando y graficando temas de:
+    \PREVIEWPLACE es un aplicación móvil que busca facilitar trabajos topográficos de gabinete para la optimización de tiempos, capturando, calculando y graficando temas de:
     Nivelación diferencial, nivelacion de perfil, agrimensura, curvas horizontales, curvas de nivel entre otras.
     </string>
 
@@ -102,9 +102,9 @@
 
     <string name="lbl_ayuda_uno">Preguntas Frecuentes </string>
 
-    <string name="lbl_acerca_name">Acerca de PreviewPlace</string>
-    <string name="lbl_acerca_name_dos">Como surge PreviewPlace</string>
-    <string name="lbl_acerca_name_cuatro">Beneficios PreviewPlace</string>
+    <string name="lbl_acerca_name">Acerca de PREVIEWPLACE</string>
+    <string name="lbl_acerca_name_dos">Como surge PREVIEWPLACE</string>
+    <string name="lbl_acerca_name_cuatro">Beneficios PREVIEWPLACE</string>
 
     <string name="lbl_acerca_name_cinco">
         Estos son algunos beneficios de trabajar con PreviewPlace:
@@ -121,5 +121,8 @@
     <string name="lblPrevisualizacion">PREVISUALIZACIÓN</string>
     <string name="lblObraN">Pesentación en evento de inovación.</string>
     <string name="lblTipoPdf">Tipo de calculo: </string>
+    <string name="lblajustes">Verificar ultima version </string>
+    <string name="lblajustes_DOS">Sincronizar dispositivos </string>
+    <string name="lblajustes_TRES">Tamaño de la letra </string>
 
 </resources>

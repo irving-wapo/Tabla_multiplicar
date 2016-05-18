@@ -86,7 +86,8 @@
                     android:layout_alignParentStart="true"
                     android:layout_gravity="center"
                     android:textAlignment="center"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:text="admin" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -113,7 +114,8 @@
                     android:singleLine="false"
                     android:selectAllOnFocus="false"
                     android:textAlignment="center"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:text="1234" />
 
                 <Space
                     android:layout_width="fill_parent"
@@ -133,7 +135,12 @@
                         android:text="Recordarme"
                         android:id="@+id/checkBox"
                         android:background="@color/CadetBlue"
-                        android:layout_gravity="left|center_horizontal" />
+                        android:layout_gravity="left|center_horizontal"
+                        android:singleLine="false"
+                        android:contextClickable="false"
+                        android:elegantTextHeight="false"
+                        android:focusable="false"
+                        android:longClickable="false" />
 
                     <Space
                         android:layout_width="20px"

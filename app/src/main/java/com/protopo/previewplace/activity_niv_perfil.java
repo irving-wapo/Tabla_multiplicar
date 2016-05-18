@@ -80,8 +80,8 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
     GestureDetector gestureDetector ;
 
     //Vectores con valores de la grafica
-    Number[] Datos1 = {0, 2, 8, 20, 40, 60, 80, 94, 100, 120, 137, 140, 148, 160, 180, 186.6, 192, 200, 220, 228.7, 234.6, 240, 242, 253, 256.2, 260, 280, 300, 320, 340, 360, 370, 380, 400, 405, 405, 420, 440, 460, 480, 500, 520, 540, 560, 580, 600, 613.2};
-    Number[] Datos2 = {100, 99.72, 97.29, 96.98, 96.68, 96.44, 95.99, 95.41, 94.89, 94.71, 94.7, 94.27, 93.51, 93.65, 93.69, 93.63, 92.77, 92.74, 92.74, 92.74, 91.85, 91.78, 91.44, 91.45, 90.99, 90.98, 90.94, 90.36, 89.87, 89.71, 89.07, 89.12, 88.62, 88.46, 88.46, 88.32, 87.36, 85.79, 85.47, 85.15, 84.87, 84.72, 84.16, 84.12, 84, 83.79, 82.82};
+    //Number[] Datos1 = {0, 2, 8, 20, 40, 60, 80, 94, 100, 120, 137, 140, 148, 160, 180, 186.6, 192, 200, 220, 228.7, 234.6, 240, 242, 253, 256.2, 260, 280, 300, 320, 340, 360, 370, 380, 400, 405, 405, 420, 440, 460, 480, 500, 520, 540, 560, 580, 600, 613.2};
+    //Number[] Datos2 = {100, 99.72, 97.29, 96.98, 96.68, 96.44, 95.99, 95.41, 94.89, 94.71, 94.7, 94.27, 93.51, 93.65, 93.69, 93.63, 92.77, 92.74, 92.74, 92.74, 91.85, 91.78, 91.44, 91.45, 90.99, 90.98, 90.94, 90.36, 89.87, 89.71, 89.07, 89.12, 88.62, 88.46, 88.46, 88.32, 87.36, 85.79, 85.47, 85.15, 84.87, 84.72, 84.16, 84.12, 84, 83.79, 82.82};
 
     //****************** DE MI GRAFICA ***********
     private XYPlot mySimpleXYPlot;
@@ -164,7 +164,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         }  // LEYENDO ARCHIVO EXISTENTE
 
         //****************** DE MI GRAFICA ***********
-        inicializa_grafica();
+        llamar_init();
         pestañas();
 
 
@@ -196,7 +196,12 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
     }
 
     //*******************************   G  R  A  F  I  C  A   ************************************
-    public void inicializa_grafica()
+    public void inicializa_grafica(View view )
+    {
+        llamar_init();
+    }
+
+    public void llamar_init()
     {
         mySimpleXYPlot = (XYPlot) findViewById(R.id.plot);
         mySimpleXYPlot.setOnTouchListener(this);
@@ -222,7 +227,9 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         mySimpleXYPlot.calculateMinMaxVals();
         minXY = new PointF(mySimpleXYPlot.getCalculatedMinX().floatValue(), mySimpleXYPlot.getCalculatedMinY().floatValue());
         maxXY = new PointF(mySimpleXYPlot.getCalculatedMaxX().floatValue(), mySimpleXYPlot.getCalculatedMaxY().floatValue());
+
     }
+
 
     public void regresamela_como_estaba_plis()
     {
@@ -236,10 +243,9 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
     {
         for(int i = 0; i <  lista_double_x.size(); /* Datos1.length -1;*/ i++)
         {
-
             series.addLast(lista_double_x.get(i), lista_double_y.get(i) );
             //series.addLast( Datos1[i], Datos2[i]);
-            Toast.makeText(getApplicationContext(), "En la grafica X: "+ lista_double_x.get(i)+"    Y: "+ lista_double_y.get(i), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "En la grafica X: "+ lista_double_x.get(i)+"    Y: "+ lista_double_y.get(i), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -417,18 +423,13 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
     ArrayList<Double> lista_double_x = new ArrayList<Double>();
     ArrayList<Double> lista_double_y = new ArrayList<Double>();
 
-
     public  void mustrame_lasx()
     {
         for(int i =0; i<las_y.size(); i++ )
         {
-            //String  a =  las_x.get(i);
             lista_double_x.add( Double.parseDouble(las_x.get(i)) );
-
             lista_double_y.add( Double.parseDouble(las_y.get(i)) );
-
         }
-
     }
 
     //Metodos de operaciones
@@ -1058,11 +1059,16 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         { copia_m  += "00" + valor1; }
         else if(valor1 < 100)
         { copia_m  += "0" + valor1; }
+        else if(valor1 < 999)
+        { copia_m  += valor1; }
+
 
         if(valor < 10)
         { copia_kilo  += "00" + valor; }
         else if(valor < 100)
         { copia_kilo  += "0" + valor; }
+        else if(valor < 999)
+        { copia_kilo  += valor; }
 
 
         String[] temp = new String[5];

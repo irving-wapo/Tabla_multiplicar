@@ -23,7 +23,8 @@
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/YellowGreen"></TabWidget>
+                android:background="@color/YellowGreen"
+                android:onClick="inicializa_grafica"></TabWidget>
 
             <FrameLayout
                 android:id="@android:id/tabcontent"
@@ -129,7 +130,8 @@
                         androidPlot.title="Grafica de Nivelacion de Perfil"
                         android:layout_weight="1"
                         android:layout_gravity="left|right"
-                        android:background="@color/White" />
+                        android:background="@color/White"
+                        android:onClick="inicializa_grafica" />
 
                 </LinearLayout>
             </FrameLayout>
