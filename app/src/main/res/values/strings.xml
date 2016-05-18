@@ -1,7 +1,7 @@
 <resources>
     <string name="lblPerfil">Nivelación de perfil</string>
     <string name="lblDiferencial">Nivelación diferencial</string>
-    <string name="app_name">Preview Place</string>
+    <string name="app_name">PREVIEWPLACE</string>
     <string name="btnDiferencial">Nivelación diferencial</string>
     <string name="btnConfiguracion">Configuración</string>
     <string name="btnTema">Tema</string>
@@ -12,6 +12,7 @@
     <string name="lblSeguridad">Seguridad</string>
     <string name="lblPersonalización">Personalización (Temas de pantalla)</string>
     <string name="lblConfiguración">Configuraciones del sistema</string>
+    <string name="lblConfiguraciónes">Configuraciones</string>
     <string name="item1">Tema 1</string>
     <string name="item2">Tema 2</string>
     <string name="lblpv">Punto visado (P.V.)</string>
@@ -77,6 +78,24 @@
     <string name="lblCota">Cota</string>
     <string name="KM">000 km</string>
     <string name="M">000 m</string>
+    <string name="lbl_salir">Salir</string>
+
+    <string name="label_beneficios">
+    Estos son algunos beneficios de trabajar con PreviewPlace:
+    \n -Apoyo para trabajos topográficos en donde no sea posible trabajar con instrumentos de alta tecnología.
+    \n -Minimiza el tiempo empleado en los cálculos topográficos.
+    \n -Realiza cálculos con precisión.
+    \n -Obtiene una pre-visualización del lugar a describir a través de gráficas dinámicas.
+    \n -Grafica con detalle los cálculos característicos del trabajo topográficos seleccionado por el usuario.
+    \n -Ofrece calidad a la vista por medio de sus gráficas dinámicas.
+    \n -Costo accesible
+    \n -Fácil uso
+    \n -Servicio de control de descargas y soporte
+    \n -
+    \n -
+    </string>
+
+
     <string name="label_preguntas">
     \n¿Que es  nivelación diferencial?\nLa nivelacion de perfil se usa para determinar una línea visual horizontal utilizando un nivel óptico o condensador automático.
     Se usa un anteojo telescópico con una amplificación adecuada para leer estadales graduados, situados sobre puntos fijos.
@@ -99,21 +118,47 @@
 
     <string name="lbltabla">Tabla</string>
     <string name="lblGrafica">Grafica</string>
-
     <string name="lbl_ayuda_uno">Preguntas Frecuentes </string>
 
+
     <string name="lbl_acerca_name">Acerca de PREVIEWPLACE</string>
+    <string name="lbl_acerca_uno">PREGUNTAS FRECUENTES</string>
+    <string name="lbl_acerca_dos"> CONTACTO Y VIDEO DEMO</string>
+
+    <string name="lbl_ayuda_tres"> Comentarios</string>
+    <string name="lbl_ayuda_cuatro"> Video demostrativo</string>
+    <string name="lbl_ayuda_5">Iniciar</string>
+    <string name="lbl_ayuda_6">Parar</string>
+
+
+
+    <string name="lbl_fragment_1">NIVELACION DIFERENCIAL</string>
+    <string name="lbl_fragment_2">NIVELACION DE PERFIL</string>
+    <string name="lbl_fragment_3">CURVAS DE NIVEL</string>
+    <string name="lbl_fragment_4">CURVAS HORIZONTALES</string>
+    <string name="lbl_fragment_5">AGRIMENSURA</string>
+    <string name="lbl_fragment_6">CURVAS VERTICALES </string>
+
+
+    <string name="lbl_menu_1">Nivelacion diferencial</string>
+    <string name="lbl_menu_2">Nivelacion de perfil</string>
+    <string name="lbl_menu_3">Curvas de nivel</string>
+    <string name="lbl_menu_4">Curvas horizontales</string>
+    <string name="lbl_menu_5">Agrimensura</string>
+    <string name="lbl_menu_6">Curvas verticales </string>
+
+
+
+
     <string name="lbl_acerca_name_dos">Como surge PREVIEWPLACE</string>
     <string name="lbl_acerca_name_cuatro">Beneficios PREVIEWPLACE</string>
-
     <string name="lbl_acerca_name_cinco">
-        Estos son algunos beneficios de trabajar con PreviewPlace:
-        \n -Optimizacion de tiempo.
-        \n -Mayor exactitud de calculos topograficos
-        \n -Visualizacion de grafica en tiempo real
-        \n -
-        \n
+
+
+
     </string>
+
+    <string name="lbl_ACERCA_COMO">La idea de esta aplicación, surge a partir de la necesidad en estudiantes de ingeniería Civil como una herramienta necesaria para la fácil realización de cálculos topográficos y comprobaciones; además de proporcionar un apoyo a los profesionistas del área de construcción para los trabajos topográficos, donde no sea posible trabajar con instrumentos de alta tecnología (computadora, estación total, etc.) o requieran una pre-visualización del lugar a describir. Su desarrollo ha sido realizado por un grupo multidisciplinario de estudiantes del Instituto Tecnológico de Tehuacán, conformado por 2 estudiantes en la Ingeniería de Sistemas Computacionales y 3 estudiantes de la Ingenierías en Civil.</string>
     <string name="lbl_comentarios_name">Ayuda y comentarios</string>
     <string name="lbl_ajustes_name">Configuraciones</string>
     <string name="lblObra">OBRA: </string>
@@ -122,7 +167,18 @@
     <string name="lblObraN">Pesentación en evento de inovación.</string>
     <string name="lblTipoPdf">Tipo de calculo: </string>
     <string name="lblajustes">Verificar ultima version </string>
-    <string name="lblajustes_DOS">Sincronizar dispositivos </string>
+    <string name="lblajustes_DOS">Sincronizar dispositivos</string>
     <string name="lblajustes_TRES">Tamaño de la letra </string>
+
+    <string name="lbla_registro_us">Usuario:</string>
+    <string name="lbla_registro_pass">Contraseña: </string>
+    <string name="lbla_registro_1">Recordarme</string>
+    <string name="lbla_registro_2">Ingresar</string>
+    <string name="lbla_registro_3"> Bienvenido</string>
+    <string name="lbla_registro_4"> DISPOSITIVO: </string>
+
+    <string name="lbla_registro_5"> El nombre de usuario o contraseña son <incorrectos class=""></incorrectos> </string>
+    <string name="btnImprimir">Imprimir</string>
+
 
 </resources>

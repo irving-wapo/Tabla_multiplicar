@@ -68,7 +68,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Usuario:"
+                    android:text="@string/lbla_registro_us"
                     android:id="@+id/textView3"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentLeft="true"
@@ -86,8 +86,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_gravity="center"
                     android:textAlignment="center"
-                    android:gravity="center"
-                    android:text="admin" />
+                    android:gravity="center" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -97,7 +96,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Contraseña:"
+                    android:text="@string/lbla_registro_pass"
                     android:id="@+id/textView8"
                     android:layout_alignTop="@+id/textView4"
                     android:layout_alignParentLeft="true"
@@ -114,8 +113,7 @@
                     android:singleLine="false"
                     android:selectAllOnFocus="false"
                     android:textAlignment="center"
-                    android:gravity="center"
-                    android:text="1234" />
+                    android:gravity="center" />
 
                 <Space
                     android:layout_width="fill_parent"
@@ -132,7 +130,7 @@
                     <CheckBox
                         android:layout_width="166dp"
                         android:layout_height="wrap_content"
-                        android:text="Recordarme"
+                        android:text="@string/lbla_registro_1"
                         android:id="@+id/checkBox"
                         android:background="@color/CadetBlue"
                         android:layout_gravity="left|center_horizontal"
@@ -149,7 +147,7 @@
                     <Button
                         android:layout_width="173dp"
                         android:layout_height="33dp"
-                        android:text="Ingresar"
+                        android:text="@string/lbla_registro_2"
                         android:id="@+id/btn_registro"
                         android:onClick="btn_registro_click"
                         android:layout_marginTop="68dp"

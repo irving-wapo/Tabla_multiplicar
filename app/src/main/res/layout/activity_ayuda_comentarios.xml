@@ -66,7 +66,7 @@
                                     android:layout_width="145dp"
                                     android:layout_height="30dp"
                                     android:textAppearance="?android:attr/textAppearanceMedium"
-                                    android:text="Comentarios"
+                                    android:text="@string/lbl_ayuda_tres"
                                     android:id="@+id/textView13"
                                     android:textSize="20dp"
                                     android:textStyle="bold"
@@ -106,7 +106,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:textAppearance="?android:attr/textAppearanceMedium"
-                                    android:text="Video demostrativo"
+                                    android:text="@string/lbl_ayuda_cuatro"
                                     android:id="@+id/textView14"
                                     android:textSize="20dp"
                                     android:textStyle="bold"
@@ -142,14 +142,14 @@
                                     <Button
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Iniciar"
+                                        android:text="@string/lbl_ayuda_5"
                                         android:id="@+id/button"
                                         android:onClick="botonaso" />
 
                                     <Button
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Parar"
+                                        android:text="@string/lbl_ayuda_6"
                                         android:id="@+id/button3"
                                         android:onClick="paralo_hay" />
                                 </TableRow>

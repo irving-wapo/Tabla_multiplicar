@@ -51,11 +51,11 @@ public class Ayuda_comentarios extends AppCompatActivity
         TbH.setup();
 
         TabHost.TabSpec tab1 = TbH.newTabSpec("tab1");
-        tab1.setIndicator("PREGUNTAS FRECUENTES");
+        tab1.setIndicator(getString(R.string.lbl_acerca_uno ));
         tab1.setContent(R.id.preguntas);
 
         TabHost.TabSpec tab2 = TbH.newTabSpec("tab2");
-        tab2.setIndicator("CONTACTO Y VIDEO DEMO");
+        tab2.setIndicator(getString(R.string.lbl_acerca_dos ));
         tab2.setContent(R.id.vidio);
 
         TbH.addTab(tab1);

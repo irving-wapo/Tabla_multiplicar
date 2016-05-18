@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Preview Place</string>
+    <string name="app_name">PREVIEWPLACE</string>
     <string name="Actualizar">Les modifications ont été appliquées correctement</string>
     <string name="add_title">Sélectionnez une option</string>
     <string name="btnAbrir">Ouvert</string>
@@ -85,4 +85,44 @@
     <string name="lbl_acerca_name_tres">PREVIEWPLACE provient du produit d’une équipe préoccupée par la trabajostopograficos ; dispose actuellement de grandes capacités nos outils disponibles (tels que : tablettes, smartphone, téléphones, etc....) et il est donc nécessaire de faire servir dans le bon sens. Vu sous cet angle, un groupe d’étudiants est allé pour travailler sur l’analyse des calculs topographiques et dans le développement de cette application.</string>
     <string name="google_maps_key" translatable="false">ICI_VOTRE_CLÉ</string>
     <string name="label_acerca_pplace">PREVIEWPLACE est une application mobile qui vise à faciliter les travaux topographiques du Cabinet pour l’optimisation du temps, thèmes de capture, de calcul et de graphiques : nivellement différentiel, mise à niveau du profil, arpentage, courbes horizontales, courbes de niveau, entre autres.</string>
+    <string name="lblConfiguraciónes">configurations</string>
+    <string name="lblLocalizacion">LOCATION</string>
+    <string name="lblObra">TRAVAIL:</string>
+    <string name="lblObraN">Découvrez le mur en cas d\'innovation . </string>
+    <string name="lblPrevisualizacion">PREVIEW</string>
+    <string name="lblTipoPdf">Type de calcul :</string>
+    <string name="lbl_ACERCA_COMO">La notion d\' application esta , découle de la nécessité des étudiants de génie civil comme un outil nécessaire pour la réalisation facile des calculs et des contrôles topographiques ; En plus de fournir un soutien aux professionnels dans le domaine de la construction pour les travaux de l\'enquête , il est impossible Où travailler avec des instruments de haute technologie ( informatique, station totale, etc.) ou d\'exiger un aperçu du lieu de décrire . Son développement a - été réalisée par un groupe multidisciplinaire d\'étudiants de l\' Institut Technologique de Tehuacan , Composé de 2 étudiants dans les systèmes de génie informatique et génie civil en trois étudiants . </string>
+    <string name="lbl_acerca_dos">CONTACT ET VIDEO DEMO </string>
+    <string name="lbl_acerca_name_cinco">Voici quelques avantages de travailler avec PreviewPlace :         \n -Support pour l\'arpentage où il est impossible de travailler avec des instruments de haute technologie . Temps \n -Minimizes passé calculs topographiques . \n calculs -Faire avec précision . \n -Obtiene un aperçu du lieu de décrire à travers des graphiques dynamiques . \n -Agents en détail les caractéristiques topographiques calculs travail choisi par l\'utilisateur . \n -Fournit de vue de la qualité grâce à ses graphiques dynamiques . \n -Cost accessible \n -Utilisation facile Téléchargements et support de contrôle  \n -Service \n - \n -</string>
+    <string name="lbl_acerca_uno">FOIRE AUX QUESTIONS </string>
+    <string name="lbl_ayuda_5">Début</string>
+    <string name="lbl_ayuda_6">Arrêter</string>
+    <string name="lbl_ayuda_cuatro">Vidéo démonstrative</string>
+    <string name="lbl_ayuda_tres">Commentaires</string>
+    <string name="lbl_fragment_1">NIVELLEMENT DIFFÉRENTIEL </string>
+    <string name="lbl_fragment_2">PROFIL NIVELLEMENT </string>
+    <string name="lbl_fragment_3">CONTOUR</string>
+    <string name="lbl_fragment_4">CURVES HORIZONTALES </string>
+    <string name="lbl_fragment_5">SURVEYING</string>
+    <string name="lbl_fragment_6">CURVES VERTICAL </string>
+    <string name="lbl_menu_1">Nivellement différentiel </string>
+    <string name="lbl_menu_2">Profil Leveling </string>
+    <string name="lbl_menu_3">Contours </string>
+    <string name="lbl_menu_4">Courbes horizontales</string>
+    <string name="lbl_menu_5">Surveying</string>
+    <string name="lbl_menu_6">Courbes verticales</string>
+    <string name="lbl_salir">Sortir</string>
+    <string name="lbla_registro_1">Rappeler</string>
+    <string name="lbla_registro_2">Dépôt</string>
+    <string name="lbla_registro_3">Bienvenue</string>
+    <string name="lbla_registro_4">DISPOSITIF:</string>
+    <string name="lbla_registro_pass">Mot de passe: </string>
+    <string name="lbla_registro_us">Utilisateur:</string>
+    <string name="lblajustes">Vérifiez dernière version </string>
+    <string name="lblajustes_DOS">Dispositifs de synchronisation </string>
+    <string name="lblajustes_TRES">Taille de la police </string>
+    <string name="btnCancelar">Annuler</string>
+    <string name="lbla_registro_5">Le nom d\'utilisateur ou mot de passe est incorrect. </string>
+    <string name="label_beneficios">Voici quelques avantages de travailler avec PreviewPlace :         \n -Support pour l\'arpentage où il est impossible de travailler avec des instruments de haute technologie . Temps \n -Minimizes passé calculs topographiques . \n calculs -Faire avec précision . \n -Obtiene un aperçu du lieu de décrire à travers des graphiques dynamiques . \n -Agents en détail les caractéristiques topographiques calculs travail choisi par l\'utilisateur . \n -Fournit de vue de la qualité grâce à ses graphiques dynamiques . \n -Cost accessible \n -Utilisation facile Téléchargements et support de contrôle  \n -Service \n - \n -</string>
+    <string name="label_preguntas">\nWhat est nivellement différentiel? \nLe profil de mise à niveau est utilisé pour déterminer une ligne visuelle horizontale à l\'aide d\'un niveau optique ou condensateur automatique.     un télescope télescopique avec une amplification appropriée pour lire les diplômés autorité de l\'Etat, situé sur des points fixes est utilisé.      \n \n \ nNouveautés est nivellent objectif profil \n Le est de trouver les élévations des points à des distances connues pour obtenir le profil du terrain le long de la ligne de niveau.      \n \n \n¿Cómo créer un nouveau projet? \n     Il est très facile, vous avez juste à ouvrir PreviewPlace et allez dans le menu principal, il peut encore choisir le sujet de votre choix pour cliquer et maintenant entrer un nom tel que «routes» et être prêt à travailler.      \n \n \ n¿Cómo partagent un projet à un ami? \n     Tout en travaillant sur PREVIEWPLACE cliquez sur le menu du bas en faisant glisser de bas en haut, puis cliquez sur action, puis ont été montré les différentes façons d\'envoyer des données.      \n \n \n¿Puedo exporter un projet vers un autre format? \n     PREVIEWPLACE offre la possibilité de partager des emplois grâce à des rapports créés au format PDF en cliquant sur PDf dans le menu en bas de l\'application.</string>
 </resources>

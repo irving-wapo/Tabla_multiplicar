@@ -395,53 +395,50 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         //*********************inicialice *********
         las_x.clear();
         las_y.clear();
-    try {
-    if (elementos.size() > 1)
-    {
-        String vec_1[] = elementos.get(1);
-        las_x.add("0");
-        las_y.add(vec_1[4]);
+        try {
+            if (elementos.size() > 1)
+            {
+                String vec_1[] = elementos.get(1);
+                las_x.add("0");
+                las_y.add(vec_1[4]);
 
 
-        for (int i = 1; i < elementos.size(); i++)    // FOR DE TODOS QUE SACA TODOS LOS VALORES DE 'ELEMENTOS'
-        {
-            String kilometro = "", metros = "";
-            Boolean bandera = true;
-            String vec[] = elementos.get(i);
+                for (int i = 1; i < elementos.size(); i++)    // FOR DE TODOS QUE SACA TODOS LOS VALORES DE 'ELEMENTOS'
+                {
+                    String kilometro = "", metros = "";
+                    Boolean bandera = true;
+                    String vec[] = elementos.get(i);
 
 
-            String cadena_x = vec[0];
-            if (Character.isDigit(cadena_x.charAt(0))) {
-                for (int j = 0; j < cadena_x.length(); j++) {
-                    if (cadena_x.charAt(j) == '+') {
-                        bandera = false;
-                    }
+                    String cadena_x = vec[0];
+                    if (Character.isDigit(cadena_x.charAt(0))) {
+                        for (int j = 0; j < cadena_x.length(); j++) {
+                            if (cadena_x.charAt(j) == '+') {
+                                bandera = false;
+                            }
 
-                    if (bandera) {
-                        kilometro += cadena_x.charAt(j);
-                    }
+                            if (bandera) {
+                                kilometro += cadena_x.charAt(j);
+                            }
 
-                    if (!bandera) {
-                        if (cadena_x.charAt(j) == '+') {
-                        } else {
+                            if (!bandera) {
+                                if (cadena_x.charAt(j) == '+') {
+                                } else {
 
-                            metros += cadena_x.charAt(j);
+                                    metros += cadena_x.charAt(j);
+                                }
+                            }
                         }
+
+                        String texto = "";
+                        texto += kilometro += metros;
+                        las_x.add(texto);
+                        las_y.add(vec[4]);
                     }
                 }
-
-                String texto = "";
-                texto += kilometro += metros;
-                las_x.add(texto);
-                las_y.add(vec[4]);
             }
-        }
-    }
         }catch (Exception Ex) {}
     }
-
-
-
 
     ArrayList<Double> lista_double_x = new ArrayList<Double>();
     ArrayList<Double> lista_double_y = new ArrayList<Double>();
@@ -845,6 +842,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         }
         sacame_xy_plis();
         mustrame_lasx();
+
     }
     public void valores()
     {

@@ -58,35 +58,35 @@ public class fragment_proyectos extends Fragment
             if (nombre_activi.equals("n_dife") )
             {
                 el_icono.setImageResource(R.drawable.niv_dif);
-                nombre_icono.setText(String.valueOf("Nivelacion diferecial"));
+                nombre_icono.setText(String.valueOf( getString(R.string.lbl_fragment_1 )));
             }
             else  if (nombre_activi.equals("n_perfil") )
             {
                 el_icono.setImageResource(R.drawable.perfil);
-                nombre_icono.setText(String.valueOf("Nivelacion de perfil"));
+                nombre_icono.setText(String.valueOf( getString(R.string.lbl_fragment_2 )));
             }
             else  if (nombre_activi.equals("Curvas_nivel") )
             {
                 el_icono.setImageResource(R.drawable.nivel);
-                nombre_icono.setText(String.valueOf("Curvas de nivel"));
+                nombre_icono.setText(String.valueOf(getString(R.string.lbl_fragment_3 )));
                 Toast.makeText(miVista.getContext(), "AREA EN DESARROLLO.",Toast.LENGTH_LONG).show();
             }
             else  if (nombre_activi.equals("Curvas_h") )
             {
                 el_icono.setImageResource(R.drawable.horizontal);
-                nombre_icono.setText(String.valueOf("Curvas horizontales"));
+                nombre_icono.setText(String.valueOf(getString(R.string.lbl_fragment_4 )));
                 Toast.makeText(miVista.getContext(), "AREA EN DESARROLLO.",Toast.LENGTH_LONG).show();
             }
             else  if (nombre_activi.equals("Agri") )
             {
                 el_icono.setImageResource(R.drawable.agrime);
-                nombre_icono.setText(String.valueOf("Agrimensura"));
+                nombre_icono.setText(String.valueOf(getString(R.string.lbl_fragment_5 )));
                 Toast.makeText(miVista.getContext(), "AREA EN DESARROLLO.",Toast.LENGTH_LONG).show();
             }
             else  if (nombre_activi.equals("Curvas_v") )
             {
                 el_icono.setImageResource(R.drawable.verticales);
-                nombre_icono.setText(String.valueOf("Curvas verticales"));
+                nombre_icono.setText(String.valueOf(getString(R.string.lbl_fragment_6 )));
                 Toast.makeText(miVista.getContext(), "AREA EN DESARROLLO.",Toast.LENGTH_LONG).show();
             }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Preview Place</string>
-    <string name="btnAcerca">About Preview Place</string>
+    <string name="app_name">PREVIEWPLACE</string>
+    <string name="btnAcerca">About PREVIEWPLACE</string>
     <string name="btnAyuda">Help and Feedback</string>
     <string name="btnConfiguracion">Configuration</string>
     <string name="btnDiferencial">Differential leveling</string>
@@ -22,7 +22,7 @@
     <string name="btnAbrir">Open</string>
     <string name="btnAceptar">Accept</string>
     <string name="btnBorrar">Delete</string>
-    <string name="btnCancelar">Cancelar</string>
+    <string name="btnCancelar">Cancel</string>
     <string name="btnCerrar">Close</string>
     <string name="btnCompartir">Share</string>
     <string name="btnGuardar">Save</string>
@@ -33,7 +33,7 @@
     <string name="erActualizar">Something went wrong</string>
     <string name="item1">Theme 1</string>
     <string name="item2">Theme 2</string>
-    <string name="label_preguntas"></string>
+    <string name="label_preguntas">	\n What is differential leveling? \n The Leveling horizontal profile using SE US to determine S. A visual line of the United Nations Optical leveler or automatic capacitor. Is US UN telescoping telescope with proper amplification to read Graduates State Authority, located on the fixed points.  \n \n \ nWhat is leveling profile? \n The objetivo is to find LIFTS Puntos one known distances to give the profile land along the Line leveling.  \n\n\n¿Cómo United Nations create new project? \n It is very easy you just have to open PreviewPlace and go to main menu ABLE recently being hay Select the topic of your choice to click and Now enter "roads" UN EXAMPLE Name By and continued\'ll be ready to work.  \n\n \n¿Cómo share UN Project A friend? \n By working at PREVIEWPLACE click on the menu check sliding lower Finger bottom-up and click on sharing, a Different Ways Continue the costs of data will be displayed.  \n\n \n¿Puedo Export UN project to another format? \n PREVIEWPLACE offers the opportunity to share work through CREATED PDF Reports, para This PDF click on the lower menu of the Application.</string>
     <string name="lblAdelante">Front read</string>
     <string name="lblAltura">Height of the appliance</string>
     <string name="lblAtras">Reading back</string>
@@ -91,4 +91,42 @@
     <string name="lbl_acerca_name_tres">PREVIEWPLACE arises from the product of a team concerned about the trabajostopograficos; currently has great capabilities our available tools (such as: tablets, smartphone, phones, etc...) and so it is necessary to make use of them in the proper way. Seen from this perspective, a group of students went to work on the analysis of topographic calculations and in the development of this application.</string>
     <string name="google_maps_key" translatable="false">YOUR_KEY_HERE</string>
     <string name="label_acerca_pplace">PREVIEWPLACE is a mobile application that seeks to facilitate topographical works of Cabinet for the optimization of times, capturing, calculating and graphing themes: differential leveling, leveling of profile, surveying, horizontal curves, curves of level among others.</string>
+    <string name="lblConfiguraciónes">Configurations</string>
+    <string name="lblLocalizacion">LOCATION</string>
+    <string name="lblObra">WORK:</string>
+    <string name="lblObraN">Discover the wall in innovation event . </string>
+    <string name="lblPrevisualizacion">PREVIEW</string>
+    <string name="lblTipoPdf">Calculation Type: </string>
+    <string name="lbl_ACERCA_COMO">The idea of this application, arises from the need in civil engineering students as a necessary tool for easy realization of topographic calculations and checks ; in addition to providing support to professionals in the construction area for survey work , where it is not possible to work with high-tech instruments (computer, total station, etc. ) or require a preview of place to describe . Its development has been carried out by a multidisciplinary group of students from the Technological Institute of Tehuacan , consisting of 2 students in Computer Systems Engineering and 3 students in Civil Engineering . </string>
+    <string name="lbl_acerca_dos">CONTACT AND VIDEO DEMO </string>
+    <string name="lbl_acerca_name_cinco">Here are some benefits of working with PreviewPlace :         \n -Support for surveying where it is not possible to work with high-tech instruments . \n -Minimizes time spent topographic calculations. \n -Make calculations accurately. \n -Obtiene a preview of place to describe through dynamic graphics. \n -Agents in detail the characteristic topographic calculations work selected by the user. \n -Provides quality sight through its dynamic graphs. \n -Cost accessible \n Easy use \n -Service control downloads and support \n - \n -</string>
+    <string name="lbl_acerca_uno">FREQUENT QUESTIONS </string>
+    <string name="lbl_ayuda_5">Start</string>
+    <string name="lbl_ayuda_6">Stop</string>
+    <string name="lbl_ayuda_cuatro">Demonstrative video </string>
+    <string name="lbl_ayuda_tres">Comments</string>
+    <string name="lbl_fragment_1">DIFFERENTIAL LEVELING </string>
+    <string name="lbl_fragment_2">LEVELING PROFILE </string>
+    <string name="lbl_fragment_3">CONTOUR </string>
+    <string name="lbl_fragment_4">HORIZONTAL CURVES </string>
+    <string name="lbl_fragment_5">SURVEYING</string>
+    <string name="lbl_fragment_6">VERTICAL CURVES  </string>
+    <string name="lbl_menu_1">Differential leveling </string>
+    <string name="lbl_menu_2">Leveling profile </string>
+    <string name="lbl_menu_3">Contours </string>
+    <string name="lbl_menu_4">Horizontal curves </string>
+    <string name="lbl_menu_5">Surveying </string>
+    <string name="lbl_menu_6">Vertical curves </string>
+    <string name="lbl_salir">Get out </string>
+    <string name="lbla_registro_1">Remember</string>
+    <string name="lbla_registro_2">Deposit</string>
+    <string name="lbla_registro_3">Welcome</string>
+    <string name="lbla_registro_4">DEVICE:</string>
+    <string name="lbla_registro_pass">Password: </string>
+    <string name="lbla_registro_us">User: </string>
+    <string name="lblajustes">Check last version </string>
+    <string name="lblajustes_DOS">sync devices </string>
+    <string name="lblajustes_TRES">Font Size </string>
+    <string name="lbla_registro_5">The username or password is incorrect. </string>
+    <string name="label_beneficios">Here are some benefits of working with PreviewPlace :         \n -Support for surveying where it is not possible to work with high-tech instruments . \n -Minimizes time spent topographic calculations. \n -Make calculations accurately. \n -Obtiene a preview of place to describe through dynamic graphics. \n -Agents in detail the characteristic topographic calculations work selected by the user. \n -Provides quality sight through its dynamic graphs. \n -Cost accessible \n Easy use \n -Service control downloads and support \n - \n -</string>
 </resources>

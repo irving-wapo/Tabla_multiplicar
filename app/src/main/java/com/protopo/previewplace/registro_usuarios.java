@@ -33,22 +33,28 @@ public class registro_usuarios extends AppCompatActivity
         name= usuario.getText().toString();
         pass= password.getText().toString();
 
-//        if(name.equals("admin") && pass.equals("1234"))
+        if( name.equals("admin") && pass.equals("1234")  ||
+            name.equals("irving") && pass.equals("1234") ||
+            name.equals("paco") && pass.equals("1234")   ||
+            name.equals("noemi") && pass.equals("1234")  ||
+            name.equals("oscar") && pass.equals("1234")  ||
+            name.equals("angelica") && pass.equals("1234")
+          )
         {
             Intent inicio = new Intent(registro_usuarios.this, MainActivity.class );
             startActivity(inicio);
-            Toast.makeText(getApplicationContext(),"Bienvenido "+name, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.lbla_registro_3) +" "+name, Toast.LENGTH_SHORT).show();
         }
-    //    else
+        else
         {
-  //          Toast.makeText(getApplicationContext(),"El nombre de usuario o contraseña son incorrectos.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.lbla_registro_5), Toast.LENGTH_SHORT).show();
         }
     }
 
     public void consultame_id_android()
     {
-        String id = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
-        label.setText(String.valueOf("DISPOSITIVO: "+id ));
+        String id = " "+Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+        label.setText(String.valueOf(getString(R.string.lbla_registro_4) +id ));
 
     }
 }
