@@ -5,12 +5,16 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.VideoView;
 
 public class Ayuda_comentarios extends AppCompatActivity
 {
+    ImageView img;
     TabHost TbH;
 
     @Override
@@ -19,6 +23,12 @@ public class Ayuda_comentarios extends AppCompatActivity
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ayuda_comentarios);
+        img = (ImageView) findViewById(R.id.imageView6);
+        img.setImageResource(R.mipmap.help);
+
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.transparencia);
+        img.startAnimation(animation);
+
         pestañas();
     }
 

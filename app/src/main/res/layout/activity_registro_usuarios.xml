@@ -14,167 +14,176 @@
         android:layout_height="fill_parent"
         android:id="@+id/scrollView5" >
 
-        <RelativeLayout
+    </ScrollView>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" >
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView5"
+                android:src="@mipmap/icono"
+                android:layout_gravity="right" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="PREVIEWPLACE"
+                android:id="@+id/textView4"
+                android:textSize="35dp"
+                android:textStyle="normal|bold|italic" />
+        </TableRow>
+
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="442dp" >
+
+            <Space
+                android:layout_width="fill_parent"
+                android:layout_height="100dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/lbla_registro_us"
+                android:id="@+id/textView9"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:textSize="14dp" />
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:weightSum="1"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
-
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/imageView3"
-                        android:src="@mipmap/icono"
-                        android:layout_gravity="right" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="PREVIEWPLACE"
-                        android:id="@+id/textView15"
-                        android:textSize="35dp"
-                        android:textStyle="normal|bold|italic" />
-                </TableRow>
-
-                <Space
-                    android:layout_width="fill_parent"
-                    android:layout_height="60px" />
-
-                <android.support.v4.widget.Space
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/view"
-                    android:layout_weight="0.10"
-                    android:background="@color/CadetBlue" />
-
-                <Space
-                    android:layout_width="378dp"
-                    android:layout_height="60px" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/lbla_registro_us"
-                    android:id="@+id/textView3"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_gravity="center_horizontal" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="242dp"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
-                    android:ems="10"
-                    android:id="@+id/editText2"
-                    android:layout_below="@+id/textView8"
+                    android:id="@+id/editText3"
+                    android:text="admin"
+                    android:layout_below="@+id/textView31"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_gravity="center"
                     android:textAlignment="center"
-                    android:gravity="center" />
+                    android:ems="10" />
+            </LinearLayout>
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="50px" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="50px" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/lbla_registro_pass"
-                    android:id="@+id/textView8"
-                    android:layout_alignTop="@+id/textView4"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_gravity="center_horizontal" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/lbla_registro_pass"
+                android:id="@+id/textView31"
+                android:layout_alignTop="@+id/textView4"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:textSize="14dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:ems="10"
-                    android:id="@+id/editText"
+                    android:id="@+id/editText4"
+                    android:text="1234"
                     android:layout_gravity="center"
                     android:singleLine="false"
                     android:selectAllOnFocus="false"
                     android:textAlignment="center"
                     android:gravity="center" />
-
-                <Space
-                    android:layout_width="fill_parent"
-                    android:layout_height="150px" />
-
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="42dp"
-                    android:orientation="vertical"
-                    android:weightSum="1"
-                    android:baselineAligned="false"
-                    android:layout_gravity="center_horizontal">
-
-                    <CheckBox
-                        android:layout_width="166dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lbla_registro_1"
-                        android:id="@+id/checkBox"
-                        android:background="@color/CadetBlue"
-                        android:layout_gravity="left|center_horizontal"
-                        android:singleLine="false"
-                        android:contextClickable="false"
-                        android:elegantTextHeight="false"
-                        android:focusable="false"
-                        android:longClickable="false" />
-
-                    <Space
-                        android:layout_width="20px"
-                        android:layout_height="20px" />
-
-                    <Button
-                        android:layout_width="173dp"
-                        android:layout_height="33dp"
-                        android:text="@string/lbla_registro_2"
-                        android:id="@+id/btn_registro"
-                        android:onClick="btn_registro_click"
-                        android:layout_marginTop="68dp"
-                        android:nestedScrollingEnabled="false"
-                        android:layout_toRightOf="@+id/textView8"
-                        android:layout_toEndOf="@+id/textView8"
-                        android:layout_gravity="center_horizontal|right"
-                        android:enabled="true"
-                        android:background="@color/CadetBlue" />
-
-                </TableRow>
-
             </LinearLayout>
 
-        </RelativeLayout>
-    </ScrollView>
+            <Space
+                android:layout_width="fill_parent"
+                android:layout_height="40px" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Process Id"
-        android:id="@+id/textView9"
-        android:layout_gravity="right"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="11dp" />
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="1"
+                android:baselineAligned="false"
+                android:gravity="center" >
+
+                <CheckBox
+                    android:layout_width="140dp"
+                    android:layout_height="35dp"
+                    android:text="@string/lbla_registro_1"
+                    android:id="@+id/checkBox2"
+                    android:background="@color/CadetBlue"
+                    android:singleLine="false"
+                    android:contextClickable="false"
+                    android:elegantTextHeight="false"
+                    android:focusable="false"
+                    android:longClickable="false"
+                    android:enabled="true" />
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="150px" />
+
+                <Button
+                    android:layout_width="140dp"
+                    android:layout_height="35dp"
+                    android:text="@string/lbla_registro_2"
+                    android:id="@+id/button5"
+                    android:onClick="btn_registro_click"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_toRightOf="@+id/textView31"
+                    android:layout_toEndOf="@+id/textView31"
+                    android:enabled="true"
+                    android:background="@color/CadetBlue" />
+            </TableRow>
+        </TableLayout>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Process Id"
+                android:id="@+id/textView3"
+                android:layout_gravity="right"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentStart="false"
+                android:textSize="12dp"
+                android:gravity="bottom"
+                android:textStyle="bold" />
+        </TableRow>
+    </LinearLayout>
 
 </RelativeLayout>

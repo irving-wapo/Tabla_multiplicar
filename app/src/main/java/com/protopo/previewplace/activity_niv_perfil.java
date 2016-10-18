@@ -129,6 +129,9 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         carga = extras.getBoolean("carga");
         archivoNombre = extras.getString("nombre");
 
+        //Toast.makeText(getApplicationContext(), "cambios aplicados", Toast.LENGTH_SHORT).show();
+
+
         // Paso 2: crear una instancia de GestureDetector (este paso sea sholude lugar en onCreate ())
         gestureDetector =  new  GestureDetector(this ,new  GestureListener());
 
@@ -165,13 +168,11 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         }  // LEYENDO ARCHIVO EXISTENTE
 
         //****************** DE MI GRAFICA ***********
-        llamar_init();
+        //llamar_init();
         pestañas();
-
-
-
-
     }
+
+
     // step 3: override dispatchTouchEvent()
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
@@ -181,8 +182,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         return gestureDetector.onTouchEvent(event);
     }
 
-//step 4: add private class GestureListener
-
+    //step 4: add private class GestureListener
     private class GestureListener extends GestureDetector.SimpleOnGestureListener {
         @Override
         public boolean onDown(MotionEvent e) {
@@ -217,14 +217,22 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         mySimpleXYPlot.setDomainLabel("");
         mySimpleXYPlot.setBorderStyle(Plot.BorderStyle.NONE, null, null);
 
+        //SimpleXYSeries test =  null; //new SimpleXYSeries();
 
         series = new SimpleXYSeries[4];
-        int scale = 1;
-        for (int i = 0; i < 4; i++, scale *= 5) {
+        //test = new SimpleXYSeries(nombre_grafica);
+        //populateSeries(series[]);
+
+        for (int i = 0; i < 4; i++) {
             series[i] = new SimpleXYSeries(nombre_grafica);
             populateSeries(series[i]);
         }                                                           // CONTORNO                              //RELLENO
+
         mySimpleXYPlot.addSeries(series[3], new LineAndPointFormatter(Color.rgb(100, 0, 0), null, Color.rgb(244, 164,96), null));
+
+       // mySimpleXYPlot.addSeries(test, new LineAndPointFormatter(Color.rgb(100, 0, 0), null, Color.rgb(244, 164,96), null));
+
+
         mySimpleXYPlot.redraw();
         mySimpleXYPlot.calculateMinMaxVals();
         minXY = new PointF(mySimpleXYPlot.getCalculatedMinX().floatValue(), mySimpleXYPlot.getCalculatedMinY().floatValue());
@@ -241,8 +249,16 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         mySimpleXYPlot.redraw();
     }
 
+    int contadorr =0;
     private void populateSeries(SimpleXYSeries series)
     {
+        contadorr +=1;
+        if(lista_double_x.size() == 0 )
+        {
+            series.addLast(0,0);
+            //Toast.makeText(getApplicationContext(), "lista vacia: "+contadorr, Toast.LENGTH_SHORT).show();
+        }
+
         for(int i = 0; i <  lista_double_x.size(); /* Datos1.length -1;*/ i++)
         {
             series.addLast(lista_double_x.get(i), lista_double_y.get(i) );
@@ -346,6 +362,8 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
     //*******************************   G  R  A  F  I  C  A   ************************************
 
 
+
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -364,6 +382,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         tab2.setContent(R.id.lnlGrafica);
         TbH.addTab(tab1); //añadimos los tabs ya programados
         TbH.addTab(tab2);
+
         TextView tv = (TextView) TbH.getCurrentTabView().findViewById(android.R.id.title); //for Selected Tab
         tv.setTextColor(Color.parseColor("#ffffff"));
         TbH.setOnTabChangedListener(new TabHost.OnTabChangeListener()
@@ -377,11 +396,12 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
                     tv.setTextColor(Color.parseColor("#000000"));
 
                 }
-                TextView tv = (TextView) TbH.getCurrentTabView().findViewById(android.R.id.title); //for Selected Tab
-                tv.setTextColor(Color.parseColor("#ffffff"));
-                mySimpleXYPlot=null;
-                llamar_init();
-                regresamela_como_estaba_plis();
+
+        TextView tv = (TextView) TbH.getCurrentTabView().findViewById(android.R.id.title); //for Selected Tab
+        tv.setTextColor(Color.parseColor("#ffffff"));
+        mySimpleXYPlot=null;
+        llamar_init();
+        regresamela_como_estaba_plis();
 
             }
         });
@@ -389,8 +409,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
 
     ArrayList<String> las_x = new ArrayList<String>();
     ArrayList<String> las_y = new ArrayList<String>();
-
-    public void sacame_xy_plis()
+    public void obtener_xy_plis()
     {
         //*********************inicialice *********
         las_x.clear();
@@ -440,9 +459,9 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         }catch (Exception Ex) {}
     }
 
+
     ArrayList<Double> lista_double_x = new ArrayList<Double>();
     ArrayList<Double> lista_double_y = new ArrayList<Double>();
-
     public  void mustrame_lasx()
     {
         for(int i =0; i<las_y.size(); i++ )
@@ -474,6 +493,8 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         }
         catch (Exception ex)  { Toast.makeText(getApplicationContext(),R.string.msjError_sistema,Toast.LENGTH_SHORT).show();}
     }
+
+
     //eventos de los botones flotantes
     public void fab_agregar_perfil(View view)
     {
@@ -486,6 +507,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
     public void btn_guardar_perfil(View view) {
         guardar();
     }
+
     public void pdfOnClick_perfil(View view)  //prepara generar nombre.pdf
     {
         String pdf = archivoNombre.concat(".pdf");
@@ -517,6 +539,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
             Toast.makeText(getApplicationContext(), R.string.msjMemoria, Toast.LENGTH_SHORT).show();
         }
     }
+
     private boolean generar_pdf(String dir) {
         boolean ret = false;
         if (estado()) {
@@ -540,6 +563,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         return ret;
 
     }
+
     // Estado de la memoria externa
     private boolean estado() {
         boolean r = false;
@@ -589,6 +613,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         root.setDrawingCacheEnabled(false);
         return bitmap;
     }
+
     //redimensionar imagen
     public Bitmap redimensionarImagenMaximo(Bitmap mBitmap, float newWidth, float newHeigth){
         //Redimensionamos
@@ -603,9 +628,9 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         // recreate the new Bitmap
         return Bitmap.createBitmap(mBitmap, 0, 0, width, height, matrix, false);
     }
+
+
     //agregar contenido al pdf
-
-
     private void addContent(Document document)
     {
         try
@@ -662,7 +687,6 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
     }
 
 
-
     //metodo para abrir un pdf con un intent
     private void abrir_pdf(String path) {
         if (estado()) {
@@ -682,9 +706,9 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
             Toast.makeText(getApplicationContext(), R.string.msjMemoria, Toast.LENGTH_SHORT).show();
         }
     }
+
+
     //metodo que carga datos desde archivo
-
-
     private void cargar()
     {
         String nombre_arch = archivoNombre;
@@ -706,6 +730,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
             Toast.makeText(getApplicationContext(), R.string.msjError_sistema, Toast.LENGTH_SHORT).show();
         }
     }
+
 
     //metodo que lee el archivo
     public void leeFichero(BufferedReader br) throws IOException
@@ -748,6 +773,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
             tabla.agregarFilaTabla(elementos.get(i));
         }
     }
+
     //Metodo agregar cadenamiento
     private void filaCadenamiento(String [] temp)
     {
@@ -769,6 +795,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         }
 
     }
+
     // agregar banco de nivel final o punto de liga
     private void filabn_pl(String[] temp)
     {
@@ -800,6 +827,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         }
 
     }
+
     public void calculos()
     {
         double altura=0,cota=0;
@@ -839,11 +867,11 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         }catch (Exception ex)
         {
             Toast.makeText(getApplicationContext(),R.string.msjError_tipos,Toast.LENGTH_SHORT).show();
-        }
-        sacame_xy_plis();
+        }obtener_xy_plis();
         mustrame_lasx();
 
     }
+
     public void valores()
     {
         try
@@ -921,6 +949,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
             Toast.makeText(getApplicationContext(), R.string.Actualizar, Toast.LENGTH_SHORT).show();
         } catch (Exception ex) { Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_SHORT).show();  }
     }
+
     private void eliminar() //celda de la lista
     {
         try
@@ -941,6 +970,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
             Toast.makeText(getApplicationContext(), R.string.msjEliminarT, Toast.LENGTH_SHORT).show();
         } catch (Exception ex) { Toast.makeText(getApplicationContext(), R.string.msjEliminarF, Toast.LENGTH_SHORT).show();  }
     }
+
     // Formateo de numero a dos decimales
     public String dos(double numero) {
         DecimalFormat df = new DecimalFormat("0.00");
@@ -953,6 +983,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         DialogFragment nuevo = new menu_agregar_perfil();
         nuevo.show(getSupportFragmentManager(), "nuevo");
     }
+
     //menu superior ...(Tres puntitos)
     public boolean onOptionsItemSelected(MenuItem item)
     {
@@ -971,9 +1002,11 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         }
         return super.onOptionsItemSelected(item);
     }
+
     public void btn_cerrar_perf(View view) {
         onBackPressed();
     }
+
     private void cabecera()// cabecera de la tabla
     {
         tabla.agregarCabecera(R.array.cabecera_tabla_perfil);
@@ -1045,9 +1078,11 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         }
     }
     @Override
+
     public void bn_plNegativeClick(DialogFragment dialog) {
 
     }
+
     //Dialogo de datos del primer banco de nivel
     @Override
     public void primerPositiveClick(DialogFragment dialog, Double valor, Double valor1) {
@@ -1064,10 +1099,12 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
         else
             filaBN1(temp);
     }
+
     @Override
     public void primerNegativeClick(DialogFragment dialog) {
 
     }
+
     //Dialogo de datos al agregar un punto de cadenamiento
     @Override
     public void cadenamientoPositiveClick(DialogFragment dialog, int valor, int valor1, double valor2) {
@@ -1104,6 +1141,7 @@ public class activity_niv_perfil extends ActionBarActivity implements  OnTouchLi
             filaCadenamiento(temp);
 
     }
+
     @Override
     public void cadenamientoNegativeClick(DialogFragment dialog) {
 

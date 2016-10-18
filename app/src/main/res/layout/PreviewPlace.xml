@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".inicio"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <Space
+                    android:layout_width="fill_parent"
+                    android:layout_height="75dp" />
+
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:id="@+id/img_ini"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:text="PreviewPlace"
+                    android:id="@+id/mensaje_ini"
+                    android:gravity="center"
+                    android:textSize="2dp"
+                    android:textColor="@color/Black" />
+
+                <Space
+                    android:layout_width="fill_parent"
+                    android:layout_height="100dp" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:text="Iniciar"
+                    android:id="@+id/btn_ini"
+                    android:nestedScrollingEnabled="false"
+                    android:background="@color/transparente"
+                    android:textColor="@color/AliceBlue"
+                    android:textSize="13dp"
+                    android:transitionName="@string/Actualizar" />
+
+            </TableLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

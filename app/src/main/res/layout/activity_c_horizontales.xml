@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.protopo.previewplace.ctivity_c_horizontales">
+
+    <TabHost
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/tabHost2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Chocolate"></TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/lnlDatos"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <ScrollView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/scrollView" >
+
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:shrinkColumns="2"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/linearLayout5">
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <android.support.v4.widget.Space
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="50dp"
+                                        android:id="@+id/view14" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Delta= "
+                                        android:id="@+id/textView29"
+                                        android:layout_alignParentTop="true"
+                                        android:textColor="@color/Black"
+                                        android:textSize="20dp"
+                                        android:password="false" />
+
+                                    <EditText
+                                        android:layout_width="89dp"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="number"
+                                        android:ems="10"
+                                        android:id="@+id/txtGrados"
+                                        android:nextFocusDown="@+id/txtMinutos"
+                                        android:text="60" />
+
+                                    <EditText
+                                        android:layout_width="85dp"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="number"
+                                        android:ems="10"
+                                        android:id="@+id/txtMinutos"
+                                        android:nextFocusDown="@+id/txtsegundos"
+                                        android:text="30"/>
+
+                                    <EditText
+                                        android:layout_width="93dp"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="number"
+                                        android:ems="10"
+                                        android:id="@+id/txtsegundos"
+                                        android:nextFocusDown="@+id/txt_pi_km"
+                                        android:text="0" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <android.support.v4.widget.Space
+                                        android:layout_width="60dp"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/view13" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text=" Grados"
+                                        android:id="@+id/textView26"
+                                        android:layout_alignParentTop="true" />
+
+                                    <android.support.v4.widget.Space
+                                        android:layout_width="50dp"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/view8" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Minutos"
+                                        android:id="@+id/textView28"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_toRightOf="@+id/textView27"
+                                        android:layout_toEndOf="@+id/textView27" />
+
+                                    <android.support.v4.widget.Space
+                                        android:layout_width="30dp"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/view9" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Segundos"
+                                        android:id="@+id/textView27"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_toRightOf="@+id/textView26"
+                                        android:layout_toEndOf="@+id/textView26" />
+                                </LinearLayout>
+
+                                <android.support.v4.widget.Space
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="12dp"
+                                    android:id="@+id/view10" />
+
+                                <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="fill_parent"
+                                        android:text="P.I =      "
+                                        android:id="@+id/textView32"
+                                        android:layout_alignParentTop="true"
+                                        android:textColor="@color/Black"
+                                        android:textSize="20dp"
+                                        android:layout_marginTop="12dp" />
+
+                                    <EditText
+                                        android:layout_width="85dp"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="number"
+                                        android:ems="10"
+                                        android:id="@+id/txt_pi_km"
+                                        android:text="2"
+                                        android:nextFocusDown="@+id/txt_pi_m"
+
+                                        />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="km  +"
+                                        android:id="@+id/textView33"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_toRightOf="@+id/textView26"
+                                        android:layout_toEndOf="@+id/textView26" />
+
+                                    <EditText
+                                        android:layout_width="93dp"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="number"
+                                        android:ems="10"
+                                        android:id="@+id/txt_pi_m"
+                                        android:nextFocusDown="@+id/txt_valor_g"
+                                        android:text="226" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="m."
+                                        android:id="@+id/textView34"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_toRightOf="@+id/textView26"
+                                        android:layout_toEndOf="@+id/textView26" />
+                                </LinearLayout>
+
+                                <android.support.v4.widget.Space
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="25dp"
+                                    android:id="@+id/view11" />
+
+                                <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="fill_parent"
+                                        android:text="Valor &quot;G&quot;= "
+                                        android:id="@+id/g_val"
+                                        android:layout_alignParentTop="true"
+                                        android:textColor="@color/Black"
+                                        android:textSize="20dp"
+                                        android:layout_marginTop="12dp" />
+
+                                    <EditText
+                                        android:layout_width="89dp"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="number"
+                                        android:ems="10"
+                                        android:id="@+id/txt_valor_g"
+                                        android:layout_gravity="center_horizontal"
+                                        android:text="6" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="grados"
+                                        android:id="@+id/textView30"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_toRightOf="@+id/textView26"
+                                        android:layout_toEndOf="@+id/textView26"
+                                        android:layout_marginTop="12dp" />
+                                </LinearLayout>
+
+                                <android.support.v4.widget.Space
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="25dp"
+                                    android:id="@+id/view12" />
+
+                                <Button
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Generar calculos"
+                                    android:id="@+id/button4"
+                                    android:onClick="calcular_valores"
+                                    android:layout_marginLeft="185dp" />
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="\nGrados\n\nC\n\nR\n\nST\n\nLC\n\nPC\n\nPT\n\nDeflexion"
+                                        android:id="@+id/label_res1"
+                                        android:layout_marginTop="22dp"
+                                        android:layout_below="@+id/label_st"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_alignParentStart="true" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </TableRow>
+                    </ScrollView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lnlTabla"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <ScrollView
+                        android:id="@+id/scrollView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="vertical" >
+
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/horizontalScrollView4"
+                            android:scrollbars="horizontal"
+                            android:layout_weight="1" >
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" >
+
+                                <TableLayout
+                                    android:id="@+id/tabla_datos"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent" />
+                            </LinearLayout>
+                        </HorizontalScrollView>
+                    </ScrollView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lnlGrafica"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"></LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+</RelativeLayout>

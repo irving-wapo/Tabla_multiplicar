@@ -83,25 +83,34 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
             fragment_nivelacion_perfil();
         }
 
-        if(id == R.id.nav_curvas_nivel )
-        {   String[] a= {};
-            carga_fragment(a, "Curvas_nivel");
-        }
 
         if(id == R.id.nav_curvas_horizontales )
-        {   String[] a= {};
-            carga_fragment(a, "Curvas_h");
-        }
-
-        if(id == R.id.nav_agrimensura )
-        {   String[] a= {};
-            carga_fragment(a, "Agri");
+        {
+            Intent c_hori = new Intent (MainActivity.this, ctivity_c_horizontales.class);
+            startActivity(c_hori);
+           // String[] a= {};
+            //carga_fragment(a, "Curvas_h");
         }
 
         if(id == R.id.nav_curvas_verticales )
         {   String[] a= {};
             carga_fragment(a, "Curvas_v");
         }
+
+
+        if(id == R.id.nav_curvas_nivel )
+        {   String[] a= {};
+            carga_fragment(a, "Curvas_nivel");
+        }
+
+        if(id == R.id.nav_agrimensura )
+        {   String[] a= {};
+            carga_fragment(a, "Agri");
+
+            Intent agri = new Intent (MainActivity.this, Agrimensura.class);
+            startActivity(agri);
+        }
+
 
         if(id == R.id.nav_comentarios)
         {
@@ -196,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
                 startActivity(diferencial);
             }
         }
-        catch(Exception ex) { Toast.makeText(getApplicationContext(),R.string.msjError_abrir,Toast.LENGTH_LONG).show(); }
+            catch(Exception ex) { Toast.makeText(getApplicationContext(),R.string.msjError_abrir,Toast.LENGTH_LONG).show(); }
     }
 
     private void abrir_niv_perfil(Boolean estado, String nombre)

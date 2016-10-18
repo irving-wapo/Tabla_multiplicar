@@ -21,9 +21,9 @@ public class registro_usuarios extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_usuarios);
 
-        label = (TextView) findViewById(R.id.textView9);
-        usuario= (EditText) findViewById(R.id.editText2);
-        password= (EditText) findViewById(R.id.editText);
+        label = (TextView) findViewById(R.id.textView3);
+        usuario= (EditText) findViewById(R.id.editText3);
+        password= (EditText) findViewById(R.id.editText4);
         consultame_id_android();
     }
 

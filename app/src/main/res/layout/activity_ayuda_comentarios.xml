@@ -30,6 +30,68 @@
                 android:layout_height="fill_parent">
 
                 <LinearLayout
+                    android:id="@+id/preguntas"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <ScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scrollView4">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="false">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:id="@+id/imageView6"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="51dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="@string/lbl_ayuda_uno"
+                                android:id="@+id/textView10"
+                                android:textSize="20dp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="38dp"
+                                android:layout_below="@+id/imageView6"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true" />
+
+                            <android.support.v4.view.ViewPager
+                                android:layout_width="fill_parent"
+                                android:layout_height="3dp"
+                                android:id="@+id/view2"
+                                android:background="@color/CadetBlue"
+                                android:layout_alignParentStart="true"
+                                android:layout_below="@+id/textView10"
+                                android:layout_alignParentLeft="true" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="@string/label_preguntas"
+                                android:id="@+id/textView11"
+                                android:layout_alignParentStart="true"
+                                android:textSize="17dp"
+                                android:layout_below="@+id/view2"
+                                android:layout_alignParentLeft="true" />
+
+                        </RelativeLayout>
+                    </ScrollView>
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/vidio"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -159,60 +221,6 @@
                         </RelativeLayout>
                     </ScrollView>
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/preguntas"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:orientation="vertical"
-                    android:weightSum="1">
-
-                    <ScrollView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/scrollView4">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:clickable="false">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textAppearance="?android:attr/textAppearanceMedium"
-                                android:text="@string/lbl_ayuda_uno"
-                                android:id="@+id/textView10"
-                                android:textSize="20dp"
-                                android:textStyle="bold"
-                                android:layout_alignParentTop="true"
-                                android:layout_alignParentLeft="true"
-                                android:layout_alignParentStart="true"
-                                android:layout_marginTop="46dp" />
-
-                            <android.support.v4.view.ViewPager
-                                android:layout_width="fill_parent"
-                                android:layout_height="3dp"
-                                android:id="@+id/view2"
-                                android:background="@color/CadetBlue"
-                                android:layout_alignParentStart="true"
-                                android:layout_below="@+id/textView10"
-                                android:layout_alignParentLeft="true" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textAppearance="?android:attr/textAppearanceMedium"
-                                android:text="@string/label_preguntas"
-                                android:id="@+id/textView11"
-                                android:layout_alignParentStart="true"
-                                android:textSize="17dp"
-                                android:layout_below="@+id/view2"
-                                android:layout_alignParentLeft="true" />
-
-                        </RelativeLayout>
-                    </ScrollView>
                 </LinearLayout>
 
             </FrameLayout>

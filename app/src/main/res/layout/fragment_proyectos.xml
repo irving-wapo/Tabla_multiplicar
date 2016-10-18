@@ -45,22 +45,33 @@
 
                     </TableLayout>
 
-                    <Space
-                        android:layout_width="fill_parent"
-                        android:layout_height="420px"
-                        android:id="@+id/space" />
-
-                    <ListView
+                    <TableLayout
                         android:layout_width="match_parent"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/lstProjectos"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="false"
-                        android:choiceMode="singleChoice"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/space" />
+                        android:layout_height="match_parent">
+
+                        <Space
+                            android:layout_width="fill_parent"
+                            android:layout_height="320px"
+                            android:id="@+id/space" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView8" />
+
+                        <ListView
+                            android:layout_width="match_parent"
+                            android:layout_height="fill_parent"
+                            android:id="@+id/lstProjectos"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="false"
+                            android:choiceMode="singleChoice"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/space" />
+
+                    </TableLayout>
 
                 </RelativeLayout>
 
