@@ -26,125 +26,138 @@
             android:contextClickable="false"
             android:focusable="false">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView2"
-                android:src="@mipmap/icono"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="67dp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="PREVIEWPLACE"
-                android:id="@+id/textView18"
-                android:textSize="38dp"
-                android:layout_below="@+id/imageView2"
-                android:layout_centerHorizontal="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView2"
+                    android:src="@mipmap/icono"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="67dp"
+                    android:layout_gravity="center_horizontal" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/lbl_acerca_name"
-                android:id="@+id/textView19"
-                android:textSize="20dp"
-                android:editable="false"
-                android:textStyle="bold"
-                android:layout_marginTop="117dp"
-                android:layout_below="@+id/textView18"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="PREVIEWPLACE"
+                    android:id="@+id/textView18"
+                    android:textSize="35dp"
+                    android:layout_below="@+id/imageView2"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal" />
 
-            <android.support.v4.view.ViewPager
-                android:layout_width="fill_parent"
-                android:layout_height="3dp"
-                android:id="@+id/view5"
-                android:layout_alignParentStart="true"
-                android:background="@color/CadetBlue"
-                android:layout_below="@+id/textView19"
-                android:layout_alignParentLeft="true" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/lbl_acerca_name"
+                    android:id="@+id/textView19"
+                    android:textSize="20dp"
+                    android:editable="false"
+                    android:textStyle="bold"
+                    android:layout_marginTop="117dp"
+                    android:layout_below="@+id/textView18"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/label_acerca_pplace"
-                android:id="@+id/textView21"
-                android:textSize="16dp"
-                android:layout_below="@+id/view5"
-                android:layout_alignParentLeft="true" />
+                <android.support.v4.view.ViewPager
+                    android:layout_width="fill_parent"
+                    android:layout_height="3dp"
+                    android:id="@+id/barra"
+                    android:layout_alignParentStart="true"
+                    android:background="@color/CadetBlue"
+                    android:layout_below="@+id/textView19"
+                    android:layout_alignParentLeft="true" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/lbl_acerca_name_dos"
-                android:id="@+id/textView22"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:layout_below="@+id/textView21"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="33dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/label_acerca_pplace"
+                    android:id="@+id/textView21"
+                    android:textSize="16dp"
+                    android:layout_below="@+id/view5"
+                    android:layout_alignParentLeft="true" />
 
-            <android.support.v4.view.ViewPager
-                android:layout_width="fill_parent"
-                android:layout_height="3dp"
-                android:id="@+id/view7"
-                android:background="@color/CadetBlue"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="false"
-                android:layout_below="@+id/textView22"
-                android:layout_alignParentLeft="true" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/lbl_acerca_name_dos"
+                    android:id="@+id/textView22"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/textView21"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="33dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/lbl_ACERCA_COMO"
-                android:id="@+id/textView23"
-                android:textSize="16dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="false"
-                android:layout_below="@+id/view7"
-                android:layout_alignParentLeft="true" />
+                <android.support.v4.view.ViewPager
+                    android:layout_width="fill_parent"
+                    android:layout_height="3dp"
+                    android:id="@+id/view7"
+                    android:background="@color/CadetBlue"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textView22"
+                    android:layout_alignParentLeft="true" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/lbl_acerca_name_cuatro"
-                android:id="@+id/textView24"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:layout_below="@+id/textView23"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="32dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/lbl_ACERCA_COMO"
+                    android:id="@+id/textView23"
+                    android:textSize="16dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/view7"
+                    android:layout_alignParentLeft="true" />
 
-            <android.support.v4.view.ViewPager
-                android:layout_width="fill_parent"
-                android:layout_height="3dp"
-                android:id="@+id/view3"
-                android:background="@color/CadetBlue"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/textView24"
-                android:layout_alignParentLeft="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView3" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/label_beneficios"
-                android:id="@+id/textView25"
-                android:textSize="16dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/view3"
-                android:layout_alignParentLeft="true" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/lbl_acerca_name_cuatro"
+                    android:id="@+id/textView24"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/textView23"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="32dp" />
+
+                <android.support.v4.view.ViewPager
+                    android:layout_width="fill_parent"
+                    android:layout_height="3dp"
+                    android:id="@+id/view3"
+                    android:background="@color/CadetBlue"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textView24"
+                    android:layout_alignParentLeft="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/label_beneficios"
+                    android:id="@+id/textView25"
+                    android:textSize="16dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/view3"
+                    android:layout_alignParentLeft="true" />
+
+            </LinearLayout>
 
         </RelativeLayout>
     </ScrollView>
