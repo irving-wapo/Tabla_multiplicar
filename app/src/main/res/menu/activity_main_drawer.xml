@@ -5,7 +5,7 @@
 
         <item
             android:id="@+id/nav_nivelacion"
-            android:icon="@drawable/dife"
+            android:icon="@drawable/perf"
             android:title="@string/lbl_menu_1" />
 
         <item
@@ -25,7 +25,7 @@
 
         <item
             android:id="@+id/nav_curvas_nivel"
-            android:icon="@drawable/curvas"
+            android:icon="@drawable/perf"
             android:title="@string/lbl_menu_5" />
 
 
@@ -38,7 +38,7 @@
 
         <item
             android:id = "@+id/nav_Acerca"
-            android:icon ="@drawable/acer"
+            android:icon ="@drawable/perf"
             android:title = "@string/btnAcerca" />
 
         <item
