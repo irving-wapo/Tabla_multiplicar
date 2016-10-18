@@ -14,24 +14,27 @@
             android:title = "@string/lbl_menu_2" />
 
         <item
-            android:id="@+id/nav_curvas_nivel"
-            android:icon="@drawable/curvas"
-            android:title="@string/lbl_menu_3" />
-
-        <item
             android:id = "@+id/nav_curvas_horizontales"
             android:icon ="@drawable/horizon"
-            android:title = "@string/lbl_menu_4" />
-
-        <item
-            android:id = "@+id/nav_agrimensura"
-            android:icon ="@drawable/agrimen"
-            android:title = "@string/lbl_menu_5" />
+            android:title = "@string/lbl_menu_3" />
 
         <item
             android:id = "@+id/nav_curvas_verticales"
             android:icon ="@drawable/vertica"
+            android:title = "@string/lbl_menu_4" />
+
+        <item
+            android:id="@+id/nav_curvas_nivel"
+            android:icon="@drawable/curvas"
+            android:title="@string/lbl_menu_5" />
+
+
+
+        <item
+            android:id = "@+id/nav_agrimensura"
+            android:icon ="@drawable/agrimen"
             android:title = "@string/lbl_menu_6" />
+
 
         <item
             android:id = "@+id/nav_Acerca"

@@ -81,18 +81,17 @@
     <string name="lbl_salir">Salir</string>
 
     <string name="label_beneficios">
-    Estos son algunos beneficios de trabajar con PreviewPlace:
-    \n -Apoyo para trabajos topográficos en donde no sea posible trabajar con instrumentos de alta tecnología.
-    \n -Minimiza el tiempo empleado en los cálculos topográficos.
-    \n -Realiza cálculos con precisión.
-    \n -Obtiene una pre-visualización del lugar a describir a través de gráficas dinámicas.
-    \n -Grafica con detalle los cálculos característicos del trabajo topográficos seleccionado por el usuario.
-    \n -Ofrece calidad a la vista por medio de sus gráficas dinámicas.
-    \n -Costo accesible
-    \n -Fácil uso
-    \n -Servicio de control de descargas y soporte
-    \n -
-    \n -
+    Estos son algunos beneficios de trabajar con PREVIEWPLACE:
+    \n •Apoyo para trabajos topográficos en donde no sea posible trabajar con instrumentos de alta tecnología.
+    \n •Minimiza el tiempo empleado en los cálculos topográficos.
+    \n •Realiza cálculos con precisión.
+    \n •Obtiene una pre-visualización del lugar a describir a través de gráficas dinámicas.
+    \n •Grafica con detalle los cálculos característicos del trabajo topográficos seleccionado por el usuario.
+    \n •Ofrece calidad a la vista por medio de sus gráficas dinámicas.
+    \n •Costo accesible
+    \n •Fácil uso
+    \n •Servicio de control de descargas y soporte
+
     </string>
 
 
@@ -112,7 +111,7 @@
     PREVIEWPLACE ofrece la oportunidad de compartir trabajos por medio de reportes creados en formato PDF, para ello dar click  en PDf en el menú inferior de la aplicación.
     </string>
     <string name="label_acerca_pplace">
-    \PREVIEWPLACE es un aplicación móvil que busca facilitar trabajos topográficos de gabinete para la optimización de tiempos, capturando, calculando y graficando temas de:
+    PREVIEWPLACE es un aplicación móvil que busca facilitar trabajos topográficos de gabinete para la optimización de tiempos, capturando, calculando y graficando temas de:
     Nivelación diferencial, nivelacion de perfil, agrimensura, curvas horizontales, curvas de nivel entre otras.
     </string>
 
@@ -131,7 +130,6 @@
     <string name="lbl_ayuda_6">Parar</string>
 
 
-
     <string name="lbl_fragment_1">NIVELACION DIFERENCIAL</string>
     <string name="lbl_fragment_2">NIVELACION DE PERFIL</string>
     <string name="lbl_fragment_3">CURVAS DE NIVEL</string>
@@ -142,23 +140,21 @@
 
     <string name="lbl_menu_1">Nivelacion diferencial</string>
     <string name="lbl_menu_2">Nivelacion de perfil</string>
-    <string name="lbl_menu_3">Curvas de nivel</string>
-    <string name="lbl_menu_4">Curvas horizontales</string>
-    <string name="lbl_menu_5">Agrimensura</string>
-    <string name="lbl_menu_6">Curvas verticales </string>
-
-
+    <string name="lbl_menu_3">Curvas horizontales</string>
+    <string name="lbl_menu_4">Curvas verticales</string>
+    <string name="lbl_menu_5">Curvas de nivel</string>
+    <string name="lbl_menu_6">Agrimensura </string>
 
 
     <string name="lbl_acerca_name_dos">Como surge PREVIEWPLACE</string>
-    <string name="lbl_acerca_name_cuatro">Beneficios PREVIEWPLACE</string>
+    <string name="lbl_acerca_name_cuatro">Beneficios de PREVIEWPLACE</string>
     <string name="lbl_acerca_name_cinco">
 
 
 
     </string>
 
-    <string name="lbl_ACERCA_COMO">La idea de esta aplicación, surge a partir de la necesidad en estudiantes de ingeniería Civil como una herramienta necesaria para la fácil realización de cálculos topográficos y comprobaciones; además de proporcionar un apoyo a los profesionistas del área de construcción para los trabajos topográficos, donde no sea posible trabajar con instrumentos de alta tecnología (computadora, estación total, etc.) o requieran una pre-visualización del lugar a describir. Su desarrollo ha sido realizado por un grupo multidisciplinario de estudiantes del Instituto Tecnológico de Tehuacán, conformado por 2 estudiantes en la Ingeniería de Sistemas Computacionales y 3 estudiantes de la Ingenierías en Civil.</string>
+    <string name="lbl_ACERCA_COMO">La idea de esta aplicación, surge a partir de la necesidad en estudiantes de ingeniería Civil como una herramienta necesaria para la fácil realización de cálculos topográficos y comprobaciones, además de proporcionar un apoyo a los profesionistas del área de construcción para los trabajos topográficos, donde no sea posible trabajar con instrumentos de alta tecnología (computadora, estación total, etc.) o requieran una pre-visualización del lugar a describir. Su desarrollo ha sido realizado por un grupo multidisciplinario de estudiantes del Instituto Tecnológico de Tehuacán, conformado por 2 estudiantes de Ingeniería en Sistemas Computacionales y 3 estudiantes de Ingenierías  Civil.</string>
     <string name="lbl_comentarios_name">Ayuda y comentarios</string>
     <string name="lbl_ajustes_name">Configuraciones</string>
     <string name="lblObra">OBRA: </string>
@@ -172,13 +168,23 @@
 
     <string name="lbla_registro_us">Usuario:</string>
     <string name="lbla_registro_pass">Contraseña: </string>
-    <string name="lbla_registro_1">Recordarme</string>
+    <string name="lbla_registro_1">RECORDARME</string>
     <string name="lbla_registro_2">Ingresar</string>
     <string name="lbla_registro_3"> Bienvenido</string>
     <string name="lbla_registro_4"> DISPOSITIVO: </string>
 
     <string name="lbla_registro_5"> El nombre de usuario o contraseña son <incorrectos class=""></incorrectos> </string>
     <string name="btnImprimir">Imprimir</string>
+    <string name="title_activity_dibujo">dibujo</string>
+    <string name="title_activity_ibujo">ibujo</string>
 
+
+    <string-array name="datos">
+        <item>SE</item>
+        <item>SW</item>
+        <item>NW</item>
+        <item>NE</item>
+
+    </string-array>
 
 </resources>

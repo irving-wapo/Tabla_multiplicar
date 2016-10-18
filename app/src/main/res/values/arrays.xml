@@ -5,6 +5,28 @@
         <item>@string/lblmas</item>
         <item>@string/lblmenos</item>
     </string-array>
+
+
+    <string-array name="PROBANDO_WAPO">
+        <item>Estacion</item>
+        <item>Deflexion Parcial</item>
+        <item>Deflexion Total</item>
+    </string-array>
+
+
+    <string-array name="cabesera_agri">
+        <item>Estacion</item>
+        <item>Punto Visado (P.V.)</item>
+        <item>Valor R</item>
+        <item>Angulo interno</item>
+    </string-array>
+
+    <string-array name="cabesera_nueva">
+
+        <item>Angulo interno compensado</item>
+    </string-array>
+
+
     <string-array name="cabecera_tabla_perfil">
         <item>@string/lblpv</item>
         <item>@string/lblmas</item>

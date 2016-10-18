@@ -1,4 +1,4 @@
-<resources>
+<resources  xmlns="http://schemas.android.com/apk/lib/com.androidplot.xy" >
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -21,8 +21,10 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
 
 </resources>
