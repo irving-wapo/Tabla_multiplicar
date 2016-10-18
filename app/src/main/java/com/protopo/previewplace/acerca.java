@@ -21,6 +21,6 @@ public class acerca extends AppCompatActivity {
 
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.giro);
         img.startAnimation(animation);
-        ///comentario
+        ///actualizando datos
     }
 }
