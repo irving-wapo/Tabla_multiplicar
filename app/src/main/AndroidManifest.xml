@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/icono"
@@ -18,17 +17,12 @@
         <activity
             android:name=".registro_usuarios"
             android:configChanges="screenSize|orientation"
-            android:label="PREVIEWPLACE">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:label="PREVIEWPLACE"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".Ajustes"
-            android:label="@string/lbl_ajustes_name"
-            android:configChanges="screenSize|orientation" />
+            android:configChanges="screenSize|orientation"
+            android:label="@string/lbl_ajustes_name" />
         <activity
             android:name=".niv_dif_cont"
             android:configChanges="screenSize|orientation"
@@ -40,7 +34,6 @@
         <activity
             android:name=".test_graphis"
             android:configChanges="screenSize|orientation" />
-
         <activity
             android:name=".MainActivity"
             android:configChanges="screenSize|orientation"
@@ -49,13 +42,39 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Ayuda_comentarios"
+            android:label="@string/lbl_comentarios_name" />
+        <activity
+            android:name=".acerca"
+            android:label="@string/lbl_acerca_name" />
+        <activity
+            android:name=".inicio"
+            android:label="PreviewPlace"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <activity android:name=".Ayuda_comentarios"
-          android:label="@string/lbl_comentarios_name"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ctivity_c_horizontales"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".grafica_horizontales" />
 
-        <activity android:name=".acerca"
-         android:label="@string/lbl_acerca_name" />
+        <!--
+        ATTENTION: This was auto-generated to add Google Play services to your project for
+        App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
+        <activity android:name=".Agrimensura"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".tabla_datos_agri"
+            android:windowSoftInputMode="stateHidden"/>
     </application>
 
 </manifest>
