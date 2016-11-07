@@ -49,9 +49,10 @@
             android:name=".acerca"
             android:label="@string/lbl_acerca_name" />
         <activity
-            android:name=".inicio"
+            android:name=".Agrimensura"
+            android:configChanges="screenSize|orientation"
             android:label="PreviewPlace"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -63,17 +64,14 @@
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".grafica_horizontales" />
 
-        <!--
-        ATTENTION: This was auto-generated to add Google Play services to your project for
-        App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
-        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".Agrimensura"
+        <activity android:name=".inicio"
             android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".tabla_datos_agri"
+            android:configChanges="screenSize|orientation"
             android:windowSoftInputMode="stateHidden"/>
     </application>
 

@@ -68,6 +68,18 @@ public class fragment_proyectos extends Fragment
                 el_icono.setImageResource(R.drawable.perfil);
                 nombre_icono.setText(String.valueOf( getString(R.string.lbl_fragment_2 )));
             }
+            else  if (nombre_activi.equals("Curvas_h") )
+            {
+                el_icono.setImageResource(R.drawable.horizontal);
+                nombre_icono.setText(String.valueOf(getString(R.string.lbl_fragment_4 )));
+                c_horizontales();
+            }
+            else  if (nombre_activi.equals("Agri") )
+            {
+                el_icono.setImageResource(R.drawable.agrime);
+                nombre_icono.setText(String.valueOf(getString(R.string.lbl_fragment_5 )));
+                agrimensura();
+            }
             else  if (nombre_activi.equals("Curvas_nivel") )
             {
                 el_icono.setImageResource(R.drawable.nivel);
@@ -75,19 +87,7 @@ public class fragment_proyectos extends Fragment
                 c_nivel();
                 Toast.makeText(miVista.getContext(), "AREA EN DESARROLLO.",Toast.LENGTH_LONG).show();
             }
-            else  if (nombre_activi.equals("Curvas_h") )
-            {
-                el_icono.setImageResource(R.drawable.horizontal);
-                nombre_icono.setText(String.valueOf(getString(R.string.lbl_fragment_4 )));
-                Toast.makeText(miVista.getContext(), "AREA EN DESARROLLO.",Toast.LENGTH_LONG).show();
-            }
-            else  if (nombre_activi.equals("Agri") )
-            {
-                el_icono.setImageResource(R.drawable.agrime);
-                nombre_icono.setText(String.valueOf(getString(R.string.lbl_fragment_5 )));
-                agrimensura();
-              //  Toast.makeText(miVista.getContext(), "AREA EN DESARROLLO.",Toast.LENGTH_LONG).show();
-            }
+
             else  if (nombre_activi.equals("Curvas_v") )
             {
                 el_icono.setImageResource(R.drawable.verticales);
@@ -200,8 +200,12 @@ public class fragment_proyectos extends Fragment
 
     public void agrimensura()
     {
-        descripcion.setText("La agrimensura es esencial para establecer los límites de la tierra y, de este modo, determinar la propiedad de la misma. Para esto se miden las distancias, los ángulos y las alturas con diferentes instrumentos. Estas actividades pueden ayudar a delimitar la propiedad privada y las divisiones políticas de un terreno. \n\nAcualmente esta funcion se encuentra en desarrollo.");
+        descripcion.setText("La agrimensura es esencial para establecer los límites de la tierra y, de este modo, determinar la propiedad de la misma. Para esto se miden las distancias, los ángulos y las alturas con diferentes instrumentos. Estas actividades pueden ayudar a delimitar la propiedad privada y las divisiones políticas de un terreno.");
     }
 
+    public void c_horizontales()
+    {
+        descripcion.setText("Las curvas circulares simples se definen como arcos de circunferencia de un solo radio que son utilizados para unir dos alineamientos rectos de una vía.");
+    }
 
 }

@@ -61,6 +61,12 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
             case 2:
                 fragment_nivelacion_perfil();
                 break;
+            case 3:
+                fragment_curvas_horizontales();
+                break;
+            case 4:
+                fragment_agrimensura();
+                break;
             default:
                 break;
         }
@@ -86,10 +92,23 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
 
         if(id == R.id.nav_curvas_horizontales )
         {
-            Intent c_hori = new Intent (MainActivity.this, ctivity_c_horizontales.class);
-            startActivity(c_hori);
-           // String[] a= {};
+            //Intent c_hori = new Intent (MainActivity.this, ctivity_c_horizontales.class);
+            //startActivity(c_hori);
+            // String[] a= {};
             //carga_fragment(a, "Curvas_h");
+            fragment = 3;
+            fragment_curvas_horizontales();
+
+        }
+
+        if(id == R.id.nav_agrimensura )
+        {
+            //String[] a= {};
+            //carga_fragment(a, "Agri");
+            //Intent agri = new Intent (MainActivity.this, Agrimensura.class);
+            //startActivity(agri);
+            fragment = 4;
+            fragment_agrimensura();
         }
 
         if(id == R.id.nav_curvas_verticales )
@@ -103,13 +122,7 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
             carga_fragment(a, "Curvas_nivel");
         }
 
-        if(id == R.id.nav_agrimensura )
-        {   String[] a= {};
-            carga_fragment(a, "Agri");
 
-            Intent agri = new Intent (MainActivity.this, Agrimensura.class);
-            startActivity(agri);
-        }
 
 
         if(id == R.id.nav_comentarios)
@@ -150,6 +163,27 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
         bandera_archivo =".nd";
     }
 
+    public void fragment_nivelacion_perfil()
+    {
+        String ya_llego[] =filtrar_archivos(".np").toArray(new String[0]);
+        carga_fragment(ya_llego, "n_perfil");
+        bandera_archivo =".np";
+    }
+
+    public void fragment_curvas_horizontales()
+    {
+        String ya_llego[] =filtrar_archivos(".ch").toArray(new String[0]);
+        carga_fragment(ya_llego, "Curvas_h");
+        bandera_archivo =".ch";
+    }
+
+    public void fragment_agrimensura()
+    {
+        String ya_llego[] =filtrar_archivos(".ag").toArray(new String[0]);
+        carga_fragment(ya_llego, "Agri");
+        bandera_archivo =".ag";
+    }
+
     public void carga_fragment(String [] ya_llego, String im)
     {
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -161,12 +195,7 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
         fragInfo.setArguments(bundle);
     }
 
-    public void fragment_nivelacion_perfil()
-    {
-        String ya_llego[] =filtrar_archivos(".np").toArray(new String[0]);
-        carga_fragment(ya_llego, "n_perfil");
-        bandera_archivo =".np";
-    }
+
 
     public  ArrayList<String> filtrar_archivos(String extencion)
     {
@@ -191,6 +220,10 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
         dialog_nombre_archivo mensaje = new dialog_nombre_archivo();
         mensaje.show(getSupportFragmentManager(),"Nuevo");
     }
+
+
+
+
 
     private void abrir_niv_dif(Boolean estado, String nombre)
     {
@@ -224,6 +257,38 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
         catch(Exception ex) { Toast.makeText(getApplicationContext(),R.string.msjError_abrir,Toast.LENGTH_LONG).show(); }
     }
 
+    private void abrir_curvas_horizontales(Boolean estado, String nombre)
+    {
+        String nombreArchivo =  nombre;
+        try
+        {
+            if(nombreArchivo != null)
+            {
+                Intent diferencial3 = new Intent(MainActivity.this, ctivity_c_horizontales.class);
+                diferencial3.putExtra("nombre",nombreArchivo);
+                diferencial3.putExtra("carga",estado);
+                startActivity(diferencial3);
+            }
+        }
+        catch(Exception ex) { Toast.makeText(getApplicationContext(),R.string.msjError_abrir,Toast.LENGTH_LONG).show(); }
+    }
+
+    private void abrir_agrimensura(Boolean estado, String nombre)
+    {
+        String nombreArchivo =  nombre;
+        try
+        {
+            if(nombreArchivo != null)
+            {
+                Intent diferencial4 = new Intent(MainActivity.this, Agrimensura.class);
+                diferencial4.putExtra("nombre",nombreArchivo);
+                diferencial4.putExtra("carga",estado);
+                startActivity(diferencial4);
+            }
+        }
+        catch(Exception ex) { Toast.makeText(getApplicationContext(),R.string.msjError_abrir,Toast.LENGTH_LONG).show(); }
+    }
+
     private void borrar(String nombre)
     {
         File f = null;
@@ -235,6 +300,16 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
         if(bandera_archivo.equals(".np") )
         {
             f = new File(getApplicationContext().getFilesDir(), nombre.concat(".np"));
+        }
+
+        if(bandera_archivo.equals(".ch") )
+        {
+            f = new File(getApplicationContext().getFilesDir(), nombre.concat(".ch"));
+        }
+
+        if(bandera_archivo.equals(".ag") )
+        {
+            f = new File(getApplicationContext().getFilesDir(), nombre.concat(".ag"));
         }
 
         f.delete();
@@ -249,7 +324,7 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
             if( !Character.isDigit(letra)  &&  !Character.isLetter(letra) ) {  caracteres = false; }
         }
 
-        if((!filtrar_archivos(".nd").contains(nombre.concat(".nd")) || !filtrar_archivos(".np").contains(nombre.concat(".np")) )  && caracteres) //COMPARA CON LOS ARCHIVOS EXISTENTES
+        if((!filtrar_archivos(".nd").contains(nombre.concat(".nd")) || !filtrar_archivos(".np").contains(nombre.concat(".np"))  || !filtrar_archivos(".ch").contains(nombre.concat(".ch")) || !filtrar_archivos(".ag").contains(nombre.concat(".ag"))   )  && caracteres) //COMPARA CON LOS ARCHIVOS EXISTENTES
         {
             bandera = true;
         }
@@ -268,6 +343,12 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
 
             if(bandera_archivo.equals(".np") )
             {  abrir_niv_perfil(true,nombre); }
+
+            if(bandera_archivo.equals(".ch") )
+            {  abrir_curvas_horizontales(true,nombre); }
+
+            if(bandera_archivo.equals(".ag") )
+            {  abrir_agrimensura(true,nombre); }
         }
     }
 
@@ -296,6 +377,10 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
                     abrir_niv_dif(false,nombre_archivo);
                 if(bandera_archivo.equals(".np") )
                     abrir_niv_perfil(false,nombre_archivo);
+                if(bandera_archivo.equals(".ch") )
+                    abrir_curvas_horizontales(false,nombre_archivo);
+                if(bandera_archivo.equals(".ag") )
+                    abrir_agrimensura(false,nombre_archivo);
                 break;
             case 1:
                 msg_borrar objt = new msg_borrar();

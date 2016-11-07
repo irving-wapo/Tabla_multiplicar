@@ -22,8 +22,8 @@
     </string-array>
 
     <string-array name="cabesera_nueva">
-
-        <item>Angulo interno compensado</item>
+        <item>Alfa</item>
+        <item>Distancia</item>
     </string-array>
 
 

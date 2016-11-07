@@ -1,6 +1,7 @@
 package com.protopo.previewplace;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,9 +28,12 @@ public class ctivity_c_horizontales extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_c_horizontales);
+
         res1 =(TextView) findViewById(R.id.label_res1 );
+
         Grados = (EditText) findViewById(R.id.txtGrados);
         Minutos = (EditText) findViewById(R.id.txtMinutos);
         Segundos = (EditText) findViewById(R.id.txtsegundos);

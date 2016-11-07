@@ -5,7 +5,7 @@
 
         <item
             android:id="@+id/nav_nivelacion"
-            android:icon="@drawable/perf"
+            android:icon="@drawable/diferencial"
             android:title="@string/lbl_menu_1" />
 
         <item
@@ -19,26 +19,24 @@
             android:title = "@string/lbl_menu_3" />
 
         <item
-            android:id = "@+id/nav_curvas_verticales"
-            android:icon ="@drawable/vertica"
-            android:title = "@string/lbl_menu_4" />
+            android:id = "@+id/nav_agrimensura"
+            android:icon ="@drawable/agrimensura"
+            android:title = "@string/lbl_menu_6" />
 
         <item
             android:id="@+id/nav_curvas_nivel"
-            android:icon="@drawable/perf"
+            android:icon="@drawable/agrimen"
             android:title="@string/lbl_menu_5" />
 
-
-
         <item
-            android:id = "@+id/nav_agrimensura"
-            android:icon ="@drawable/agrimen"
-            android:title = "@string/lbl_menu_6" />
+            android:id = "@+id/nav_curvas_verticales"
+            android:icon ="@drawable/nube"
+            android:title = "@string/lbl_menu_4" />
 
 
         <item
             android:id = "@+id/nav_Acerca"
-            android:icon ="@drawable/perf"
+            android:icon ="@drawable/nosotros"
             android:title = "@string/btnAcerca" />
 
         <item

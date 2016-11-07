@@ -27,7 +27,7 @@
 
                     <TableLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="250dp">
 
                         <ImageView
                             android:layout_width="150dp"
@@ -47,12 +47,12 @@
 
                     <TableLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content">
 
                         <Space
                             android:layout_width="fill_parent"
-                            android:layout_height="320px"
-                            android:id="@+id/space" />
+                            android:id="@+id/space"
+                            android:layout_height="380px" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -72,6 +72,8 @@
                             android:layout_below="@+id/space" />
 
                     </TableLayout>
+
+
 
                 </RelativeLayout>
 
@@ -126,7 +128,8 @@
                                     android:id="@+id/btnAyuda"
                                     android:background="@color/transparente"
                                     android:textSize="@dimen/texto"
-                                    android:drawableTop="@drawable/info" />
+                                    android:drawableTop="@drawable/info"
+                                    android:onClick="ayuda_a_OnClick (MainActivity)" />
 
                                 <Button
                                     android:layout_width="81dp"

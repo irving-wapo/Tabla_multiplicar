@@ -11,8 +11,8 @@
 
     <TabHost
         android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/tabHost2">
+        android:id="@+id/tabHost2"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,7 +21,7 @@
 
             <TabWidget
                 android:id="@android:id/tabs"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/Chocolate"></TabWidget>
 
@@ -53,7 +53,8 @@
                                 android:orientation="vertical"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/linearLayout5">
+                                android:id="@+id/linearLayout5"
+                                android:weightSum="1">
 
                                 <LinearLayout
                                     android:orientation="vertical"
@@ -157,8 +158,8 @@
 
                                 <android.support.v4.widget.Space
                                     android:layout_width="fill_parent"
-                                    android:layout_height="12dp"
-                                    android:id="@+id/view10" />
+                                    android:id="@+id/view10"
+                                    android:layout_height="31dp" />
 
                                 <LinearLayout
                                     android:orientation="horizontal"
@@ -216,8 +217,8 @@
 
                                 <android.support.v4.widget.Space
                                     android:layout_width="fill_parent"
-                                    android:layout_height="25dp"
-                                    android:id="@+id/view11" />
+                                    android:id="@+id/view11"
+                                    android:layout_height="39dp" />
 
                                 <LinearLayout
                                     android:orientation="horizontal"
@@ -256,16 +257,18 @@
 
                                 <android.support.v4.widget.Space
                                     android:layout_width="fill_parent"
-                                    android:layout_height="25dp"
-                                    android:id="@+id/view12" />
+                                    android:id="@+id/view12"
+                                    android:layout_height="55dp" />
 
                                 <Button
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="289dp"
                                     android:layout_height="wrap_content"
                                     android:text="Generar calculos"
                                     android:id="@+id/button4"
                                     android:onClick="calcular_valores"
-                                    android:layout_marginLeft="185dp" />
+                                    android:textSize="18sp"
+                                    android:layout_weight="1"
+                                    android:layout_gravity="center_horizontal" />
 
                                 <LinearLayout
                                     android:orientation="vertical"
@@ -273,14 +276,30 @@
                                     android:layout_height="fill_parent">
 
                                     <TextView
+                                        android:fontFamily="sans-serif-medium"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="\nGrados\n\nC\n\nR\n\nST\n\nLC\n\nPC\n\nPT\n\nDeflexion"
                                         android:id="@+id/label_res1"
                                         android:layout_marginTop="22dp"
                                         android:layout_below="@+id/label_st"
                                         android:layout_alignParentLeft="true"
-                                        android:layout_alignParentStart="true" />
+                                        android:layout_alignParentStart="true"
+                                        android:textColor="@color/AliceBlue"
+                                        android:textSize="20sp"
+                                        android:text="hola"
+                                        android:textAllCaps="false"
+                                        android:textColorHighlight="@color/BlueViolet"
+                                        android:soundEffectsEnabled="false"
+                                        android:singleLine="false"
+                                        android:selectAllOnFocus="false"
+                                        android:textIsSelectable="true"
+                                        android:textStyle="normal|bold" />
+
+                                    <Button
+                                        android:text="Button"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/button6" />
 
                                 </LinearLayout>
 
