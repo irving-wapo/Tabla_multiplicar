@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_c_verticales"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp" />
+
+                        <TextView
+                            android:text="Curvas Verticales"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center"
+                            android:id="@+id/textView99"
+                            android:textSize="30sp" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp" />
+
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <TextView
+                                android:text="   KM PIV:        "
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView46" />
+
+                            <EditText
+                                android:layout_height="wrap_content"
+                                android:inputType="numberDecimal"
+                                android:ems="10"
+                                android:id="@+id/txt_km"
+                                android:text="22"
+                                android:layout_width="70dp" />
+
+                            <Space
+                                android:layout_width="50dp"
+                                android:layout_height="match_parent" />
+
+                            <EditText
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:inputType="numberDecimal"
+                                android:ems="10"
+                                android:id="@+id/txt_mt"
+                                android:text="250" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <Space android:layout_height="match_parent"
+                                android:layout_width="90dp" />
+
+                            <TextView
+                                android:text="Kilometros"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView47" />
+
+                            <Space android:layout_height="match_parent"
+                                android:layout_width="52dp" />
+
+                            <TextView
+                                android:text="Metros"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView48" />
+                        </TableRow>
+
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp" />
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <TextView
+                                android:text="   COTA  PIV:        "
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView446" />
+
+                            <EditText
+                                android:layout_height="wrap_content"
+                                android:inputType="numberDecimal"
+                                android:ems="10"
+                                android:id="@+id/txt_cota"
+                                android:text="106.35"
+                                android:layout_width="70dp" />
+
+                        </TableRow>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp" />
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <TextView
+                                android:text="    p:    "
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView466" />
+
+                            <EditText
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:inputType="numberDecimal|numberSigned"
+                                android:ems="10"
+                                android:id="@+id/txt_pe"
+                                android:text="2.5" />
+
+                            <Space
+                                android:layout_width="40dp"
+                                android:layout_height="match_parent" />
+
+                            <TextView
+                                android:text="p' :"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView76" />
+
+                            <EditText
+                                android:layout_height="wrap_content"
+                                android:inputType="numberDecimal|numberSigned"
+                                android:ems="10"
+                                android:id="@+id/txt_pe_pri"
+                                android:text="-3.3"
+                                android:layout_width="70dp" />
+
+                        </TableRow>
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp" />
+
+                        <Button
+                            android:text="Generar Calculos"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/button6"
+                            android:onClick="bton_cal"
+                            android:layout_width="400dp" />
+
+                        <TextView
+                            android:text="TextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView49"
+                            android:textSize="18sp" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp" />
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/scrollView8" >
+
+                            <HorizontalScrollView
+                                android:layout_width="fill_parent"
+                                android:layout_height="225dp"
+                                android:id="@+id/horizontalScrollView5"
+                                android:layout_weight="0.05">
+
+                                <TableLayout
+                                    android:id="@+id/tabla_c_v"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent" />
+                            </HorizontalScrollView>
+                        </ScrollView>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp" />
+
+
+                        <ImageButton
+                            android:id="@+id/imageButton"
+                            android:background="@drawable/curva"
+                            android:text="   Graficar        "
+                            android:layout_gravity="center"
+                            android:layout_width="180dp"
+                            android:layout_height="150dp"
+                            android:onClick="graficar"
+                            android:visibility="visible" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </TableRow>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

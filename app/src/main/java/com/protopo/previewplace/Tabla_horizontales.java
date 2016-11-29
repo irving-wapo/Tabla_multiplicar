@@ -18,7 +18,8 @@ import java.util.ArrayList;
 /**
  * Created by Francisco on 05/03/2016.
  */
-public class Tabla_horizontales{
+public class Tabla_horizontales
+{
 
     private TableLayout tabla;          // Layout donde se pintará la tabla
     private ArrayList<TableRow> filas;  // Array de las filas de la tabla
@@ -27,6 +28,7 @@ public class Tabla_horizontales{
     private FragmentManager supportFragmentManager;
     private int FILAS, COLUMNAS,padre;  // Filas y columnas de nuestra tabla
     ArrayList<String[]> elementos2 = new ArrayList<String[]>();
+
     public Tabla_horizontales(int padre,FragmentManager supportFragmentManager, Activity actividad, TableLayout tabla)
     {
         this.actividad = actividad;
@@ -101,7 +103,7 @@ public class Tabla_horizontales{
             {
                 texto.setText(String.valueOf(elementos[i]));
             }
-            if(i==0)
+           /* if(i==0)
             {
                 texto.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -185,7 +187,7 @@ public class Tabla_horizontales{
 
             }
             else
-            {
+            */{
                 texto.setBackgroundResource(R.drawable.tabla_celda);
             }
             texto.setTextAppearance(actividad, R.style.estilo_celda);

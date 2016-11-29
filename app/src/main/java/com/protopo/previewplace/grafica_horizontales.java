@@ -23,19 +23,19 @@ public class grafica_horizontales extends Activity {
 
         // initialize our XYPlot reference:);
         plot = (XYPlot) findViewById(R.id.plot);
-        plot.setDomainStep(XYStepMode.INCREMENT_BY_PIXELS, 100);                  //DIVISION DE CUADRICULA
+        plot.setDomainStep(XYStepMode.INCREMENT_BY_PIXELS, 100);                //DIVISION DE CUADRICULA
         plot.setRangeStep(XYStepMode.INCREMENT_BY_PIXELS, 20);                  //DE FONDO
-        plot.centerOnDomainOrigin(0);                                         //ORIENTAR GRAFICO X
+        plot.centerOnDomainOrigin(0);                                           //ORIENTAR GRAFICO X
         plot.centerOnRangeOrigin(100);                                          //EJEMPLO 8,-8 Y
 
         plot.setBorderStyle(XYPlot.BorderStyle.NONE, null, null);
-        plot.setDomainBoundaries(90, 100, BoundaryMode.GROW);                  //IMAGEN COMPLETA
+        plot.setDomainBoundaries(90, 100, BoundaryMode.GROW);                   //IMAGEN COMPLETA
         plot.getGraphWidget().getBackgroundPaint().setColor(Color.WHITE);       //COLOR DEL MARCO DE FONDO
         plot.getGraphWidget().getGridBackgroundPaint().setColor(Color.WHITE);   //COLOR DEL FONDO DEL PANEL
 
         // Domain
-        plot.getGraphWidget().setDomainLabelPaint(null);                        //ELIMINA VALORES DE X
-        plot.setDomainStep(XYStepMode.INCREMENT_BY_VAL, 5);                     //DIVISION DE LA CUADRICULA
+        plot.getGraphWidget().setDomainLabelPaint(null);                         //ELIMINA VALORES DE X
+        plot.setDomainStep(XYStepMode.INCREMENT_BY_VAL, 5);                      //DIVISION DE LA CUADRICULA
         //plot.setDomainValueFormat(new DecimalFormat("50"));
         //plot.getGraphWidget().setDomainOriginLinePaint(null);
         //Remove legend

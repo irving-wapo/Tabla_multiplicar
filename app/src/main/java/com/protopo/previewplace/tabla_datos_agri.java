@@ -1,5 +1,6 @@
 package com.protopo.previewplace;
 
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,12 +12,12 @@ import org.w3c.dom.Text;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class tabla_datos_agri extends AppCompatActivity
+public class tabla_datos_agri extends AppCompatActivity implements menu_agregar_dif.DialogListener
 {
 
     Button add;
-    Tabla_agrimensura tabla, tabla_dos ;
-    TextView distancia, grados, minutos, segundos, sumatoria_a_i_o, provisional;
+    Tabla_agrimensura tabla, tabla_dos, tabla_tres ;
+    TextView distancia, grados, minutos, segundos, sumatoria_a_i_o, provisional, titulo1, titulo2;
     double val = 0; String senti="", angulo="";
     ArrayList<String> list_pos1 = new ArrayList<String>();
     ArrayList<String> list_pos2 = new ArrayList<String>();
@@ -24,6 +25,10 @@ public class tabla_datos_agri extends AppCompatActivity
     ArrayList<String> list_pos4 = new ArrayList<String>();
     ArrayList<String> list_alfas  = new ArrayList<String>();
     ArrayList<String> list_distancias = new ArrayList<String>();
+    ArrayList<Double> list_X  = new ArrayList<Double>();
+    ArrayList<Double> list_Y = new ArrayList<Double>();
+    ArrayList<Double> list_Rx  = new ArrayList<Double>();
+    ArrayList<Double> list_Ry = new ArrayList<Double>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -31,8 +36,9 @@ public class tabla_datos_agri extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabla_datos_agri);
 
-        tabla = new Tabla_agrimensura(1, getSupportFragmentManager(), this, (TableLayout) findViewById(R.id.tablita));
+        tabla = new Tabla_agrimensura(1, getSupportFragmentManager(), this, (TableLayout) findViewById(R.id.tablta));
         tabla_dos = new Tabla_agrimensura(1, getSupportFragmentManager(), this, (TableLayout) findViewById(R.id.tableLayouttt));
+        tabla_tres = new Tabla_agrimensura(1, getSupportFragmentManager(), this, (TableLayout) findViewById(R.id.tableLayouttt1));
         add = (Button) findViewById(R.id.btn_add);
         distancia = (TextView) findViewById(R.id.editText11_dis);
         grados = (TextView) findViewById(R.id.editText12_g);
@@ -40,10 +46,14 @@ public class tabla_datos_agri extends AppCompatActivity
         segundos = (TextView) findViewById(R.id.editText14_s);
         sumatoria_a_i_o = (TextView) findViewById(R.id.textView44);
         provisional =     (TextView) findViewById(R.id.provi);
+        titulo1 =     (TextView) findViewById(R.id.titulo1);
+        titulo2 =     (TextView) findViewById(R.id.titulo2);
         val = getIntent().getDoubleExtra("val_n", val);
         senti = getIntent().getStringExtra("sentido");
         angulo = getIntent().getStringExtra("angulo");
         distancia.setText("106"); grados.setText("88");  minutos.setText("12"); segundos.setText("0");
+
+        Toast.makeText(getApplicationContext(), "hola mundo" ,Toast.LENGTH_LONG).show();
     }
 
 
@@ -77,6 +87,10 @@ public class tabla_datos_agri extends AppCompatActivity
     private void cabecera()
     {
         tabla.agregarCabecera(R.array.cabesera_agri);
+    }
+    private void cabecera_tres()
+    {
+        tabla_tres.agregarCabecera(R.array.cabecera_rx);
     }
 
     double sumatoria=0;
@@ -126,6 +140,9 @@ public class tabla_datos_agri extends AppCompatActivity
         double valor_r= Math.pow(Double.parseDouble(list_pos3.get(1)), 2);
         double var_3  = (Math.pow(Double.parseDouble(list_distancias.get(0)), 2) + Math.pow(Double.parseDouble(list_distancias.get(1)), 2) - valor_r );
         double var_4  = 2 * Double.parseDouble(list_distancias.get(0)) * Double.parseDouble(list_distancias.get(1));
+        // signo = (3*Math.pi/2-tetaCompensado(1))Math.abs(3*Math.pi/2-tetaCompensado(1))
+        // alfa_uno = Double.parseDouble(list_alfas.get(0)) - signo*Math.acos(var_3 / var_4);
+
         alfa_uno = Double.parseDouble(list_alfas.get(0)) - Math.acos(var_3 / var_4);
         list_alfas.add(""+alfa_uno);
         double teta = Double.parseDouble(list_pos4.get(1));
@@ -148,16 +165,49 @@ public class tabla_datos_agri extends AppCompatActivity
             double valor_r_dos = Math.pow(Double.parseDouble(list_pos3.get(i)), 2);
             double par_dos_uno = (Math.pow(Double.parseDouble(list_distancias.get(i-1)), 2) + Math.pow(Double.parseDouble(list_distancias.get(i)), 2) - valor_r_dos);
             double par_dos_dos = 2 * Double.parseDouble(list_distancias.get(i-1)) * Double.parseDouble(list_distancias.get(i));
+            // signo = (3*Math.pi/2-tetaCompensado(i))Math.abs(3*Math.pi/2-tetaCompensado(i))
+            // alfa_dos = Double.parseDouble(list_alfas.get(i-1)) - signo*Math.acos(par_dos_uno / par_dos_dos);
             alfa_dos = Double.parseDouble(list_alfas.get(i-1)) - Math.acos(par_dos_uno / par_dos_dos);
             list_alfas.add("" + alfa_dos);
         }
+        titulo1.setText("\n\nCalculo de alfa's y delta's\n");
+        titulo2.setText("\n\nDatos para graficar y Correccion de radios:\n");
         mostar_alfas();
+        calcula_xy();
     }
+
+    public void calcula_xy()
+    {
+        String resultado=""; double valor=0, contador_rx=0, contador_ry=0;
+
+        for(int i=0; i<list_distancias.size(); i++)
+        {
+            valor = Double.parseDouble(list_distancias.get(i)) * Math.cos(Double.parseDouble(list_alfas.get(i)));   list_X.add(valor);
+            valor = Double.parseDouble(list_distancias.get(i)) * Math.sin(Double.parseDouble(list_alfas.get(i)));   list_Y.add(valor);
+        }
+
+        for(int i=0; i<list_X.size(); i++)
+        {
+            if(i==0)
+                {   list_Rx.add(list_X.get(0));     list_Ry.add(list_Y.get(0));   }
+            else
+                {   list_Rx.add(list_X.get(i) - list_X.get(i - 1));     list_Ry.add(list_Y.get(i) - list_Y.get(i - 1)); }
+            contador_rx += list_Rx.get(i);  contador_ry += list_Ry.get(i);
+        }
+        resultado += "\nSuma Rx: "+contador_rx;
+        resultado += "\nSuma Ry: "+contador_ry;
+        //
+        provisional.setText( provisional.getText().toString() + resultado);
+        cabecera_tres();
+          muestra_tabla_xy();
+
+    }
+
 
 
     //***********************************************************************************
 
-    private void cabecera_dos() { tabla_dos.agregarCabecera(R.array.cabesera_nueva);  }
+    private void cabecera_dos() { tabla_dos.agregarCabecera(R.array.cabecera_nueva);  }
 
     public void calculos_a_i()
     {
@@ -184,13 +234,23 @@ public class tabla_datos_agri extends AppCompatActivity
 
 
 
+
     //----------------------------------------------------------------------------------------------------------------
+    public void muestra_tabla_xy()
+    {
+        for (int i = 0; i < list_X.size(); i++)
+        {
+            String vec[] = {"", "" +decimales.format(list_X.get(i)), "" + decimales.format(list_Y.get(i)),  "" +  decimales.format(list_Rx.get(i)), "" + decimales.format(list_Ry.get(i)) };
+            tabla_tres.agregarFilaTabla(vec);
+        }
+    }
+
+
     public void mostar_alfas()
     {
         tabla.limpiar(); cabecera();
         for (int i = 0; i < list_distancias.size(); i++)
         {
-            //String vec[] = {"" +list_alfas.get(i), "" + list_distancias.get(i) };
             String vec[] = {"" +decimales.format(Double.parseDouble(list_alfas.get(i))), "" + decimales.format(Double.parseDouble(list_distancias.get(i))) };
             tabla_dos.agregarFilaTabla(vec);
         }
@@ -230,6 +290,16 @@ public class tabla_datos_agri extends AppCompatActivity
     public double grados(double valor)
     {
         return Math.toDegrees(valor);
+    }
+
+    @Override
+    public void onSingleChoiceItems(DialogFragment dialog, int arg) {
+
+    }
+
+    @Override
+    public void onDialogNegativeClick(DialogFragment dialog) {
+
     }
     //provisional.setText( provisional.getText().toString() + " ==  ALFA UNO: " +alfa_uno);
 

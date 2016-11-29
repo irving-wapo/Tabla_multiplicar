@@ -1,5 +1,5 @@
 package com.protopo.previewplace;
-import java.text.DecimalFormat;
+
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.PointF;
@@ -8,16 +8,18 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
-import android.widget.Toast;
-
 import com.androidplot.Plot;
 import com.androidplot.xy.BoundaryMode;
 import com.androidplot.xy.LineAndPointFormatter;
 import com.androidplot.xy.SimpleXYSeries;
 import com.androidplot.xy.XYPlot;
+import com.androidplot.xy.XYStepMode;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 
-public class test_graphis extends Activity implements OnTouchListener
+public class angel extends Activity implements OnTouchListener
 {
     private XYPlot mySimpleXYPlot;
     private Button resetButton;
@@ -25,13 +27,17 @@ public class test_graphis extends Activity implements OnTouchListener
     private PointF minXY;
     private PointF maxXY;
 
+    ArrayList<Integer> lista_X = new ArrayList<Integer>();
+    ArrayList<String> lista_Y = new ArrayList<String>();
+
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_graphis);
+        setContentView(R.layout.angel);
+        lista_X = (ArrayList<Integer>) getIntent().getSerializableExtra("listaX");
+        lista_Y = (ArrayList<String>) getIntent().getSerializableExtra("listaY");
 
-
-  /*      resetButton = (Button) findViewById(R.id.resetButton);
+        resetButton = (Button) findViewById(R.id.resetButton);
         resetButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -43,9 +49,7 @@ public class test_graphis extends Activity implements OnTouchListener
                 mySimpleXYPlot.redraw();
             }
         });
-*/
-    inicializa_grafica();
-
+        inicializa_grafica();
     }
 
     public void inicializa_grafica() {
@@ -62,14 +66,24 @@ public class test_graphis extends Activity implements OnTouchListener
         mySimpleXYPlot.setDomainLabel("");
         mySimpleXYPlot.setBorderStyle(Plot.BorderStyle.NONE, null, null);
 
+        mySimpleXYPlot.setDomainStep(XYStepMode.INCREMENT_BY_VAL, 2);                      //DIVISION DE LA CUADRICULA
 
         series = new SimpleXYSeries[4];
         int scale = 1;
         for (int i = 0; i < 4; i++, scale *= 5) {
-            series[i] = new SimpleXYSeries("INSTITUTO TECNOLOGICO DE TEHUACAN");
+            series[i] = new SimpleXYSeries("PREVIEWPLACE");
             populateSeries(series[i]);
         }                                                           // verde
-        mySimpleXYPlot.addSeries(series[3], new LineAndPointFormatter(Color.rgb(0, 255, 0), null, Color.rgb(100, 0, 0), null));
+
+        mySimpleXYPlot.addSeries(series[3],
+                new LineAndPointFormatter(
+                        Color.rgb(0, 0, 0),
+                        Color.rgb(255, 255, 255),
+                        Color.rgb(100, 0, 0),
+                        null));
+
+
+
         mySimpleXYPlot.redraw();
         mySimpleXYPlot.calculateMinMaxVals();
         minXY = new PointF(mySimpleXYPlot.getCalculatedMinX().floatValue(), mySimpleXYPlot.getCalculatedMinY().floatValue());
@@ -77,12 +91,10 @@ public class test_graphis extends Activity implements OnTouchListener
     }
     private void populateSeries(SimpleXYSeries series)
     {
-        Number[] Datos1 = {0, 2, 8, 20, 40, 60, 80, 94, 100, 120, 137, 140, 148, 160, 180, 186.6, 192, 200, 220, 228.7, 234.6, 240, 242, 253, 256.2, 260, 280, 300, 320, 340, 360, 370, 380, 400, 405, 405, 420, 440, 460, 480, 500, 520, 540, 560, 580, 600, 613.2};
-        Number[] Datos2 = {100, 99.72, 97.29, 96.98, 96.68, 96.44, 95.99, 95.41, 94.89, 94.71, 94.7, 94.27, 93.51, 93.65, 93.69, 93.63, 92.77, 92.74, 92.74, 92.74, 91.85, 91.78, 91.44, 91.45, 90.99, 90.98, 90.94, 90.36, 89.87, 89.71, 89.07, 89.12, 88.62, 88.46, 88.46, 88.32, 87.36, 85.79, 85.47, 85.15, 84.87, 84.72, 84.16, 84.12, 84, 83.79, 82.82};
 
-        for(int i = 0; i < Datos1.length -1; i++)
+        for(int i = 0; i < lista_X.size(); i++)
         {
-           series.addLast( Datos1[i], Datos2[i]);
+           series.addLast( lista_X.get(i), Double.parseDouble(lista_Y.get(i)) );
         }
     }
 

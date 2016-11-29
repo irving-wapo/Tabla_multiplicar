@@ -19,6 +19,11 @@
             android:title = "@string/lbl_menu_3" />
 
         <item
+            android:id = "@+id/nav_curvas_verticales"
+            android:icon ="@drawable/nube"
+            android:title = "@string/lbl_menu_4" />
+
+        <item
             android:id = "@+id/nav_agrimensura"
             android:icon ="@drawable/agrimensura"
             android:title = "@string/lbl_menu_6" />
@@ -28,10 +33,7 @@
             android:icon="@drawable/agrimen"
             android:title="@string/lbl_menu_5" />
 
-        <item
-            android:id = "@+id/nav_curvas_verticales"
-            android:icon ="@drawable/nube"
-            android:title = "@string/lbl_menu_4" />
+
 
 
         <item

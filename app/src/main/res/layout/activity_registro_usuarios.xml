@@ -43,7 +43,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="PREVIEWPLACE"
                 android:id="@+id/textView4"
-                android:textSize="35dp"
+                android:textSize="30sp"
                 android:textStyle="normal|bold|italic" />
         </TableRow>
 

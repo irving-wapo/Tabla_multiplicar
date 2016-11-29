@@ -135,7 +135,8 @@
                         android:layout_weight="0.05">
 
                         <TableLayout
-                            android:id="@+id/tablita"
+                            android:id="@+id/tablta"
+                            android:layout_span="4"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:onClick="btn_add" />
@@ -151,9 +152,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/provi"
+                    android:id="@+id/titulo1"
                     android:textColor="@color/AliceBlue"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:text=""/>
+
+
 
                 <ScrollView
                     android:layout_width="match_parent"
@@ -170,9 +174,42 @@
                             android:id="@+id/tableLayouttt"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
+                            android:onClick="btn_add"
+                            android:gravity="fill_vertical|fill_horizontal|fill" />
+                    </HorizontalScrollView>
+                </ScrollView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/titulo2"
+                    android:textColor="@color/AliceBlue"
+                    android:textSize="18sp"
+                    android:text="" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/scrollView11" >
+
+                    <HorizontalScrollView
+                        android:layout_width="fill_parent"
+                        android:layout_height="225dp"
+                        android:id="@+id/horizontalScrollView10"
+                        android:layout_weight="0.05" >
+
+                        <TableLayout
+                            android:id="@+id/tableLayouttt1"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
                             android:onClick="btn_add" />
                     </HorizontalScrollView>
                 </ScrollView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/provi"/>
             </LinearLayout>
         </ScrollView>
 

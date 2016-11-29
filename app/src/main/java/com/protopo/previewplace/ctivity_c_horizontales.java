@@ -74,7 +74,7 @@ public class ctivity_c_horizontales extends AppCompatActivity
 
                 for (int i = 0; i < TbH.getTabWidget().getChildCount(); i++) {
                     TextView tv = (TextView) TbH.getTabWidget().getChildAt(i).findViewById(android.R.id.title); //Unselected Tabs
-                    tv.setTextColor(Color.parseColor("#000000"));
+                    tv.setTextColor(Color.parseColor("#ffffff"));
 
                 }
                 TextView tv = (TextView) TbH.getCurrentTabView().findViewById(android.R.id.title); //for Selected Tab

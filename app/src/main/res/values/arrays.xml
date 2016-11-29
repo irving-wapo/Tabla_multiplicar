@@ -21,9 +21,28 @@
         <item>Angulo interno</item>
     </string-array>
 
-    <string-array name="cabesera_nueva">
+    <string-array name="cabesera_c_vuno">
+        <item></item>
+        <item>Val N</item>
+        <item>Estacion</item>
+        <item>Desnivel (D)</item>
+        <item>Cotas sobre la pensiente (p)</item>
+        <item>N^2</item>
+        <item>Compensacion</item>
+        <item>Cotas sobre la curva</item>
+    </string-array>
+
+    <string-array name="cabecera_nueva">
         <item>Alfa</item>
         <item>Distancia</item>
+    </string-array>
+
+    <string-array name="cabecera_rx">
+        <item></item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Rx</item>
+        <item>Ry</item>
     </string-array>
 
 
@@ -34,6 +53,7 @@
         <item>@string/lblmenos</item>
         <item>@string/lblCota</item>
     </string-array>
+
     <string-array name="menu_perfil">
         <item>@string/slBnI</item>
         <item>@string/slCadenamiento</item>
@@ -41,12 +61,14 @@
         <item>@string/slBnF</item>
 
     </string-array>
+
     <string-array name="menu_diferencial">
         <item>@string/slBnI</item>
         <item>@string/slBnIn</item>
         <item>@string/slBnF</item>
         <item>@string/slPl</item>
     </string-array>
+
     <string-array name="menu_lista_diferencial">
         <item>@string/btnAbrir</item>
         <item>@string/btnBorrar</item>

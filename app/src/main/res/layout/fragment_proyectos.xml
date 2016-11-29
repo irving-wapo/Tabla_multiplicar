@@ -121,26 +121,17 @@
                                     android:clickable="true"
                                     android:onClick="nuevoOnClick" />
 
+
                                 <Button
                                     android:layout_width="81dp"
-                                    android:layout_height="fill_parent"
+                                    android:layout_height="wrap_content"
                                     android:text="@string/btnAyuda"
                                     android:id="@+id/btnAyuda"
                                     android:background="@color/transparente"
                                     android:textSize="@dimen/texto"
                                     android:drawableTop="@drawable/info"
-                                    android:onClick="ayuda_a_OnClick (MainActivity)" />
+                                    android:onClick="ayuda_on_click" />
 
-                                <Button
-                                    android:layout_width="81dp"
-                                    android:layout_height="fill_parent"
-                                    android:text="@string/btnCerrar"
-                                    android:id="@+id/btnCerrar"
-                                    android:background="@color/transparente"
-                                    android:textSize="@dimen/texto"
-                                    android:drawableTop="@drawable/exit"
-                                    android:enabled="true"
-                                    android:clickable="true" />
 
                             </LinearLayout>
                         </HorizontalScrollView>

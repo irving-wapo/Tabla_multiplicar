@@ -11,6 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 import java.io.File;
 import java.util.ArrayList;
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        drawer.openDrawer(navigationView);
+
     }
 
     @Override
@@ -67,6 +71,9 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
             case 4:
                 fragment_agrimensura();
                 break;
+            case 5:
+                fragment_c_verticales();
+                break;
             default:
                 break;
         }
@@ -92,37 +99,27 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
 
         if(id == R.id.nav_curvas_horizontales )
         {
-            //Intent c_hori = new Intent (MainActivity.this, ctivity_c_horizontales.class);
-            //startActivity(c_hori);
-            // String[] a= {};
-            //carga_fragment(a, "Curvas_h");
             fragment = 3;
             fragment_curvas_horizontales();
-
         }
 
         if(id == R.id.nav_agrimensura )
         {
-            //String[] a= {};
-            //carga_fragment(a, "Agri");
-            //Intent agri = new Intent (MainActivity.this, Agrimensura.class);
-            //startActivity(agri);
             fragment = 4;
             fragment_agrimensura();
         }
 
         if(id == R.id.nav_curvas_verticales )
-        {   String[] a= {};
-            carga_fragment(a, "Curvas_v");
+        {
+            fragment = 5;
+            fragment_c_verticales();
         }
-
 
         if(id == R.id.nav_curvas_nivel )
-        {   String[] a= {};
+        {
+            String[] a= {};
             carga_fragment(a, "Curvas_nivel");
         }
-
-
 
 
         if(id == R.id.nav_comentarios)
@@ -184,6 +181,13 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
         bandera_archivo =".ag";
     }
 
+    public void fragment_c_verticales()
+    {
+        String ya_llego[] =filtrar_archivos(".cv").toArray(new String[0]);
+        carga_fragment(ya_llego, "vert");
+        bandera_archivo =".cv";
+    }
+
     public void carga_fragment(String [] ya_llego, String im)
     {
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -220,6 +224,13 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
         dialog_nombre_archivo mensaje = new dialog_nombre_archivo();
         mensaje.show(getSupportFragmentManager(),"Nuevo");
     }
+
+    public void  ayuda_on_click(View view)
+    {
+        Intent ayuda = new Intent (MainActivity.this, Ayuda_comentarios.class);
+        startActivity(ayuda);
+    }
+
 
 
 
@@ -289,6 +300,23 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
         catch(Exception ex) { Toast.makeText(getApplicationContext(),R.string.msjError_abrir,Toast.LENGTH_LONG).show(); }
     }
 
+
+    private void abrir_c_verticales(Boolean estado, String nombre)
+    {
+        String nombreArchivo =  nombre;
+        try
+        {
+            if(nombreArchivo != null)
+            {
+                Intent diferencial5 = new Intent(MainActivity.this, c_verticales.class);
+                diferencial5.putExtra("nombre",nombreArchivo);
+                diferencial5.putExtra("carga",estado);
+                startActivity(diferencial5);
+            }
+        }
+        catch(Exception ex) { Toast.makeText(getApplicationContext(),R.string.msjError_abrir,Toast.LENGTH_LONG).show(); }
+    }
+
     private void borrar(String nombre)
     {
         File f = null;
@@ -324,7 +352,7 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
             if( !Character.isDigit(letra)  &&  !Character.isLetter(letra) ) {  caracteres = false; }
         }
 
-        if((!filtrar_archivos(".nd").contains(nombre.concat(".nd")) || !filtrar_archivos(".np").contains(nombre.concat(".np"))  || !filtrar_archivos(".ch").contains(nombre.concat(".ch")) || !filtrar_archivos(".ag").contains(nombre.concat(".ag"))   )  && caracteres) //COMPARA CON LOS ARCHIVOS EXISTENTES
+        if((!filtrar_archivos(".nd").contains(nombre.concat(".nd")) || !filtrar_archivos(".np").contains(nombre.concat(".np"))  || !filtrar_archivos(".ch").contains(nombre.concat(".ch")) || !filtrar_archivos(".ag").contains(nombre.concat(".ag")) || !filtrar_archivos(".cv").contains(nombre.concat(".cv"))   )  && caracteres) //COMPARA CON LOS ARCHIVOS EXISTENTES
         {
             bandera = true;
         }
@@ -349,6 +377,9 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
 
             if(bandera_archivo.equals(".ag") )
             {  abrir_agrimensura(true,nombre); }
+
+            if(bandera_archivo.equals(".cv") )
+            {  abrir_c_verticales(true,nombre); }
         }
     }
 
@@ -381,6 +412,8 @@ public class MainActivity extends AppCompatActivity implements dialog_nombre_arc
                     abrir_curvas_horizontales(false,nombre_archivo);
                 if(bandera_archivo.equals(".ag") )
                     abrir_agrimensura(false,nombre_archivo);
+                if(bandera_archivo.equals(".cv") )
+                    abrir_c_verticales(false,nombre_archivo);
                 break;
             case 1:
                 msg_borrar objt = new msg_borrar();

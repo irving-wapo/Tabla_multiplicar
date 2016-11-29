@@ -182,17 +182,7 @@
                         android:clickable="true"
                         android:onClick="btn_guardar_perfil" />
 
-                    <Button
-                        android:layout_width="81dp"
-                        android:layout_height="fill_parent"
-                        android:text="@string/btnCompartir"
-                        android:id="@+id/btnCompartir_p"
-                        android:background="@color/transparente"
-                        android:drawableTop="@drawable/share"
-                        android:textSize="@dimen/texto"
-                        android:enabled="true"
-                        android:clickable="true"
-                        android:onClick="compartirOnClick_perfil" />
+
 
                     <Button
                         android:layout_width="81dp"
@@ -205,6 +195,19 @@
                         android:enabled="true"
                         android:clickable="true"
                         android:onClick="pdfOnClick_perfil" />
+
+                    <Button
+                        android:layout_width="81dp"
+                        android:layout_height="fill_parent"
+                        android:text="@string/btnCompartir"
+                        android:id="@+id/btnCompartir_p"
+                        android:background="@color/transparente"
+                        android:drawableTop="@drawable/share"
+                        android:textSize="@dimen/texto"
+                        android:enabled="true"
+                        android:clickable="true"
+                        android:onClick="compartirOnClick_perfil" />
+
 
                     <Button
                         android:layout_width="81dp"

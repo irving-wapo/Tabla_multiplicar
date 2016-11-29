@@ -88,12 +88,12 @@ public class fragment_proyectos extends Fragment
                 Toast.makeText(miVista.getContext(), "AREA EN DESARROLLO.",Toast.LENGTH_LONG).show();
             }
 
-            else  if (nombre_activi.equals("Curvas_v") )
+            else  if (nombre_activi.equals("vert") )
             {
                 el_icono.setImageResource(R.drawable.verticales);
                 nombre_icono.setText(String.valueOf(getString(R.string.lbl_fragment_6 )));
-               c_verticales();
-                Toast.makeText(miVista.getContext(), "AREA EN DESARROLLO.",Toast.LENGTH_LONG).show();
+                c_verticales();
+                //Toast.makeText(miVista.getContext(), "AREA EN DESARROLLO.",Toast.LENGTH_LONG).show();
             }
 
 

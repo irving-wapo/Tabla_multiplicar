@@ -11,15 +11,15 @@ import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-
-import com.itextpdf.awt.geom.CubicCurve2D;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 /**
  * Created by Francisco on 05/03/2016.
  */
-public class Tabla_agrimensura {
+public class Tabla_agrimensura
+{
 
     private TableLayout tabla;          // Layout donde se pintará la tabla
     private ArrayList<TableRow> filas;  // Array de las filas de la tabla
@@ -28,7 +28,8 @@ public class Tabla_agrimensura {
     private FragmentManager supportFragmentManager;
     private int FILAS, COLUMNAS,padre;  // Filas y columnas de nuestra tabla
     ArrayList<String[]> elementos2 = new ArrayList<String[]>();
-    public Tabla_agrimensura(int padre, FragmentManager supportFragmentManager, Activity actividad, TableLayout tabla)
+
+    public Tabla_agrimensura(int padre,FragmentManager supportFragmentManager, Activity actividad, TableLayout tabla)
     {
         this.actividad = actividad;
         this.tabla = tabla;
@@ -43,10 +44,8 @@ public class Tabla_agrimensura {
      * @param recursocabecera Recurso (array) donde se encuentra la cabecera de la tabla
      */
 
-
     public void agregarCabecera(int recursocabecera)
     {
-
         TableRow.LayoutParams layoutCelda;
         TableRow fila = new TableRow(actividad);
         TableRow.LayoutParams layoutFila = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
@@ -104,7 +103,7 @@ public class Tabla_agrimensura {
             {
                 texto.setText(String.valueOf(elementos[i]));
             }
-            if(i==0)
+           /* if(i==0)
             {
                 texto.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -188,9 +187,9 @@ public class Tabla_agrimensura {
 
             }
             else
-            {
-                texto.setBackgroundResource(R.drawable.tabla_celda);
-            }
+            */{
+            texto.setBackgroundResource(R.drawable.tabla_celda);
+        }
             texto.setTextAppearance(actividad, R.style.estilo_celda);
             texto.setGravity(Gravity.CENTER_HORIZONTAL);
             layoutCelda = new TableRow.LayoutParams(obtenerAnchoPixelesTexto(texto.getText().toString()), TableRow.LayoutParams.WRAP_CONTENT);

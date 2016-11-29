@@ -43,77 +43,54 @@
                         android:layout_height="50dp"
                         android:id="@+id/view" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Rumbo:"
-                        android:id="@+id/textView15" />
-
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <EditText
-                            android:layout_width="55dp"
-                            android:layout_height="wrap_content"
-                            android:inputType="numberDecimal"
-                            android:ems="10"
-                            android:id="@+id/editText6"
-                            android:text="0" />
+                        android:layout_height="wrap_content"
+                        android:weightSum="1">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="°"
+                            android:text="Ingrese Rumbo inicial:    "
                             android:id="@+id/textView37"
-                            android:textSize="23dp" />
+                            android:textSize="10dp" />
 
                         <EditText
-                            android:layout_width="66dp"
+                            android:layout_width="49dp"
                             android:layout_height="wrap_content"
                             android:inputType="numberDecimal"
                             android:ems="10"
-                            android:id="@+id/editText2"
-                            android:text="9" />
+                            android:id="@+id/txt1"
+                            android:text="52.5" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="&apos;"
-                            android:id="@+id/textView38"
-                            android:textSize="23dp" />
 
-                        <EditText
-                            android:layout_width="62dp"
-                            android:layout_height="wrap_content"
-                            android:inputType="numberDecimal"
-                            android:ems="10"
-                            android:id="@+id/editText"
-                            android:text="2" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="&apos;&apos;"
-                            android:id="@+id/textView39"
-                            android:textSize="23dp" />
 
                         <android.support.v4.widget.Space
-                            android:layout_width="50dp"
+                            android:layout_width="10dp"
                             android:layout_height="match_parent"
                             android:id="@+id/view5" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sentido: "
+                            android:id="@+id/textView375"
+                            android:textSize="13dp" />
 
-                        <Spinner
-                            android:layout_width="58dp"
+                        <EditText
+                            android:layout_width="20dp"
                             android:layout_height="match_parent"
-                            android:id="@+id/spinner2" />
+                            android:inputType="textPersonName"
+                            android:text="NE"
+                            android:id="@+id/hola"
+                            android:layout_weight="0.15" />
+
                     </LinearLayout>
 
                     <android.support.v4.widget.Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:id="@+id/view17" />
+                        android:layout_width="match_parent"
+                        android:id="@+id/view17"
+                        android:layout_height="15dp" />
 
                     <LinearLayout
                         android:orientation="horizontal"
@@ -132,26 +109,133 @@
                             android:id="@+id/view15" />
 
                         <EditText
-                            android:layout_width="73dp"
+                            android:layout_width="37dp"
                             android:layout_height="wrap_content"
                             android:inputType="numberDecimal"
                             android:ems="10"
-                            android:id="@+id/editText55"
+                            android:id="@+id/txt2"
                             android:text="5" />
+
+                        <android.support.v4.widget.Space
+                            android:layout_width="20dp"
+                            android:layout_height="match_parent"
+                            android:id="@+id/view1456" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Ok"
+                            android:id="@+id/btn_ok"
+                            android:onClick="bnt_ok" />
+
+
 
                     </LinearLayout>
 
                     <android.support.v4.widget.Space
                         android:layout_width="match_parent"
                         android:id="@+id/view16"
-                        android:layout_height="60dp" />
+                        android:layout_height="40dp" />
 
-                    <Button
+                    <LinearLayout
+                        android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Angulo interno inical"
-                        android:id="@+id/btn_cont"
-                        android:onClick="bnt_angulo" />
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Angulo interior:  "
+                            android:id="@+id/textView123" />
+
+                        <android.support.v4.widget.Space
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:id="@+id/view124" />
+
+                        <EditText
+                            android:layout_width="73dp"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:ems="10"
+                            android:id="@+id/txt3"
+                            android:text="88.2" />
+
+
+                        <android.support.v4.widget.Space
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:id="@+id/view115" />
+
+
+                    </LinearLayout>
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="match_parent"
+                        android:id="@+id/view1244"
+                        android:layout_height="15dp" />
+
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Distancia: "
+                            android:id="@+id/textView335" />
+
+
+                        <EditText
+                            android:layout_width="73dp"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:ems="10"
+                            android:id="@+id/txt4"
+                            android:text="106" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Agregar"
+                            android:id="@+id/btn_cont"
+                            android:onClick="bnt_add" />
+                    </LinearLayout>
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="match_parent"
+                        android:id="@+id/view12444"
+                        android:layout_height="45dp" />
+
+                    <ScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scrollView8" >
+
+                        <HorizontalScrollView
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/horizontalScrollView5"
+                            android:layout_weight="0.05">
+
+                            <TableLayout
+                                android:id="@+id/tabla_agri_1"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:onClick="btn_add" />
+                        </HorizontalScrollView>
+                    </ScrollView>
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Distancia: "
+                        android:id="@+id/salida"
+                        android:textSize="25sp" />
 
                 </LinearLayout>
 
