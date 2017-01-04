@@ -7,7 +7,7 @@
     </string-array>
 
 
-    <string-array name="PROBANDO_WAPO">
+    <string-array name="probando_wapo">
         <item>Estacion</item>
         <item>Deflexion Parcial</item>
         <item>Deflexion Total</item>

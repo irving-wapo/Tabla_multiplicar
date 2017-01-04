@@ -1,7 +1,6 @@
 package com.protopo.previewplace;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +8,6 @@ import android.widget.EditText;
 import android.widget.TabHost;
 import android.widget.TableLayout;
 import android.widget.TextView;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -31,16 +29,13 @@ public class ctivity_c_horizontales extends AppCompatActivity
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_c_horizontales);
-
         res1 =(TextView) findViewById(R.id.label_res1 );
-
         Grados = (EditText) findViewById(R.id.txtGrados);
         Minutos = (EditText) findViewById(R.id.txtMinutos);
         Segundos = (EditText) findViewById(R.id.txtsegundos);
         Valor_g = (EditText) findViewById(R.id.txt_valor_g);
         Valor_pi_km = (EditText) findViewById(R.id.txt_pi_km);
         Valor_pi_m = (EditText) findViewById(R.id.txt_pi_m);
-
         pestañas();
         tabla = new Tabla_horizontales(1,getSupportFragmentManager(),this, (TableLayout) findViewById(R.id.tabla_datos));
         cabecera();
@@ -182,7 +177,7 @@ public class ctivity_c_horizontales extends AppCompatActivity
         Deflexion = (radianes(grados_c)/2) / (LC);
         cadena += "Deflexion = "+ grados(Deflexion)+" radianes = ";
 
-        cadena += objetn_g_m_s(grados(Deflexion));
+        cadena += objetn_g_m_s(grados(Deflexion)) + "\n\n" ;
 
         //Toast.makeText(getApplicationContext(),"Valor de R: "+R,Toast.LENGTH_LONG).show();
         return cadena;
@@ -215,7 +210,7 @@ public class ctivity_c_horizontales extends AppCompatActivity
     //*****************************   T A B L A  *****************************
 
 
-    private void cabecera() { tabla.agregarCabecera(R.array.PROBANDO_WAPO);}
+    private void cabecera() { tabla.agregarCabecera(R.array.probando_wapo);}
 
     ArrayList  <Double[]> a_list = new ArrayList<Double[]>();
     String valor="";
